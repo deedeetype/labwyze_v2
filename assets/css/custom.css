@@ -26,3 +26,16 @@
 .portfolio-page-header + .module {
   padding-top: 60px !important;
 }
+
+/* Fix text overlap in page headers */
+.portfolio-page-header .module-title,
+.about-page-header .module-title {
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  line-height: 1.2;
+  margin-bottom: 10px !important;
+}
+
+.portfolio-page-header .module-subtitle,
+.about-page-header .module-subtitle {
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
