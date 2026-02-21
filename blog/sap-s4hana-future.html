@@ -24,36 +24,7 @@
     <link href="../assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet">
     <link href="../assets/css/custom.css" rel="stylesheet">
-
-    <style>
-      .blog-post-content { padding: 60px 0; }
-      .blog-post-header {
-        text-align: center;
-        padding: 170px 0 60px;
-        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../assets/images/sap_s4hana.jpg') center/cover;
-        color: white;
-      }
-      .blog-post-category {
-        display: inline-block; padding: 5px 15px; border: 1px solid rgba(255,255,255,0.5);
-        font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
-      }
-      .blog-post-title { font-size: 36px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
-      .blog-post-meta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
-      .blog-quote {
-        font-family: 'Volkhov', serif; font-style: italic; font-size: 24px;
-        text-align: center; padding: 40px 0; color: #333; max-width: 800px; margin: 0 auto 40px;
-      }
-      .blog-image { margin: 40px 0; }
-      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
-      .blog-key-takeaway {
-        border-left: 3px solid #333; padding-left: 20px; margin: 40px 0;
-      }
-      .blog-key-takeaway h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px; }
-      .blog-share { border-top: 1px solid #eee; padding-top: 30px; margin-top: 40px; text-align: center; }
-      .blog-share a { display: inline-block; margin: 0 10px; color: #999; font-size: 18px; }
-      .blog-share a:hover { color: #333; }
-      .navbar-blog { background-color: #1a1a1a !important; position: fixed; top: 0; width: 100%; z-index: 1000; }
-    </style>
+    <link href="../assets/css/blog.css" rel="stylesheet">
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -96,7 +67,7 @@
         <section class="blog-post-content">
           <div class="container">
             <div class="row">
-              <div class="col-md-8 col-md-offset-2">
+              <div class="col-md-7">
 
                 <!-- Quote -->
                 <blockquote class="blog-quote">
@@ -155,7 +126,53 @@
                   <a href="https://www.youtube.com/@DavidDigitalLab" target="_blank"><i class="fa fa-youtube-play"></i></a>
                 </div>
 
+
+              <!-- Sidebar -->
+              <div class="col-md-3 col-md-offset-1 blog-sidebar">
+                <div class="sidebar-widget">
+                  <h4 class="font-alt">Recent Posts</h4>
+                  <div class="sidebar-post">
+                    <img src="../assets/images/thumb-quantum.jpg" alt="Quantum Computing">
+                    <div class="sidebar-post-info">
+                      <h5><a href="quantum-computing-commercial.html">Quantum Computing Goes Commercial</a></h5>
+                      <span>15 Jan 2026</span>
+                    </div>
+                  </div>
+                  <div class="sidebar-post">
+                    <img src="../assets/images/thumb-sap.jpg" alt="SAP S/4HANA">
+                    <div class="sidebar-post-info">
+                      <h5><a href="sap-s4hana-future.html">The Future of SAP S/4HANA</a></h5>
+                      <span>10 Feb 2026</span>
+                    </div>
+                  </div>
+                  <div class="sidebar-post">
+                    <img src="../assets/images/thumb-ai-finance.jpg" alt="AI in Finance">
+                    <div class="sidebar-post-info">
+                      <h5><a href="ai-in-finance.html">AI in Finance: Beyond the Hype</a></h5>
+                      <span>18 Feb 2026</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="sidebar-widget">
+                  <h4 class="font-alt">Topics</h4>
+                  <div class="sidebar-tags">
+                    <a href="#">SAP</a>
+                    <a href="#">S/4HANA</a>
+                    <a href="#">AI</a>
+                    <a href="#">Finance</a>
+                    <a href="#">ERP</a>
+                    <a href="#">Quantum</a>
+                    <a href="#">Digital Transformation</a>
+                    <a href="#">Automation</a>
+                  </div>
+                </div>
+                <div class="sidebar-widget sidebar-cta">
+                  <h4 class="font-alt">Let's Talk</h4>
+                  <p>Ready to transform your operations?</p>
+                  <a href="https://outlook.office365.com/owa/calendar/LabwyzeIntroductionMeeting@labwyze.com/bookings/" class="btn-cta" target="_blank">Book a Call</a>
+                </div>
               </div>
+
             </div>
           </div>
         </section>
