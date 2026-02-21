@@ -1,0 +1,28 @@
+/* Custom CSS overrides for Labwyze site */
+
+/* Reduce white space at the beginning of sections */
+.module,
+.module-small {
+  padding: 80px 0 !important; /* Reduced from 140px/70px */
+}
+
+.module-extra-small {
+  padding: 20px 0px !important; /* Reduced from 25px */
+}
+
+.module-medium {
+  padding: 60px 0px !important; /* Reduced from 75px */
+}
+
+/* Specific adjustments for page headers */
+.about-page-header,
+.portfolio-page-header {
+  padding: 100px 0 !important; /* Reduced header space */
+  min-height: 300px;
+}
+
+/* Reduce top margin on first content section after header */
+.about-page-header + .module,
+.portfolio-page-header + .module {
+  padding-top: 60px !important;
+}
