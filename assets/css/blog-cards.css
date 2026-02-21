@@ -2,11 +2,12 @@
 
 .gallery {
   position: relative;
-  height: 550px;
+  height: 650px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 40px;
 }
 
 .cards {
@@ -89,7 +90,7 @@
 /* Navigation arrows */
 .gallery-nav {
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
