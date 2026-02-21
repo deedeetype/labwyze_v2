@@ -25,6 +25,7 @@
     <!-- Main stylesheet and color file-->
     <link href="../assets/css/style.css" rel="stylesheet">
     <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
 
     <style>
       .blog-post-content {
@@ -124,10 +125,12 @@
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a class="section-scroll" href="../index.html#services">Services</a></li>
-              <li><a class="section-scroll" href="../index.html#works">Works</a></li>
-              <li><a class="section-scroll" href="../index.html#news">Blog</a></li>
-              <li><a class="section-scroll" href="../index.html#contact">Contact</a></li>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -181,9 +184,8 @@
 
                 <!-- Share -->
                 <div class="blog-share">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><svg style="width:18px;height:18px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/company/labwyze/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://www.youtube.com/@DavidDigitalLab" target="_blank"><i class="fa fa-youtube-play"></i></a>
                 </div>
 
               </div>
@@ -191,39 +193,46 @@
           </div>
         </section>
 
-        <!-- Footer Section - Exact copy from index.html -->
+        <!-- Footer -->
         <div class="module-small bg-dark">
           <div class="container">
             <div class="row">
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="widget">
-                  <h5 class="widget-title font-alt">About Labwyze</h5>
-                  <p>Pionner Progress, Engineering Success</p>
-                  <p>Phone: +1 514 585 6434</p>
-                  <p>Email:<a href="/cdn-cgi/l/email-protection#c5acaba3aa85a9a4a7b2bcbfa0eba6aaa8"><span class="__cf_email__" data-cfemail="640d0a020b24080506131d1e014a070b09">[email&#160;protected]</span></a></p>
+                  <a href="../index.html"><img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="max-width: 160px; margin-bottom: 15px;"></a>
+                  <p style="color: #999; font-size: 13px;">Pioneering Progress, Engineering Success.<br>Strategic technology consulting for the modern enterprise.</p>
                 </div>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-4">
                 <div class="widget">
-                  <h5 class="widget-title font-alt">Recent Blogs</h5>
-                  <ul class="icon-list">
-                    <li><a href="../index.html#news">View all blogs</a></li>
+                  <h5 class="widget-title font-alt">Quick Links</h5>
+                  <ul class="icon-list" style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;"><a href="../about.html" style="color: #999;">About Us</a></li>
+                    <li style="margin-bottom: 8px;"><a href="../index.html#services" style="color: #999;">Services</a></li>
+                    <li style="margin-bottom: 8px;"><a href="../portfolio.html" style="color: #999;">Portfolio</a></li>
+                    <li style="margin-bottom: 8px;"><a href="../index.html#contact" style="color: #999;">Contact</a></li>
                   </ul>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Get In Touch</h5>
+                  <p style="color: #999; font-size: 13px;"><i class="fa fa-envelope-o" style="margin-right: 8px;"></i> david.laborieux@labwyze.com</p>
+                  <p style="color: #999; font-size: 13px;"><i class="fa fa-map-marker" style="margin-right: 8px;"></i> Montreal, QC, Canada</p>
+                  <div style="margin-top: 15px;">
+                    <a href="https://www.linkedin.com/company/labwyze/" target="_blank" style="display: inline-block; width: 40px; height: 40px; line-height: 40px; text-align: center; border: 1px solid #555; border-radius: 50%; color: #999; margin-right: 8px; font-size: 16px;"><i class="fa fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@DavidDigitalLab" target="_blank" style="display: inline-block; width: 40px; height: 40px; line-height: 40px; text-align: center; border: 1px solid #555; border-radius: 50%; color: #999; font-size: 16px;"><i class="fa fa-youtube-play"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark">
+        <footer class="footer bg-dark" style="border-top: 1px solid #333; padding: 20px 0;">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2024&nbsp;<a href="../index.html">Labwyze</a>, All Rights Reserved</p>
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><svg style="width:14px;height:14px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
-                </div>
+              <div class="col-sm-12 text-center">
+                <p class="copyright font-alt" style="margin: 0; color: #777; font-size: 12px;">&copy; 2026 Labwyze Inc. All Rights Reserved.</p>
               </div>
             </div>
           </div>
