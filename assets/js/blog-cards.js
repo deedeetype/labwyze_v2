@@ -1,91 +1,76 @@
-// Blog Cards - Button-driven carousel with GSAP (no ScrollTrigger pin)
+// Blog Cards - Button-driven carousel with GSAP
 (function() {
-  const cards = gsap.utils.toArray('.cards .card');
+  var cards = gsap.utils.toArray('.cards .card');
   if (!cards.length) return;
 
-  const total = cards.length;
-  let current = 0;
-  let animating = false;
+  var total = cards.length;
+  var current = 0;
+  var animating = false;
 
-  // Position config: offsets from center
-  // positions[0] = center (active), 1 = right, 2 = far right, -1 = left, -2 = far left
-  function getPositions() {
-    return {
-      '-2': { xPercent: -220, scale: 0.55, opacity: 0.3, zIndex: 1 },
-      '-1': { xPercent: -130, scale: 0.75, opacity: 0.6, zIndex: 2 },
-       '0': { xPercent: -50,  scale: 1,    opacity: 1,   zIndex: 5 },
-       '1': { xPercent: 30,   scale: 0.75, opacity: 0.6, zIndex: 2 },
-       '2': { xPercent: 120,  scale: 0.55, opacity: 0.3, zIndex: 1 },
-    };
-  }
+  // Positions: pixel offsets from center and scale/opacity
+  // Shows 5 cards: far-left, left, center, right, far-right
+  var slots = [
+    { left: '5%',  scale: 0.6, opacity: 0.4, zIndex: 1 },  // -2 far left
+    { left: '20%', scale: 0.8, opacity: 0.7, zIndex: 3 },  // -1 left
+    { left: '50%', scale: 1,   opacity: 1,   zIndex: 5 },  //  0 center
+    { left: '80%', scale: 0.8, opacity: 0.7, zIndex: 3 },  //  1 right
+    { left: '95%', scale: 0.6, opacity: 0.4, zIndex: 1 },  //  2 far right
+  ];
 
-  // Set initial positions
-  function layout() {
-    const pos = getPositions();
-    cards.forEach(function(card, i) {
-      var offset = getOffset(i, current, total);
-      if (offset < -2 || offset > 2) {
-        gsap.set(card, { xPercent: 0, left: '50%', top: '50%', y: '-50%', scale: 0, opacity: 0, zIndex: 0, position: 'absolute' });
-      } else {
-        var p = pos[String(offset)];
-        gsap.set(card, {
-          left: p.xPercent + '%',
-          top: '50%',
-          y: '-50%',
-          xPercent: 0,
-          scale: p.scale,
-          opacity: p.opacity,
-          zIndex: p.zIndex,
-          position: 'absolute'
-        });
-      }
-    });
-  }
-
-  function getOffset(index, center, total) {
+  function getOffset(index, center) {
     var diff = index - center;
-    // Wrap around for circular
     if (diff > Math.floor(total / 2)) diff -= total;
     if (diff < -Math.floor(total / 2)) diff += total;
     return diff;
   }
 
-  function animateTo(newCurrent) {
-    if (animating) return;
-    animating = true;
-    current = ((newCurrent % total) + total) % total;
-    
-    var pos = getPositions();
-    var tl = gsap.timeline({
-      onComplete: function() { animating = false; }
-    });
-
-    cards.forEach(function(card, i) {
-      var offset = getOffset(i, current, total);
-      if (offset < -2 || offset > 2) {
-        tl.to(card, { scale: 0, opacity: 0, zIndex: 0, duration: 0.5, ease: 'power2.inOut' }, 0);
+  function applyPosition(card, offset, animate) {
+    var slotIndex = offset + 2; // map -2..2 to 0..4
+    if (slotIndex < 0 || slotIndex > 4) {
+      if (animate) {
+        gsap.to(card, { scale: 0, opacity: 0, zIndex: 0, duration: 0.4, ease: 'power2.inOut' });
       } else {
-        var p = pos[String(offset)];
-        tl.to(card, {
-          left: p.xPercent + '%',
-          scale: p.scale,
-          opacity: p.opacity,
-          zIndex: p.zIndex,
-          duration: 0.5,
-          ease: 'power2.inOut'
-        }, 0);
+        gsap.set(card, { scale: 0, opacity: 0, zIndex: 0 });
       }
+      return;
+    }
+    var s = slots[slotIndex];
+    var props = {
+      left: s.left,
+      xPercent: -50,
+      y: '-50%',
+      scale: s.scale,
+      opacity: s.opacity,
+      zIndex: s.zIndex
+    };
+    if (animate) {
+      gsap.to(card, Object.assign(props, { duration: 0.5, ease: 'power2.inOut' }));
+    } else {
+      gsap.set(card, props);
+    }
+  }
+
+  function layout(animate) {
+    var onComplete = animate ? function() { animating = false; } : null;
+    cards.forEach(function(card, i) {
+      var offset = getOffset(i, current);
+      applyPosition(card, offset, animate);
     });
+    if (animate) {
+      setTimeout(function() { animating = false; }, 550);
+    }
   }
 
   // Init
-  layout();
+  layout(false);
 
-  // Buttons
-  document.querySelector('.gallery-nav .next').addEventListener('click', function() {
-    animateTo(current + 1);
-  });
-  document.querySelector('.gallery-nav .prev').addEventListener('click', function() {
-    animateTo(current - 1);
-  });
+  function goTo(dir) {
+    if (animating) return;
+    animating = true;
+    current = ((current + dir) % total + total) % total;
+    layout(true);
+  }
+
+  document.querySelector('.gallery-nav .next').addEventListener('click', function() { goTo(1); });
+  document.querySelector('.gallery-nav .prev').addEventListener('click', function() { goTo(-1); });
 })();
