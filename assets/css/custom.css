@@ -43,8 +43,9 @@
 /* Blog section spacing adjustments */
 #news.module {
   padding-top: 50px !important;
+  padding-bottom: 0 !important;
 }
 
 #news .container {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
