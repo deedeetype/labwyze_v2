@@ -39,3 +39,12 @@
 .about-page-header .module-subtitle {
   text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
+
+/* Blog section spacing adjustments */
+#news.module {
+  padding-top: 50px !important;
+}
+
+#news .container {
+  margin-bottom: 20px;
+}
