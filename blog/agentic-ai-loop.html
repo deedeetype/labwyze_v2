@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Agentic Loop: How AI Actually Decides and Acts | Labwyze Blog</title>
+
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png">
+
+    <!-- Default stylesheets-->
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/blog.css" rel="stylesheet">
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('agentic-loop-header.png') center/cover;
+        color: white;
+      }
+      .blog-post-category {
+        display: inline-block; padding: 5px 15px; border: 1px solid rgba(255,255,255,0.5);
+        font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+      }
+      .blog-post-title { font-size: 36px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+      .blog-post-meta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
+      .blog-quote {
+        font-family: 'Volkhov', serif; font-style: italic; font-size: 24px;
+        text-align: center; padding: 40px 0; color: #333; max-width: 800px; margin: 0 auto 40px;
+      }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway {
+        border-left: 3px solid #333; padding-left: 20px; margin: 40px 0;
+      }
+      .blog-key-takeaway h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px; }
+      .blog-share { border-top: 1px solid #eee; padding-top: 30px; margin-top: 40px; text-align: center; }
+      .blog-share a { display: inline-block; margin: 0 10px; color: #999; font-size: 18px; }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog { background-color: #1a1a1a !important; position: fixed; top: 0; width: 100%; z-index: 1000; }
+      .loop-step { 
+        background: #f8f9fa; 
+        padding: 30px; 
+        margin: 20px 0; 
+        border-radius: 8px;
+        border-left: 4px solid #007bff;
+      }
+      .loop-step h3 { color: #007bff; margin-bottom: 15px; }
+      .stat-highlight {
+        background: #e3f2fd;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 30px 0;
+        text-align: center;
+      }
+      .stat-highlight strong { font-size: 32px; color: #1976d2; display: block; margin-bottom: 10px; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="../index.html"><img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain;" class="logo"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Blog Post Header -->
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">Artificial Intelligence</span>
+          <h1 class="blog-post-title font-alt">The Agentic Loop: How AI Decides and Acts</h1>
+          <div class="blog-post-meta">
+            23 February 2026 | AI &bull; Automation &bull; AgenticAI
+          </div>
+        </div>
+      </header>
+
+      <!-- Blog Post Content -->
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <p class="lead">
+                  How does an AI actually "decide" and "act"? It's all about the Agentic Loop. Agentic AI isn't just magic—it's a sophisticated process of continuous reasoning and execution that's transforming how businesses automate complex workflows.
+                </p>
+
+                <p>
+                  While traditional automation breaks when faced with ambiguity or exceptions, agentic systems thrive in these scenarios. The secret lies in a continuous five-step process that mimics human problem-solving at scale.
+                </p>
+
+                <h2 class="font-alt">The Five Steps of the Agentic Loop</h2>
+
+                <div class="loop-step">
+                  <h3>1. Perceive: Gather Real-Time Data</h3>
+                  <p>
+                    The agent continuously monitors its environment through sensors, databases, APIs, and other data sources. It's not waiting for instructions—it's actively aware of what's happening in real time.
+                  </p>
+                  <p><strong>Examples:</strong></p>
+                  <ul>
+                    <li>Monitoring CRM updates, customer emails, or support tickets</li>
+                    <li>Tracking inventory levels and supply chain status</li>
+                    <li>Listening for anomalies in network traffic or security logs</li>
+                  </ul>
+                </div>
+
+                <div class="loop-step">
+                  <h3>2. Reason: Understand Context and Options</h3>
+                  <p>
+                    Using a Large Language Model (LLM) as its "brain," the agent interprets the data, understands the context, and identifies possible courses of action. This isn't just pattern matching—it's semantic reasoning.
+                  </p>
+                  <p><strong>Examples:</strong></p>
+                  <ul>
+                    <li>Understanding that a customer's email is urgent based on tone and content</li>
+                    <li>Recognizing that a spike in server traffic might be an attack, not just growth</li>
+                    <li>Identifying which department should handle a complex support ticket</li>
+                  </ul>
+                </div>
+
+                <div class="loop-step">
+                  <h3>3. Plan: Break Down Complex Goals</h3>
+                  <p>
+                    The agent takes high-level objectives and decomposes them into a sequence of manageable, executable steps. This is where agentic AI truly shines—it can handle multi-step workflows that traditional automation can't.
+                  </p>
+                  <p><strong>Examples:</strong></p>
+                  <ul>
+                    <li>Creating a project plan: gather requirements → assign tasks → schedule milestones → monitor progress</li>
+                    <li>Resolving a customer complaint: verify account → analyze issue → propose solution → escalate if needed</li>
+                    <li>Onboarding a new employee: create accounts → assign training → schedule meetings → track completion</li>
+                  </ul>
+                </div>
+
+                <div class="loop-step">
+                  <h3>4. Act: Interact with External Systems</h3>
+                  <p>
+                    The agent uses tools to execute its plan—calling APIs, updating databases, triggering webhooks, compiling code, or even orchestrating other agents. This is execution, not just recommendation.
+                  </p>
+                  <p><strong>Examples:</strong></p>
+                  <ul>
+                    <li>Updating a CRM with customer interaction notes</li>
+                    <li>Triggering a shipment when inventory reaches a threshold</li>
+                    <li>Compiling and deploying code changes after passing tests</li>
+                    <li>Scheduling follow-up meetings based on conversation outcomes</li>
+                  </ul>
+                </div>
+
+                <div class="loop-step">
+                  <h3>5. Learn: Reflect and Adapt</h3>
+                  <p>
+                    After acting, the agent observes the outcome. Did it move closer to the goal? What went wrong? What worked? It reflects on the result and adapts its strategy for the next iteration.
+                  </p>
+                  <p><strong>Examples:</strong></p>
+                  <ul>
+                    <li>Adjusting its escalation strategy based on customer satisfaction scores</li>
+                    <li>Learning which types of support tickets require human intervention</li>
+                    <li>Refining its anomaly detection thresholds based on false positive rates</li>
+                  </ul>
+                </div>
+
+                <h2 class="font-alt">Why This Matters: Handling Ambiguity and Exceptions</h2>
+
+                <p>
+                  Traditional automation follows rigid "if-then" rules. Agentic AI operates in the real world, where:
+                </p>
+                <ul>
+                  <li>Requirements are vague or incomplete</li>
+                  <li>Exceptions are the norm, not the edge case</li>
+                  <li>Context changes dynamically</li>
+                  <li>Human judgment is needed sometimes, but not always</li>
+                </ul>
+
+                <div class="blog-quote">
+                  "The agentic loop allows AI to handle these challenges autonomously. It doesn't just execute—it thinks, adapts, and learns."
+                </div>
+
+                <h2 class="font-alt">The Business Impact: From Prototype to Production</h2>
+
+                <p>
+                  The market for agentic AI is exploding. This isn't hype—it's a fundamental shift in how businesses operate.
+                </p>
+
+                <div class="stat-highlight">
+                  <strong>$7.8B → $52B</strong>
+                  Market growth by 2030
+                </div>
+
+                <div class="stat-highlight">
+                  <strong>40%</strong>
+                  of enterprise apps will embed AI agents by end of 2026 (up from &lt;5% in 2025)
+                </div>
+
+                <div class="stat-highlight">
+                  <strong>1,445%</strong>
+                  surge in multi-agent system inquiries (Q1 2024 → Q2 2025)
+                </div>
+
+                <h2 class="font-alt">Key Trends Shaping 2026</h2>
+
+                <h3>1. Multi-Agent Orchestration</h3>
+                <p>
+                  Single agents are evolving into teams of specialized agents, mimicking microservices architectures. This enables distributed workflows where each agent handles a specific domain.
+                </p>
+
+                <h3>2. Protocol Standardization</h3>
+                <p>
+                  Protocols like Model Context Protocol (MCP) and Agent2Agent (A2A) are enabling seamless agent interoperability—creating an "Agent Internet" where agents can collaborate across platforms in real time.
+                </p>
+
+                <h3>3. End-to-End Workflow Ownership</h3>
+                <p>
+                  Agents now manage entire processes independently, from intent to completion. Tools like Microsoft's Copilot Studio allow non-technical teams to create agent workflows using natural language.
+                </p>
+
+                <h3>4. Human Supervision, Not Micromanagement</h3>
+                <p>
+                  Employees are shifting from doing work to overseeing agent teams. This creates "digital assembly lines" where humans focus on strategy and exceptions while agents handle execution.
+                </p>
+
+                <h2 class="font-alt">Real-World Applications</h2>
+
+                <h3>Commerce & Retail</h3>
+                <p>
+                  Purpose-built agents handle discovery, conversion, and reordering. Customers interact with AI shopping assistants that understand preferences, compare products, and complete purchases—all within a single conversation.
+                </p>
+
+                <h3>Enterprise Operations</h3>
+                <p>
+                  Agents coordinate team workflows, turning high-level intent into action across departments. A project manager agent might orchestrate tasks between engineering, marketing, and sales without human coordination.
+                </p>
+
+                <h3>Security</h3>
+                <p>
+                  Agentic SOCs (Security Operations Centers) investigate threats, analyze malware, and recommend responses in real time—moving from alert fatigue to autonomous defense.
+                </p>
+
+                <h3>General Productivity</h3>
+                <p>
+                  Super agents operate across your entire digital environment—browser, inbox, calendar, databases. Every employee gets a personal agent that knows their role, priorities, and context.
+                </p>
+
+                <h2 class="font-alt">The Reality Check</h2>
+
+                <p>
+                  Despite the hype (Gartner predicts agentic AI will enter the "trough of disillusionment" soon), the technology is showing real production maturity. Companies deploying agentic systems in 2026 are focusing on:
+                </p>
+
+                <ul>
+                  <li><strong>Specific, high-value tasks</strong> (not full autonomy… yet)</li>
+                  <li><strong>Interoperability</strong> (agents that play well with existing systems)</li>
+                  <li><strong>Non-technical creation</strong> (enabling teams to build agents without coding)</li>
+                  <li><strong>Human oversight</strong> (keeping humans in the loop for critical decisions)</li>
+                </ul>
+
+                <div class="blog-key-takeaway">
+                  <h4>Key Takeaway</h4>
+                  <p>
+                    Agentic AI isn't science fiction—it's available now, and early adopters are gaining significant competitive advantages. The question isn't whether your business will adopt agentic workflows, but when.
+                  </p>
+                </div>
+
+                <h2 class="font-alt">Is Your Business Ready?</h2>
+
+                <p><strong>Three steps to get started:</strong></p>
+
+                <ol>
+                  <li><strong>Identify high-value, complex workflows</strong> where ambiguity and exceptions are common</li>
+                  <li><strong>Start small with pilot projects</strong> (customer support, internal operations, data analysis)</li>
+                  <li><strong>Build human-agent collaboration models</strong> that amplify your team's capabilities</li>
+                </ol>
+
+                <p>
+                  The future of work isn't humans OR agents—it's humans AND agents, working together in a continuous loop of perception, reasoning, planning, action, and learning.
+                </p>
+
+                <div class="blog-share">
+                  <h4 class="font-alt">Share this article</h4>
+                  <a href="#" onclick="window.open('https://twitter.com/intent/tweet?text=The%20Agentic%20Loop%3A%20How%20AI%20Actually%20Decides%20and%20Acts&url=' + encodeURIComponent(window.location.href), 'twitter', 'width=550,height=420'); return false;"><i class="fa fa-twitter"></i></a>
+                  <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), 'linkedin', 'width=550,height=420'); return false;"><i class="fa fa-linkedin"></i></a>
+                  <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), 'facebook', 'width=550,height=420'); return false;"><i class="fa fa-facebook"></i></a>
+                </div>
+
+                <div style="margin-top: 60px; text-align: center;">
+                  <p><strong>Ready to explore how agentic AI can transform your workflows?</strong></p>
+                  <a href="../index.html#contact" class="btn btn-border-d btn-circle">Contact Labwyze</a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">About Labwyze</h5>
+                  <p>Technology consulting and AI solutions</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Blog Tags</h5>
+                  <p>#AI #Automation #AgenticAI #MachineLearning #TechTrends #DigitalTransformation</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Contact</h5>
+                  <p>Email: <a href="mailto:david.laborieux@gmail.com">david.laborieux@gmail.com</a></p>
+                  <p>Phone: +1 (514) 572-0488</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2026 Labwyze Inc., All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links">
+                  <a href="https://www.linkedin.com/in/david-laborieux/"><i class="fa fa-linkedin"></i></a>
+                  <a href="mailto:david.laborieux@gmail.com"><i class="fa fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+
+    <!-- Javascript Files -->
+    <script src="../assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/wow/dist/wow.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="../assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="../assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
