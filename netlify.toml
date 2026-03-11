@@ -1,0 +1,6 @@
+[build]
+  command = "echo 'No build needed - static HTML'"
+  publish = "."
+
+[build.environment]
+  SECRETS_SCAN_SMART_DETECTION_OMIT_VALUES = ["AIzaSyDK2Axt8xiFYMBMDwwG1XzBQvEbYpzCvFU"]
