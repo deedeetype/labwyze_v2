@@ -449,28 +449,31 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
             var $ = jQuery;
 
             var postData = $(this).serializeArray(),
-                formURL = $(this).attr("action"),
                 $cfResponse = $('#contactFormResponse'),
                 $cfsubmit = $("#cfsubmit"),
                 cfsubmitText = $cfsubmit.text();
 
             $cfsubmit.text("Sending...");
 
-
+            // Netlify Forms AJAX submission
             $.ajax(
                 {
-                    url: formURL,
-                    type: "POST",
+                    url: "/",
+                    method: "POST",
                     data: postData,
+                    headers: {
+                        "X-Netlify-Form": "true"
+                    },
                     success: function (data) {
-                        $cfResponse.html(data);
+                        $cfResponse.html('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Thank You! I will be in touch</div>');
                         $cfsubmit.text(cfsubmitText);
                         $('#contactForm input[name=name]').val('');
                         $('#contactForm input[name=email]').val('');
                         $('#contactForm textarea[name=message]').val('');
                     },
                     error: function (data) {
-                        alert("Error occurd! Please try again");
+                        $cfResponse.html('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Something bad happened during sending this message. Please try again later</div>');
+                        $cfsubmit.text(cfsubmitText);
                     }
                 });
 
