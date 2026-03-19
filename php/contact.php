@@ -1,72 +1,96 @@
 <?php
 
-	$errors = array();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-	// Check if name has been entered
-	if (!isset($_POST['name'])) {
-		$errors['name'] = 'Please enter your name';
-	}
+// Load PHPMailer
+require '../vendor/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/src/SMTP.php';
 
-	// Check if email has been entered and is valid
-	if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-		$errors['email'] = 'Please enter a valid email address';
-	}
+$errors = array();
 
-	//Check if message has been entered
-	if (!isset($_POST['message'])) {
-		$errors['message'] = 'Please enter your message';
-	}
+// Check if name has been entered
+if (!isset($_POST['name'])) {
+    $errors['name'] = 'Please enter your name';
+}
 
-	$errorOutput = '';
+// Check if email has been entered and is valid
+if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = 'Please enter a valid email address';
+}
 
-	if(!empty($errors)){
+// Check if message has been entered
+if (!isset($_POST['message'])) {
+    $errors['message'] = 'Please enter your message';
+}
 
-		$errorOutput .= '<div class="alert alert-danger alert-dismissible" role="alert">';
- 		$errorOutput .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+$errorOutput = '';
 
-		$errorOutput  .= '<ul>';
+if (!empty($errors)) {
+    $errorOutput .= '<div class="alert alert-danger alert-dismissible" role="alert">';
+    $errorOutput .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+    $errorOutput .= '<ul>';
 
-		foreach ($errors as $key => $value) {
-			$errorOutput .= '<li>'.$value.'</li>';
-		}
+    foreach ($errors as $key => $value) {
+        $errorOutput .= '<li>'.$value.'</li>';
+    }
 
-		$errorOutput .= '</ul>';
-		$errorOutput .= '</div>';
+    $errorOutput .= '</ul>';
+    $errorOutput .= '</div>';
 
-		echo $errorOutput;
-		die();
-	}
+    echo $errorOutput;
+    die();
+}
 
+$name = $_POST['name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
+$to = 'info@labwyze.com';
+$subject = 'Contact Form : Labwyze Website';
 
+// Create new PHPMailer instance
+$mail = new PHPMailer(true);
 
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$message = $_POST['message'];
-	$from = $email;
-	$to = 'david.laborieux@labwyze.com';
-	$subject = 'Contact Form : Labwyze Website';
+try {
+    // Server settings
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'admin@wyzenews.com';
+    $mail->Password   = 'vuyasemjtsvnrqaf';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
 
-	$body = "From: $name\n E-Mail: $email\n Message:\n $message";
+    // Recipients
+    $mail->setFrom($email, $name);
+    $mail->addAddress($to, 'David Laborieux');
+    $mail->addReplyTo($email, $name);
 
-	$headers = "From: ".$from;
+    // Content
+    $mail->isHTML(false);
+    $mail->Subject = $subject;
+    $mail->Body    = "From: $name\nE-Mail: $email\nMessage:\n$message";
 
+    // Send
+    $mail->send();
+    
+    $result = '';
+    $result .= '<div class="alert alert-success alert-dismissible" role="alert">';
+    $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+    $result .= 'Thank You! I will be in touch';
+    $result .= '</div>';
 
-	//send the email
-	$result = '';
-	if (mail ($to, $subject, $body, $headers)) {
-		$result .= '<div class="alert alert-success alert-dismissible" role="alert">';
- 		$result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-		$result .= 'Thank You! I will be in touch';
-		$result .= '</div>';
+    echo $result;
+    die();
 
-		echo $result;
-		die();
-	}
+} catch (Exception $e) {
+    $result = '';
+    $result .= '<div class="alert alert-danger alert-dismissible" role="alert">';
+    $result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+    $result .= 'Something bad happened during sending this message. Please try again later';
+    $result .= '</div>';
 
-	$result = '';
-	$result .= '<div class="alert alert-danger alert-dismissible" role="alert">';
-	$result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-	$result .= 'Something bad happend during sending this message. Please try again later';
-	$result .= '</div>';
-
-	echo $result;
+    echo $result;
+    die();
+}
