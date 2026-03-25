@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale | Labwyze Blog</title>
+    <meta name="description" content="Tesla, SpaceX, and xAI unveiled Terafab — a $25B chip fab in Austin targeting 1 terawatt of AI compute annually. AI5 chips, Optimus robots, and space data centers. Here's what it means.">
+    <meta name="keywords" content="Tesla Terafab, AI chips, SpaceX, xAI, semiconductor fab, AI5 chip, Elon Musk, Tesla semiconductor, Austin chip factory">
+    <link rel="canonical" href="https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html">
+
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale">
+    <meta property="og:description" content="Tesla, SpaceX, and xAI unveiled Terafab — a $25B chip fab in Austin targeting 1 terawatt of AI compute annually. Here's what it means for the AI race.">
+    <meta property="og:url" content="https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html">
+    <meta property="og:site_name" content="Labwyze">
+    <meta property="article:published_time" content="2026-03-24">
+    <meta property="article:section" content="AI & Technology">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale">
+    <meta name="twitter:description" content="Tesla, SpaceX, and xAI unveiled Terafab — a $25B chip fab in Austin targeting 1 terawatt of AI compute annually.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale",
+      "description": "Tesla, SpaceX, and xAI unveiled Terafab — a $25B chip fab in Austin targeting 1 terawatt of AI compute annually. AI5 chips, Optimus robots, and space data centers.",
+      "image": "https://labwyze.com/assets/images/terafab-header.jpg",
+      "author": {
+        "@type": "Organization",
+        "name": "Labwyze Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Labwyze",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://labwyze.com/assets/images/favicons/final_logo.png"
+        }
+      },
+      "datePublished": "2026-03-24",
+      "dateModified": "2026-03-24",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html"
+      }
+    }
+    </script>
+
+    <!-- Default stylesheets-->
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet">
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/blog.css" rel="stylesheet">
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/images/terafab-header.jpg') center/cover;
+        color: white;
+      }
+      .blog-post-category {
+        display: inline-block; padding: 5px 15px; border: 1px solid rgba(255,255,255,0.5);
+        font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+      }
+      .blog-post-title { font-size: 36px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+      .blog-post-meta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
+      .blog-quote {
+        font-family: 'Volkhov', serif; font-style: italic; font-size: 24px;
+        text-align: center; padding: 40px 0; color: #333; max-width: 800px; margin: 0 auto 40px;
+      }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway {
+        border-left: 3px solid #333; padding-left: 20px; margin: 40px 0;
+      }
+      .blog-key-takeaway h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px; }
+      .blog-share { border-top: 1px solid #eee; padding-top: 30px; margin-top: 40px; text-align: center; }
+      .blog-share a { display: inline-block; margin: 0 10px; color: #999; font-size: 18px; }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog { background-color: #1a1a1a !important; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="../index.html"><img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain;" class="logo"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Blog Post Header -->
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">AI & Technology</span>
+          <h1 class="blog-post-title font-alt">Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale</h1>
+          <div class="blog-post-meta">
+            24 March 2026 | Tesla • AI Chips • Semiconductor • SpaceX • xAI
+          </div>
+        </div>
+      </header>
+
+      <!-- Blog Post Content -->
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <!-- Quote -->
+<blockquote class="blog-quote">
+  "Global chip output meets only 3% of our companies' future needs. Terafab changes that equation — permanently."
+</blockquote>
+<p style="text-align: center; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #999; margin-top: -30px; margin-bottom: 40px;">— Elon Musk, Terafab Launch Event, March 21, 2026</p>
+
+<!-- Intro -->
+<p class="lead">On March 14, 2026, Elon Musk posted seven words on X: "Terafab Project launches in 7 days." Seven days later, inside the historic Seaholm power plant in downtown Austin, Tesla, SpaceX, and xAI unveiled one of the most ambitious semiconductor projects in history. Terafab — a $25 billion chip fabrication initiative targeting an unprecedented one terawatt of AI compute annually — is Battery Day on steroids. And this time, the skeptics may need to think twice.</p>
+
+<h3 class="font-alt">What Is Terafab?</h3>
+
+<p>Terafab is a joint semiconductor fabrication venture involving three of Elon Musk's companies: Tesla, SpaceX, and xAI. Unlike traditional chip manufacturing partnerships — which typically involve fabless designers partnering with standalone foundries like TSMC or Intel — Terafab is designed to be fully vertically integrated. The chips made at Terafab facilities will serve three distinct but complementary purposes: powering Tesla's next-generation vehicles, fueling the Optimus humanoid robot program, and enabling space-hardened AI processors for solar-powered data centers in orbit.</p>
+
+<p>The project spans two planned fabrication facilities, both located in Austin, Texas — in close proximity to Tesla's existing Gigafactory Texas. The first facility is expected to come online as a pilot plant by late 2026, with small-batch production of Tesla's fifth-generation AI chip, the AI5, beginning this year. Volume production is targeted for 2027.</p>
+
+<!-- Image -->
+<div class="blog-image">
+  <img src="../assets/images/terafab-header.jpg" alt="Tesla Terafab AI Chip Factory Concept">
+</div>
+
+<h3 class="font-alt">The AI5 Chip: First Product of Terafab</h3>
+
+<p>Tesla's AI5 chip will be among the first products designed specifically for the Terafab production line. Building on the architecture introduced with HW4 (Hardware 4), the AI5 chip is engineered for both training and inference workloads — a significant expansion from the inference-focused designs Tesla has used in its vehicles to date.</p>
+
+<p>For Tesla's autonomous driving ambitions, the AI5 represents a step-change in onboard compute capability. The chip is rumored to deliver approximately 10x the inference performance of its predecessor while maintaining thermal and power envelopes suitable for vehicle integration. More importantly, the chip's architecture allows it to handle multi-modal inputs — camera, radar, ultrasonic, and potentially LIDAR fusion — in real time.</p>
+
+<p>But the AI5's role extends far beyond vehicles. Tesla's Optimus humanoid robot program depends heavily on efficient, purpose-built silicon. Optimus requires a chip that can process vision, balance, and tactile feedback simultaneously — all within a power budget compatible with battery-powered operation. The AI5 is being designed with exactly these constraints in mind, making it the silicon foundation of Tesla's broader robotics ambitions.</p>
+
+<h3 class="font-alt">Beyond Earth: Space-Hardened AI Processors</h3>
+
+<p>Perhaps the most technically ambitious element of Terafab is the development of space-hardened AI processors. Working with SpaceX, the venture aims to produce chips capable of operating in the harsh environment of space — radiation-tolerant designs that can function without the thermal management infrastructure available on Earth.</p>
+
+<p>The target application: solar-powered AI satellites. xAI, Musk's AI startup, has been vocal about its ambition to build AI data centers in orbit. The logic is compelling: space offers abundant solar energy, essentially free cooling, and no terrestrial land constraints. The challenge has always been the hardware — specifically, chips that can survive launch vibration, cosmic radiation, and the thermal extremes of low Earth orbit while still delivering meaningful AI compute.</p>
+
+<p>Terafab's space-hardened processors represent a direct answer to that challenge. If successful, they could unlock a new category of AI infrastructure — autonomous orbital data centers capable of running inference workloads at scale, powered entirely by photovoltaic arrays.</p>
+
+<div class="blog-key-takeaway">
+  <h4 class="font-alt">Strategic Implication</h4>
+  <p>Terafab isn't just about chips for Tesla vehicles. It's about controlling the entire AI value chain — from silicon design to final deployment — across automotive, robotics, and space infrastructure. This is vertical integration taken to its logical extreme.</p>
+</div>
+
+<h3 class="font-alt">The Scale Problem Musk Is Solving</h3>
+
+<p>To understand why Musk is investing $25 billion in a chip fab, consider the problem he's trying to solve: AI chip scarcity.</p>
+
+<p>Current global semiconductor production — even with massive expansions by TSMC, Samsung, and Intel — cannot come close to meeting the projected compute demands of Musk's companies. According to figures shared at the Terafab launch event, global chip output currently satisfies approximately 3% of the combined future needs of Tesla, SpaceX, and xAI. That's not a supply chain inconvenience — it's a fundamental bottleneck on growth.</p>
+
+<p>For Tesla, the constraint is acute. The company's Full Self-Driving (FSD) and robotaxi ambitions require enormous compute for both training and inference. Every mile driven by every Tesla vehicle generates data that could theoretically improve the fleet's AI models. But processing that data requires chips — and current supply arrangements mean competing with every other AI company on the planet for finite foundry capacity.</p>
+
+<p>xAI faces a similar constraint. Grok, xAI's large language model, requires training infrastructure that can only be built with access to large numbers of AI accelerators. As Grok evolves toward more capable versions, its chip requirements grow proportionally.</p>
+
+<p>SpaceX's Starlink and future deep-space communication systems have their own silicon needs that don't always align with commercially available parts. Building custom chips through Terafab gives SpaceX the ability to optimize for its specific thermal, radiation, and power environments.</p>
+
+<h3 class="font-alt">Wedbush: "The Largest AI Bottleneck"</h3>
+
+<p>Wall Street analysts have taken notice. Wedbush Securities, in a note published shortly after the Terafab announcement, described the initiative as addressing what they see as "the largest bottleneck" in AI development today.</p>
+
+<p>The framing is significant. For years, the dominant narrative around AI infrastructure has been about software and algorithms — the latest model architectures, the newest prompting techniques, the race to AGI. Terafab shifts the conversation to hardware. Without sufficient compute, even the most sophisticated models cannot be trained. Without efficient inference chips, they cannot be deployed at scale.</p>
+
+<p>The semiconductor supply chain has emerged as a critical geopolitical and economic flashpoint. The CHIPS Act, export controls on advanced AI chips to China, TSMC's strategic importance to Taiwan — all of these factors have elevated chip manufacturing from an engineering concern to a national security priority. By building domestic fab capacity in the United States, Terafab positions itself — and Tesla — at the intersection of technology policy and industrial strategy.</p>
+
+<h3 class="font-alt">The Skeptics' Case: Why "Battery Day on Steroids"?</h3>
+
+<p>The "Battery Day on steroids" characterization — coined by critics following the March 21 announcement — deserves serious examination. Tesla's 2020 Battery Day event promised revolutionary battery technology that would enable a $25,000 electric vehicle. That vehicle has not materialized. The promises, critics argue, exceeded what physics and manufacturing reality could deliver.</p>
+
+<p>The skepticism is understandable. Semiconductor fabrication is among the most capital-intensive and technically complex industries on Earth. TSMC, the world's leading advanced foundry, spends tens of billions of dollars per year just to maintain its technology lead. Building a competitive fab from scratch requires not just capital but talent, process technology, and yield management expertise that takes years to develop.</p>
+
+<p>There are legitimate questions about timeline and execution risk. Pilot production by the end of 2026 is aggressive. Volume production in 2027 is even more so. The gap between "we plan to produce chips at this facility" and "we are producing chips that meet our performance specifications at commercial volumes" is enormous.</p>
+
+<p>Furthermore, the "one terawatt of compute" target is staggering. To put it in perspective: NVIDIA's entire H100 production in 2024 amounted to a fraction of a terawatt of compute. Achieving one terawatt — even by 2030 — would require fab output that rivals or exceeds current global advanced packaging capacity. The claim deserves scrutiny.</p>
+
+<div class="blog-key-takeaway">
+  <h4 class="font-alt">The Critical Question</h4>
+  <p>Terafab's success hinges not on ambition but on execution. Can Tesla and SpaceX attract the process integration talent needed to run a competitive fab? Can they achieve yields that make economic sense? The answers will determine whether Terafab is transformative or another case of vision outpacing reality.</p>
+</div>
+
+<h3 class="font-alt">Vertical Integration as Competitive Moat</h3>
+
+<p>Despite the skepticism, there's a coherent strategic logic to Terafab — and it's rooted in Tesla's core competency: vertical integration.</p>
+
+<p>Tesla has always differentiated itself through control of its entire value chain. It designs its own chips (for autonomy and energy management), builds its own battery packs, develops its own vehicle software, and operates its own charging network. This approach has trade-offs — it requires enormous capital and expertise — but it also insulates Tesla from supplier dependencies that have crippled other automakers.</p>
+
+<p>Terafab extends this philosophy to silicon. By designing and manufacturing its own AI chips, Tesla gains several advantages:</p>
+
+<ul>
+  <li><strong>Custom optimization:</strong> Tesla can design chips precisely for its workloads — inference for autonomous driving, sensor fusion, robot control — rather than adapting general-purpose AI accelerators.</li>
+  <li><strong>Supply security:</strong> In an era of chip shortages and geopolitical uncertainty, owning fabrication capacity is a strategic asset.</li>
+  <li><strong>Cost structure:</strong> At sufficient volumes, internal fab capacity can be more cost-effective than paying foundry margins.</li>
+  <li><strong>Speed of iteration:</strong> Co-designing silicon and software enables faster iteration cycles than waiting for roadmap alignment with external chip vendors.</li>
+</ul>
+
+<p>SpaceX brings complementary capabilities. The company has deep expertise in radiation-hardened electronics through its Starlink and Starship programs. That expertise translates directly to building fab processes that can produce space-qualified chips — a niche that traditional foundries serve poorly.</p>
+
+<h3 class="font-alt">What It Means for the AI Industry</h3>
+
+<p>Regardless of Terafab's ultimate success or failure, the announcement signals something important about the AI industry's trajectory: the next phase of AI development will be hardware-constrained.</p>
+
+<p>For years, the AI industry operated on the assumption that compute would continue to become cheaper and more abundant. Scaling laws suggested that bigger models trained on more data would continue to deliver improvements. But physical constraints — fab capacity, energy availability, thermal management — are emerging as real limits on that scaling trajectory.</p>
+
+<p>Terafab is a direct response to these constraints. By investing in dedicated fabrication capacity, Musk's companies are betting that the limiting factor in AI advancement will shift from algorithms to silicon — and that controlling silicon supply will become a decisive competitive advantage.</p>
+
+<p>The implications for enterprise technology leaders are significant. Organizations building AI strategies need to think carefully about their own hardware dependencies. Cloud compute costs, GPU availability, and model inference economics are all influenced by underlying semiconductor supply chains. Understanding who controls that supply — and how — is increasingly relevant to strategic planning.</p>
+
+<h3 class="font-alt">Looking Ahead: The Next 18 Months</h3>
+
+<p>The Terafab story is just beginning. The critical period runs from now through the end of 2027. Here's what to watch:</p>
+
+<p><strong>Late 2026:</strong> Pilot facility completion and initial AI5 production runs. The quality and yield of these early chips will set the tone for everything that follows. If the AI5 delivers its promised performance improvements, it validates the Terafab approach. If yields are poor or performance disappoints, the timeline for volume production slips.</p>
+
+<p><strong>2027:</strong> Volume production ramp and expansion of the second facility. Space-hardened chip development milestones. Any joint announcements from xAI regarding Grok training on Terafab-produced silicon.</p>
+
+<p><strong>2028 and beyond:</strong> If Terafab achieves its targets, the competitive landscape for AI chips shifts meaningfully. Tesla becomes a vertically integrated AI company — designing silicon, deploying it in vehicles and robots, and running AI workloads in space. The differentiation between "automaker," "AI company," and "space company" blurs further.</p>
+
+<h3 class="font-alt">The Bottom Line</h3>
+
+<p>Terafab is either the next chapter in Musk's track record of bold, execution-heavy bets — or another example of ambition outrunning engineering reality. The truth, as always, lies somewhere in between.</p>
+
+<p>What's clear is that the announcement has forced a broader conversation about AI infrastructure. Compute is not infinite. Silicon supply is not guaranteed. The companies that control semiconductor production will have a decisive advantage in the race to build more capable AI systems.</p>
+
+<p>For enterprise leaders, the lesson is not to invest in chip fabs — it's to understand the supply chains underlying your AI strategy. Whether you're building on NVIDIA hardware, cloud GPUs, or custom silicon, the physics of semiconductor manufacturing shapes what's possible. Terafab is the most dramatic example yet of a company betting that controlling that physics is worth $25 billion.</p>
+
+<p>We'll know more in 18 months. For now, Terafab is the most interesting story in AI hardware — and a reminder that in technology, the biggest bets are often the ones that seem most impossible.</p>
+
+<!-- Share -->
+<div class="blog-share">
+  <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 20px;">Share This Article</p>
+  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+  <a href="https://twitter.com/intent/tweet?url=https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html&text=Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+  <a href="mailto:?subject=Tesla Terafab: Inside the $25B Plan to Build AI Chips at Scale&body=https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html" title="Share via Email"><i class="fa fa-envelope"></i></a>
+</div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <h4 class="font-alt">Labwyze</h4>
+                <p>Technology strategy and digital transformation consulting.</p>
+              </div>
+              <div class="col-md-4">
+                <h4 class="font-alt">Quick Links</h4>
+                <ul class="list-unstyled">
+                  <li><a href="../index.html" class="text-gray-400">Home</a></li>
+                  <li><a href="../portfolio.html" class="text-gray-400">Portfolio</a></li>
+                  <li><a href="../index.html#news" class="text-gray-400">Blog</a></li>
+                  <li><a href="../index.html#contact" class="text-gray-400">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h4 class="font-alt">Connect</h4>
+                <a href="https://www.linkedin.com/company/labwyze" class="text-gray-400 mr-3" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://twitter.com/labwyze" class="text-gray-400" target="_blank"><i class="fa fa-twitter"></i></a>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-12 text-center">
+                <p class="text-gray-500" style="font-size: 12px;">&copy; 2026 Labwyze. All rights reserved.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider-min.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/wow.min.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer.min.js"></script>
+    <script src="../assets/js/template.js"></script>
+  </body>
+</html>
