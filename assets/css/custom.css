@@ -53,3 +53,16 @@
 #news .module-subtitle {
   margin-bottom: 5px;
 }
+
+/* Remove decorative colored bullet/before element from Three Pillars heading */
+.pillars-section-heading::before,
+h3.font-alt.pillars-section-heading::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  border: none !important;
+}
+
+.pillars-section-heading {
+  position: relative;
+}
