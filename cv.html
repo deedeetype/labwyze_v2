@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="David Laborieux - SAP / AI Transformation Senior Advisor & Founder of Labwyze. 23+ years leading enterprise digital transformations for Fortune 500 organizations.">
+    <title>David Laborieux | SAP / AI Transformation Senior Advisor | Labwyze</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/final_logo.png">
+    <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/colors/default.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+    <style>
+      body { font-family: 'Open Sans', Arial, sans-serif; }
+      .cv-page { background: #f8f9fa; }
+      .cv-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 50px 0 40px; }
+      .cv-header h1 { font-size: 2.5em; font-weight: 700; margin-bottom: 5px; }
+      .cv-header .subtitle { font-size: 1.2em; color: #e94560; font-weight: 600; }
+      .cv-contact-row { margin-top: 20px; }
+      .cv-contact-row span { margin-right: 25px; color: #ccc; font-size: 0.95em; }
+      .cv-contact-row i { margin-right: 6px; color: #e94560; }
+      .cv-contact-row a { color: #ccc; text-decoration: none; }
+      .cv-contact-row a:hover { color: white; }
+      .cv-section { background: white; margin: 30px 0; padding: 35px 40px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.06); }
+      .cv-section-title { font-size: 1.3em; font-weight: 700; color: #0f3460; border-bottom: 3px solid #e94560; padding-bottom: 8px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+      .cv-section-title i { margin-right: 10px; color: #e94560; }
+      .experience-item { margin-bottom: 30px; padding-left: 20px; border-left: 3px solid #e94560; }
+      .experience-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 5px; }
+      .experience-title { font-size: 1.15em; font-weight: 700; color: #1a1a2e; }
+      .experience-company { font-size: 1em; color: #e94560; font-weight: 600; }
+      .experience-period { font-size: 0.9em; color: #888; font-weight: 400; }
+      .experience-location { font-size: 0.85em; color: #999; font-style: italic; }
+      .experience-highlights { margin-top: 10px; padding-left: 0; list-style: none; }
+      .experience-highlights li { position: relative; padding-left: 22px; margin-bottom: 7px; line-height: 1.6; color: #444; }
+      .experience-highlights li::before { content: '▹'; position: absolute; left: 0; color: #e94560; font-weight: bold; }
+      .client-card { border: 1px solid #e8e8e8; border-radius: 8px; padding: 20px 25px; margin-bottom: 20px; background: #fefefe; transition: box-shadow 0.3s; }
+      .client-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+      .client-card h4 { color: #0f3460; font-weight: 700; margin-bottom: 3px; font-size: 1.1em; }
+      .client-card .client-engagement { color: #e94560; font-size: 0.85em; font-weight: 600; margin-bottom: 10px; }
+      .client-card p { color: #555; font-size: 0.92em; line-height: 1.6; margin-bottom: 10px; }
+      .client-card .tags { margin: 0; padding: 0; }
+      .client-card .tags span { display: inline-block; background: #eef2f7; color: #0f3460; font-size: 0.75em; padding: 3px 10px; border-radius: 20px; margin: 2px 3px; font-weight: 600; }
+      .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+      .skill-category { background: #f8f9fa; border-radius: 8px; padding: 18px 20px; border-left: 4px solid #e94560; }
+      .skill-category h5 { color: #0f3460; font-weight: 700; margin-bottom: 10px; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.5px; }
+      .skill-tags { margin: 0; padding: 0; }
+      .skill-tags span { display: inline-block; background: white; color: #333; font-size: 0.82em; padding: 4px 12px; border-radius: 20px; margin: 3px; border: 1px solid #ddd; font-weight: 500; }
+      .edu-item { padding: 15px 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #0f3460; margin-bottom: 12px; }
+      .edu-degree { font-weight: 700; color: #1a1a2e; font-size: 1.05em; }
+      .edu-school { color: #e94560; font-weight: 600; }
+      .edu-year { color: #999; font-size: 0.85em; }
+      .cert-item { display: inline-block; background: #0f3460; color: white; padding: 8px 18px; border-radius: 6px; margin: 5px 5px 5px 0; font-size: 0.85em; font-weight: 600; }
+      .pub-item { padding: 12px 18px; background: #f8f9fa; border-radius: 6px; margin-bottom: 10px; border-left: 3px solid #e94560; }
+      .pub-item .pub-title { font-weight: 700; color: #0f3460; font-size: 0.95em; }
+      .languages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+      .lang-item { background: #f8f9fa; border-radius: 8px; padding: 14px 18px; text-align: center; border-top: 3px solid #e94560; }
+      .lang-name { font-weight: 700; color: #0f3460; font-size: 1em; }
+      .lang-level { color: #888; font-size: 0.82em; margin-top: 3px; }
+      .cv-download-bar { background: #0f3460; color: white; padding: 15px 0; text-align: center; position: sticky; top: 60px; z-index: 999; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+      .cv-download-bar a { color: white; font-weight: 700; text-decoration: none; border: 2px solid white; padding: 8px 25px; border-radius: 30px; transition: all 0.3s; margin-left: 15px; }
+      .cv-download-bar a:hover { background: white; color: #0f3460; }
+      .nav-links { margin-top: 8px; }
+      .nav-links a { color: #ccc; text-decoration: none; margin-left: 20px; font-size: 0.9em; }
+      .nav-links a:hover { color: white; }
+      .summary-text { font-size: 1.05em; line-height: 1.8; color: #444; }
+      .row-eq-height { display: flex; flex-wrap: wrap; }
+      .row-eq-height > div { display: flex; flex-direction: column; }
+      .footer-cv { background: #1a1a2e; color: #777; padding: 25px 0; text-align: center; font-size: 0.85em; }
+      @media print {
+        .cv-download-bar, nav { display: none !important; }
+        .cv-page { background: white; }
+        .cv-section { box-shadow: none; border: 1px solid #eee; page-break-inside: avoid; }
+        body { font-size: 11pt; }
+      }
+      @media (max-width: 768px) {
+        .cv-header h1 { font-size: 1.8em; }
+        .cv-section { padding: 25px 20px; }
+        .experience-header { flex-direction: column; }
+        .cv-contact-row span { display: block; margin-bottom: 5px; }
+      }
+    </style>
+  </head>
+  <body class="cv-page">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="background: rgba(26,26,46,0.95);">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <a class="logo" href="index.html">
+            <img src="assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain; height: 50px;" class="logo">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="custom-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li class="active"><a href="cv.html">CV</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Download Bar -->
+    <div class="cv-download-bar" style="margin-top: 60px;">
+      <div class="container">
+        <span><i class="fa fa-file-pdf-o"></i> Curriculum Vitae — David Laborieux &nbsp;|&nbsp; SAP / AI Transformation Senior Advisor</span>
+        <div style="display: inline-block; float: right;">
+          <a href="javascript:window.print()"><i class="fa fa-print"></i> Print / Save PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="cv-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <h1>David Laborieux</h1>
+            <div class="subtitle">SAP / AI Transformation Senior Advisor &nbsp;|&nbsp; Founder & CEO, Labwyze</div>
+            <div class="cv-contact-row">
+              <span><i class="fa fa-phone"></i> <a href="tel:+15145856434">+1 514 585 6434</a></span>
+              <span><i class="fa fa-envelope"></i> <a href="mailto:david.laborieux@hec.ca">david.laborieux@hec.ca</a></span>
+              <span><i class="fa fa-globe"></i> <a href="https://www.labwyze.com" target="_blank">www.labwyze.com</a></span>
+              <span><i class="fa fa-map-marker"></i> Montreal, QC, Canada &nbsp;/&nbsp; France</span>
+            </div>
+          </div>
+          <div class="col-sm-4" style="text-align: right; padding-top: 10px;">
+            <img src="assets/images/founder.jpg" alt="David Laborieux" style="width: 150px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 3px solid rgba(255,255,255,0.2);">
+            <div class="nav-links" style="margin-top: 15px;">
+              <a href="https://www.linkedin.com/in/david-laborieux-a1864214" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a>
+              <a href="portfolio.html"><i class="fa fa-briefcase"></i> Portfolio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main style="padding: 0 0 50px 0;">
+
+      <!-- Professional Summary -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="icon-profile-male"></i> Professional Summary</h2>
+        <p class="summary-text">
+          Senior SAP and AI Transformation Advisor with <strong>23+ years of experience</strong> leading enterprise-wide digital transformations across Finance, Operations, and Technology. Proven track record delivering <strong>SAP S/4HANA migrations</strong>, <strong>AI/ML solutions</strong>, and <strong>financial process reengineering</strong> for Fortune 500 organizations including BMW, Rio Tinto, National Bank of Canada, Énergir, and 10+ other global enterprises. Founder of <strong>Labwyze</strong> (2023), specializing in agentic AI integration, project leadership, and enterprise AI solutions. Trusted advisor to CFOs and CIOs on transformation strategy, with a documented history of delivering <strong>$12M+ annual cost savings</strong> and <strong>50% reduction in manual processing effort</strong>.
+        </p>
+      </section>
+
+      <!-- Professional Experience -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="icon-briefcase"></i> Professional Experience</h2>
+
+        <!-- Labwyze -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Founder & CEO</div>
+              <div class="experience-company">Labwyze — AI & SAP Transformation Consultancy</div>
+            </div>
+            <div class="experience-period">2023 – Present &nbsp;|&nbsp; <span class="experience-location">Montreal, QC (Hybrid)</span></div>
+          </div>
+          <ul class="experience-highlights">
+            <li><strong>AI Innovation:</strong> Pioneered process automation through agentic AI integration, developing intelligent SaaS solutions for competitive intelligence and test management</li>
+            <li><strong>Multi-country Solution Delivery:</strong> Delivered SAP transformations programs across North America and Europe, including full S/4HANA migrations and greenfield implementations</li>
+            <li><strong>Full-stack Services:</strong> End-to-end ERP transformation, AI implementation, SaaS product development, and executive advisory</li>
+            <li><strong>AI-Based Finance Transformation Lead (Manufacturing Client):</strong> Architected fully automated accounts payable solution leveraging SAP BTP AI Business Services; reduced manual processing effort by ~50%, improving cycle times and operational efficiency</li>
+            <li><strong>Thought Leadership:</strong> Published articles on Agentic AI, Finance Transformation, SAP S/4HANA, and competitive intelligence; regular contributor to industry media on AI-driven enterprise transformation</li>
+          </ul>
+        </div>
+
+        <!-- Accenture -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="experience-title">Senior Manager</div>
+              <div class="experience-company">Accenture</div>
+            </div>
+            <div class="experience-period">2007 – 2021 &nbsp;|&nbsp; <span class="experience-location">Montreal, QC &nbsp;(17 years)</span></div>
+          </div>
+          <ul class="experience-highlights">
+            <li><strong>Program Portfolio:</strong> Delivered 10+ large-scale SAP implementations for Fortune 500 clients across North America and Europe</li>
+            <li><strong>Team Leadership:</strong> Built, led, and mentored teams of 20–50 consultants across multiple workstreams, including business, technical, and functional resources</li>
+            <li><strong>Finance Expertise:</strong> Led end-to-end SAP FICO and MM implementations across diverse industries — utilities, banking, manufacturing, energy, logistics</li>
+            <li><strong>Executive Partnership:</strong> Trusted advisor to CFOs and finance VPs on transformation initiatives; managed C-level stakeholder relationships across 7-figure engagements</li>
+            <li><strong>S/4HANA FICO Solution Architecture:</strong> Designed end-to-end finance processes and integrations aligned with transformation objectives for major clients; led Finance Transformation Lead for Énergir (Utilities) — S/4HANA migration, Record-to-Report redesign, 60+ professionals, 100+ users, ~$12M+ annual cost savings</li>
+            <li><strong>Client Coverage:</strong> BMW (multi-country SAP transformation), Rio Tinto (financial transformation), National Bank of Canada (SAP Program Manager), Grainger (SAP FICO North America), BNP Paribas (SAP MM), and 8+ other major engagements</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Client Engagements -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="icon-map"></i> Key Client Engagements</h2>
+        <div class="row row-eq-height">
+
+          <!-- BMW -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>BMW</h4>
+              <div class="client-engagement">SAP Transformation — Multi-country Implementation</div>
+              <p>Led comprehensive SAP transformation initiatives across multiple markets including France, United States, and Canada. Delivered enterprise-wide process optimization and system modernization to support BMW's global digital transformation strategy.</p>
+              <div class="tags">
+                <span>Multi-country SAP Implementation</span>
+                <span>Process Standardization</span>
+                <span>Change Management</span>
+                <span>Training</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rio Tinto -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Rio Tinto</h4>
+              <div class="client-engagement">Financial Transformation & SAP Implementation</div>
+              <p>Executed financial transformation and SAP implementation projects for one of the world's largest mining corporations across Canada and Iceland operations. Delivered integrated financial systems and streamlined reporting processes.</p>
+              <div class="tags">
+                <span>SAP FICO Implementation</span>
+                <span>Financial Process Reengineering</span>
+                <span>Cost Modelling Redesign</span>
+                <span>Multi-country</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Énergir -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Énergir</h4>
+              <div class="client-engagement">Complete Financial Transformation & S/4HANA Migration</div>
+              <p>Led end-to-end financial transformation including migration to SAP S/4HANA for Quebec's leading natural gas distributor. Modernized financial operations ensuring business continuity and enhanced performance. Complete redesign of Record-to-Report processes.</p>
+              <div class="tags">
+                <span>S/4HANA Migration</span>
+                <span>Finance Transformation</span>
+                <span>Record-to-Report</span>
+                <span>Regulatory Compliance</span>
+                <span>60+ Team Members</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- National Bank of Canada -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>National Bank of Canada</h4>
+              <div class="client-engagement">SAP Program Manager — CRM Transformation</div>
+              <p>Led enterprise-wide CRM transformation initiatives for one of Canada's largest financial institutions. Orchestrated multi-workstream programs ensuring alignment with business objectives and executive-level stakeholder engagement. Customer data foundation building and migration.</p>
+              <div class="tags">
+                <span>SAP CRM Implementation</span>
+                <span>Omnichannel Redesign</span>
+                <span>Customer Data Platform</span>
+                <span>Program Management</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kruger -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Kruger</h4>
+              <div class="client-engagement">AI Implementation — Finance & Operations</div>
+              <p>Pioneered artificial intelligence solutions for finance and operational excellence. Combined deep SAP expertise with cutting-edge AI technologies to automate accounts payable processes and remove manual work across the organization.</p>
+              <div class="tags">
+                <span>AI/ML Implementation</span>
+                <span>Accounts Payable Automation</span>
+                <span>S/4HANA Roadmap</span>
+                <span>Finance Operations</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grainger -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Grainger</h4>
+              <div class="client-engagement">SAP Finance & Controlling Implementation</div>
+              <p>Delivered SAP FICO implementation for North American operations spanning USA and Mexico. Enabled standardized financial processes and real-time reporting across multiple business units. Intercompany accounting automation and financial reporting standardization.</p>
+              <div class="tags">
+                <span>SAP FICO</span>
+                <span>Multi-country Deployment</span>
+                <span>Intercompany Accounting</span>
+                <span>Financial Reporting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BNP Paribas -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>BNP Paribas</h4>
+              <div class="client-engagement">SAP MM Senior Consultant — Procurement</div>
+              <p>Delivered SAP Materials Management (MM) consulting services for one of Europe's largest banking institutions. Led procurement process optimization, vendor management integration, and inventory control improvements across multiple business units.</p>
+              <div class="tags">
+                <span>SAP MM Configuration</span>
+                <span>Procurement Reengineering</span>
+                <span>Vendor Management</span>
+                <span>Contract Lifecycle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Areva -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Areva</h4>
+              <div class="client-engagement">SAP T&E Solution Architect — Global</div>
+              <p>Designed and implemented enterprise-wide Travel & Expense management solutions for a global nuclear energy corporation. Architected integrated expense reporting workflows, policy compliance frameworks, and multi-currency reimbursement processes across international operations.</p>
+              <div class="tags">
+                <span>SAP T&E Architecture</span>
+                <span>Policy Compliance Framework</span>
+                <span>Multi-currency</span>
+                <span>Global Deployment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CN -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>CN (Canadian National Railway)</h4>
+              <div class="client-engagement">SAP Accounts Payable Solution Architect</div>
+              <p>Architected comprehensive Accounts Payable solutions for North America's largest railway network. Designed automated invoice processing, vendor payment workflows, and three-way matching capabilities to streamline financial operations across the logistics enterprise.</p>
+              <div class="tags">
+                <span>SAP AP Solution Design</span>
+                <span>Automated Invoice Processing</span>
+                <span>Three-way Matching</span>
+                <span>Vendor Payment Workflows</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- WSP -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>WSP</h4>
+              <div class="client-engagement">SAP S/4HANA Finance & Controlling SME</div>
+              <p>Provided subject matter expertise for SAP S/4HANA Finance & Controlling implementation roadmap for a global engineering consultancy. Management reporting & profitability analysis review. Project system integration and cost controlling optimization subjects matter expertise.</p>
+              <div class="tags">
+                <span>S/4HANA Finance Roadmap</span>
+                <span>Profitability Analysis</span>
+                <span>Project System</span>
+                <span>Cost Controlling</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hydro-Québec -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Hydro-Québec</h4>
+              <div class="client-engagement">ITSM Optimization SME & SAP FICO Trainer</div>
+              <p>Provided subject matter expertise for IT Service Management (ITSM) optimization initiatives. Led process improvement workshops, implemented ITIL best practices, and enhanced service delivery capabilities. Also delivered comprehensive SAP FICO training programs for finance teams.</p>
+              <div class="tags">
+                <span>ITIL Framework</span>
+                <span>ITSM Optimization</span>
+                <span>SAP FICO Training</span>
+                <span>Change Management</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Holcim -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Holcim</h4>
+              <div class="client-engagement">SAP FICO Consultant</div>
+              <p>Delivered SAP Financial Accounting and Controlling consulting services for a global building materials corporation. Supported financial process optimization, month-end close procedures, and regulatory compliance reporting across multiple jurisdictions.</p>
+              <div class="tags">
+                <span>SAP FICO Configuration</span>
+                <span>Financial Close Optimization</span>
+                <span>Multi-jurisdiction Compliance</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stella Jones -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Stella Jones</h4>
+              <div class="client-engagement">S/4HANA Implementation Advisor</div>
+              <p>Provided strategic advisory services for SAP S/4HANA implementation planning. Assessed current systems landscape, defined implementation roadmap, and established governance frameworks to support successful enterprise resource planning transformation.</p>
+              <div class="tags">
+                <span>S/4HANA Roadmap</span>
+                <span>Gap Analysis</span>
+                <span>Governance Framework</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ludia -->
+          <div class="col-md-6">
+            <div class="client-card">
+              <h4>Ludia</h4>
+              <div class="client-engagement">SAP FICO Continuous Improvement Lead</div>
+              <p>Led continuous improvement initiatives for SAP Financial Accounting and Controlling processes in a gaming technology environment. Drove process optimization, automation opportunities, and system enhancements to support rapid business growth.</p>
+              <div class="tags">
+                <span>Continuous Improvement</span>
+                <span>Process Automation</span>
+                <span>SAP FICO</span>
+                <span>Change Management</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Two-Column Layout: Skills + Education -->
+      <div class="container" style="padding: 0;">
+        <div class="row">
+
+          <!-- Technical Skills -->
+          <div class="col-md-7">
+            <section class="cv-section" style="height: 100%;">
+              <h2 class="cv-section-title"><i class="icon-tools"></i> Technical Skills</h2>
+              <div class="skills-grid">
+                <div class="skill-category">
+                  <h5><i class="fa fa-cogs" style="margin-right:5px;"></i> SAP Modules</h5>
+                  <div class="skill-tags">
+                    <span>S/4HANA FICO</span>
+                    <span>S/4HANA MM</span>
+                    <span>COPA (Profitability Analysis)</span>
+                    <span>ECC to S/4HANA Migration</span>
+                    <span>S/4HANA Solution Architecture</span>
+                    <span>SAP Analytics Cloud (SAC)</span>
+                    <span>SAP BTP</span>
+                    <span>SAP CRM</span>
+                    <span>SAP AP / AR</span>
+                    <span>SAP T&E (Travel & Expense)</span>
+                    <span>CDS Reporting Development</span>
+                    <span>SAP Activate Methodology</span>
+                  </div>
+                </div>
+                <div class="skill-category">
+                  <h5><i class="fa fa-plug" style="margin-right:5px;"></i> AI & Automation</h5>
+                  <div class="skill-tags">
+                    <span>Agentic AI</span>
+                    <span>LangChain</span>
+                    <span>LangGraph</span>
+                    <span>Retrieval-Augmented Generation (RAG)</span>
+                    <span>Machine Learning (ML)</span>
+                    <span>N8N Workflow Automation</span>
+                    <span>AI/ERP Integration</span>
+                    <span>SAP BTP AI Business Services</span>
+                  </div>
+                </div>
+                <div class="skill-category">
+                  <h5><i class="fa fa-code" style="margin-right:5px;"></i> Development & Tools</h5>
+                  <div class="skill-tags">
+                    <span>Python</span>
+                    <span>React</span>
+                    <span>VueJS</span>
+                    <span>Blockchain</span>
+                    <span>Cloud Infrastructure</span>
+                    <span>Agile Methodology</span>
+                    <span>SaaS Development</span>
+                  </div>
+                </div>
+                <div class="skill-category">
+                  <h5><i class="fa fa-line-chart" style="margin-right:5px;"></i> Finance & Governance</h5>
+                  <div class="skill-tags">
+                    <span>Financial Transformation</span>
+                    <span>Record-to-Report (R2R)</span>
+                    <span>Process Reengineering</span>
+                    <span>Data Governance</span>
+                    <span>Change Management</span>
+                    <span>Program Management</span>
+                    <span>Multi-country Deployments</span>
+                    <span>ITSM / ITIL</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Education & Certifications -->
+          <div class="col-md-5">
+            <section class="cv-section">
+              <h2 class="cv-section-title"><i class="icon-graduation-cap"></i> Education</h2>
+              <div class="edu-item">
+                <div class="edu-degree">BBA — Finance & IT</div>
+                <div class="edu-school">HEC Montréal</div>
+                <div class="edu-year">Graduated 2002</div>
+              </div>
+            </section>
+
+            <section class="cv-section">
+              <h2 class="cv-section-title"><i class="icon-award"></i> Certifications</h2>
+              <div style="margin-bottom: 15px;">
+                <div class="cert-item"><i class="fa fa-certificate" style="margin-right:6px;"></i> SAP Activate Delivery Methodology</div>
+                <div class="cert-item"><i class="fa fa-certificate" style="margin-right:6px;"></i> SAP Certified Application Associate</div>
+                <div class="cert-item"><i class="fa fa-certificate" style="margin-right:6px;"></i> S/4HANA FICO Solution Architecture</div>
+                <div class="cert-item"><i class="fa fa-certificate" style="margin-right:6px;"></i> ITIL Framework Implementation</div>
+              </div>
+            </section>
+
+            <section class="cv-section">
+              <h2 class="cv-section-title"><i class="fa fa-language"></i> Languages</h2>
+              <div class="languages-grid">
+                <div class="lang-item">
+                  <div class="lang-name">French</div>
+                  <div class="lang-level">Native</div>
+                </div>
+                <div class="lang-item">
+                  <div class="lang-name">English</div>
+                  <div class="lang-level">Professional</div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Publications -->
+      <section class="cv-section">
+        <h2 class="cv-section-title"><i class="icon-pencil"></i> Publications & Accomplishments</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="pub-item">
+              <div class="pub-title">The Agentic Loop: How AI Decides and Acts</div>
+              <div style="color:#888; font-size:0.82em;">Thought Leadership — AI & Enterprise Automation</div>
+            </div>
+            <div class="pub-item">
+              <div class="pub-title">SAP Joule: The Enterprise AI Copilot</div>
+              <div style="color:#888; font-size:0.82em;">Thought Leadership — SAP AI Integration</div>
+            </div>
+            <div class="pub-item">
+              <div class="pub-title">AI in Finance: Beyond the Hype</div>
+              <div style="color:#888; font-size:0.82em;">Thought Leadership — Finance Transformation</div>
+            </div>
+            <div class="pub-item">
+              <div class="pub-title">The Future of SAP S/4HANA</div>
+              <div style="color:#888; font-size:0.82em;">Industry Analysis — ERP Transformation</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="pub-item">
+              <div class="pub-title">Best Competitive Intelligence Tools 2026</div>
+              <div style="color:#888; font-size:0.82em;">Industry Comparison & Analysis</div>
+            </div>
+            <div class="pub-item">
+              <div class="pub-title">Crayon vs Klue vs WyzeLens: Track Competitors with AI</div>
+              <div style="color:#888; font-size:0.82em;">Competitive Intelligence — Tool Review</div>
+            </div>
+            <div class="pub-item">
+              <div class="pub-title">Intelligent Competitive Watch SaaS</div>
+              <div style="color:#888; font-size:0.82em;">Product Development — AI-powered platform</div>
+            </div>
+            <div class="pub-item">
+              <div class="pub-title">Test Management Solution with AI Features</div>
+              <div style="color:#888; font-size:0.82em;">Product Development — AI-powered SaaS platform</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Results -->
+      <section class="cv-section" style="background: linear-gradient(135deg, #0f3460, #16213e); color: white;">
+        <h2 class="cv-section-title" style="color: white; border-bottom-color: #e94560;"><i class="fa fa-trophy" style="color:#e94560;"></i> Key Achievements & Impact</h2>
+        <div class="row text-center">
+          <div class="col-sm-3">
+            <div style="font-size: 2.5em; font-weight: 800; color: #e94560; line-height: 1;">23+</div>
+            <div style="font-size: 0.9em; color: #ccc; margin-top: 5px;">Years of Experience</div>
+          </div>
+          <div class="col-sm-3">
+            <div style="font-size: 2.5em; font-weight: 800; color: #e94560; line-height: 1;">$12M+</div>
+            <div style="font-size: 0.9em; color: #ccc; margin-top: 5px;">Annual Cost Savings Delivered</div>
+          </div>
+          <div class="col-sm-3">
+            <div style="font-size: 2.5em; font-weight: 800; color: #e94560; line-height: 1;">50%</div>
+            <div style="font-size: 0.9em; color: #ccc; margin-top: 5px;">Reduction in Manual Processing</div>
+          </div>
+          <div class="col-sm-3">
+            <div style="font-size: 2.5em; font-weight: 800; color: #e94560; line-height: 1;">14+</div>
+            <div style="font-size: 0.9em; color: #ccc; margin-top: 5px;">Fortune 500 Clients Served</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-cv">
+      <div class="container">
+        <p>
+          <strong>David Laborieux</strong> &nbsp;|&nbsp; SAP / AI Transformation Senior Advisor &nbsp;|&nbsp; Founder & CEO, Labwyze<br>
+          <i class="fa fa-phone" style="margin-right:4px;"></i> +1 514 585 6434 &nbsp;|&nbsp; <i class="fa fa-envelope" style="margin-right:4px;"></i> david.laborieux@hec.ca &nbsp;|&nbsp; <i class="fa fa-globe" style="margin-right:4px;"></i> <a href="https://www.labwyze.com" style="color:#e94560;">www.labwyze.com</a> &nbsp;|&nbsp; <i class="fa fa-linkedin" style="margin-right:4px;"></i> <a href="https://www.linkedin.com/in/david-laborieux-a1864214" style="color:#e94560;">LinkedIn</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <script src="assets/lib/jquery/dist/jquery.js"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/lib/wow/dist/wow.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
