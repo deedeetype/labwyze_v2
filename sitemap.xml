@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/sap-ecc-end-of-support-2027.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/sap-n8n-investment.html</loc>
     <lastmod>2026-06-06</lastmod>
     <changefreq>monthly</changefreq>
