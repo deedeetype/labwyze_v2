@@ -24,6 +24,16 @@
 .blog-share a:hover { color: #333; }
 .navbar-blog { background-color: #1a1a1a !important; position: fixed; top: 0; width: 100%; z-index: 1000; }
 
+/* Internal links in blog body */
+.blog-post-content .col-md-8 a:not(.btn):not(.blog-share a) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+.blog-post-content .col-md-8 a:not(.btn):not(.blog-share a):hover {
+  color: #555;
+}
+
 /* Sidebar */
 .blog-sidebar { padding-top: 10px; }
 .blog-sidebar .sidebar-widget {

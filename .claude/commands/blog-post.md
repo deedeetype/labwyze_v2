@@ -63,7 +63,7 @@ Follow **exactly** the structure of `/Users/davidlaborieux/Documents/Development
 - 6–8 `<h3 class="font-alt">` sections with substantive content
 - At least 2 `.blog-key-takeaway` blocks
 - One `<div class="blog-image">` with the inline header image and a **descriptive alt text** (describe what the image depicts, not just the topic)
-- Internal links: naturally embed 2–4 links to other labwyze.com blog posts using `<a href="../blog/OTHER-POST.html">anchor text</a>` within body paragraphs
+- Internal links: naturally embed 2–4 links to other labwyze.com blog posts using `<a href="OTHER-POST.html">anchor text</a>` within body paragraphs. Links are automatically underlined via blog.css — no inline style needed.
 - Social share block at the bottom
 - Same footer and scripts
 
@@ -112,8 +112,32 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
 git push
 ```
 
-### 9. Report to user
+### 9. Generate LinkedIn post (copy-paste ready)
+
+Write a LinkedIn post for David to share this article. Rules — apply all of them without exception:
+
+**Tone & voice**
+- Personal, first-person: write as if David is sharing his own experience, perspective, or observation related to the topic
+- Not promotional, not corporate, not AI-sounding
+- No em dashes (—), no bullet-point dashes (-), no emojis anywhere
+
+**Format**
+- 3 to 5 paragraphs separated by a blank line
+- Use bullet points (without dashes — use a plain line break and indent) only when listing 3+ items; otherwise integrate into prose
+- End with 1 short, direct call to action (e.g., "Read the full analysis here:" followed by the post URL on its own line)
+- 4 to 6 hashtags on the last line, no line break before them
+
+**Content**
+- Hook in the first sentence: something surprising, personal, or counterintuitive about the topic
+- Reference a concrete fact or number from the article (verified, not invented)
+- 1 personal reflection or opinion clearly marked as such (e.g., "In my view,", "What struck me most,")
+- Do not repeat the article title verbatim
+
+Output the LinkedIn text in a clearly delimited block so David can copy-paste it directly.
+
+### 10. Report to user
 - Title and URL of the new post
 - Sources used (with links)
 - Internal links added
+- LinkedIn post (copy-paste ready)
 - Confirmation that everything is pushed
