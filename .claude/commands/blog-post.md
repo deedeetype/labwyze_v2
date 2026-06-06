@@ -23,7 +23,7 @@ Use this Python script template (fill in prompts):
 ```python
 import asyncio, fastapi_poe as fp, httpx
 
-API_KEY = "sk-poe-gvwkqlJlEVhkYoDjJ-nULYN6zf6J7AV4SYgoPyfGWIA"
+API_KEY = "RETRIEVE_FROM_MEMORY"  # stored in Claude memory: project/poe-api-key.md
 BOT = "nano-banana-pro"
 
 async def generate_image(prompt, out_path):
