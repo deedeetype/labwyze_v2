@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <!-- Homepage -->
   <url>
     <loc>https://labwyze.com/</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,30 +12,24 @@
   <!-- Main Pages -->
   <url>
     <loc>https://labwyze.com/about.html</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://labwyze.com/portfolio.html</loc>
     <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://labwyze.com/success.html</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://labwyze.com/404.html</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Blog Posts (linked from index.html) -->
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://labwyze.com/blog/tesla-terafab-ai-chip-factory.html</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://labwyze.com/blog/sap-rise-enterprise-cloud-transformation.html</loc>
     <lastmod>2026-03-19</lastmod>
@@ -55,7 +50,7 @@
   </url>
   <url>
     <loc>https://labwyze.com/blog/sap-joule-enterprise-ai-copilot.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -73,20 +68,45 @@
   </url>
   <url>
     <loc>https://labwyze.com/blog/best-competitive-intelligence-tools-2026.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://labwyze.com/blog/crayon-klue-wyzelens-comparison.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://labwyze.com/blog/ai-competitor-tracking-guide.html</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://labwyze.com/blog/digital-transformation-roadmap.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labwyze.com/blog/erp-cloud-migration.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labwyze.com/blog/quantum-computing-commercial.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labwyze.com/blog/ubi-revolution-underway.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
