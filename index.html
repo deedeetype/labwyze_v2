@@ -68,7 +68,109 @@
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
     <link href="assets/css/blog-cards.css" rel="stylesheet">
-  </head>
+  
+  <!-- Structured Data: Organization + LocalBusiness + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Labwyze",
+    "legalName": "Labwyze Inc.",
+    "url": "https://labwyze.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "Labwyze is a strategic technology consulting firm based in Montreal, Canada, specializing in SAP solutions, AI and automation, financial transformation, and digital transformation for enterprise clients globally.",
+    "slogan": "Pioneering Progress, Engineering Success",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Montreal",
+      "addressRegion": "Quebec",
+      "addressCountry": "CA"
+    },
+    "email": "info@labwyze.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "info@labwyze.com",
+      "availableLanguage": ["English", "French"]
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "Country", "name": "United States" }
+    ],
+    "knowsAbout": [
+      "SAP S/4HANA", "SAP FICO", "SAP ECC Migration", "SAP Joule",
+      "AI automation", "Digital transformation", "Financial transformation",
+      "Enterprise resource planning", "Accounts payable automation", "Competitive intelligence"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/labwyze/",
+      "https://www.youtube.com/@DavidDigitalLab"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Labwyze Consulting Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SAP Solutions", "description": "Comprehensive SAP implementations, S/4HANA migrations, and FICO optimization for enterprise clients." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Automation", "description": "Artificial intelligence and machine learning solutions that automate processes, enhance decision-making, and drive operational excellence." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Financial Transformation", "description": "End-to-end financial transformation including process reengineering, system implementations, and modernization of financial operations." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation", "description": "Strategic guidance and comprehensive technology roadmaps to transition organizations to digital business models." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project Leadership", "description": "Expert oversight of complex technology initiatives through proven methodologies, change management, and stakeholder engagement." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Solutions", "description": "Tailored software solutions and innovative technological products addressing specific business challenges." } }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Labwyze",
+    "image": "https://labwyze.com/assets/images/favicons/final_logo.png",
+    "url": "https://labwyze.com",
+    "email": "info@labwyze.com",
+    "description": "SAP consulting, AI automation, and digital transformation firm serving enterprise clients across Canada and globally from Montreal.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Montreal",
+      "addressRegion": "QC",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.5017,
+      "longitude": -73.5673
+    },
+    "areaServed": "Canada",
+    "priceRange": "551$",
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "sameAs": [
+      "https://www.linkedin.com/company/labwyze/",
+      "https://www.youtube.com/@DavidDigitalLab"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Labwyze",
+    "url": "https://labwyze.com",
+    "description": "Strategic technology consulting: SAP, AI, and financial transformation for enterprise clients.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Labwyze",
+      "url": "https://labwyze.com"
+    }
+  }
+  </script>
+</head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
       <div class="page-loader">
