@@ -1,2 +1,4 @@
-# No netlify.toml for static site
-netlify.toml
+.DS_Store
+**/.DS_Store
+.ftpquota
+node_modules/

@@ -4,9 +4,15 @@ console.log('%c Proudly Crafted with ZiOn.', 'background: #222; color: #bada55')
  * Preloader
  /* ---------------------------------------------- */
 (function(){
+    // Hide the preloader as soon as the DOM is ready instead of waiting for
+    // every asset (images, fonts) to finish — this unblocks First Contentful Paint.
+    $(document).ready(function() {
+        $('.loader').fadeOut('fast');
+        $('.page-loader').fadeOut('fast');
+    });
+    // Safety net: ensure it is gone after full load even if ready fired oddly.
     $(window).on('load', function() {
-        $('.loader').fadeOut();
-        $('.page-loader').delay(350).fadeOut('slow');
+        $('.page-loader').fadeOut('fast');
     });
 
     $(document).ready(function() {

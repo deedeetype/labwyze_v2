@@ -45,12 +45,16 @@
     =============================================
     
     -->
+    <!-- Performance: preconnect to font hosts + preload the LCP hero image -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="assets/images/toronto.jpg" fetchpriority="high">
     <!-- Default stylesheets-->
     <link href="assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Template specific stylesheets-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <!-- Template specific stylesheets (font-display:swap avoids invisible text)-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
     <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
@@ -73,7 +77,7 @@
       <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="index.html"><img src="assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain;" class="logo"></a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="index.html"><img decoding="async" src="assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain;" class="logo"></a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -227,37 +231,37 @@
           </div>
           <ul class="works-grid works-grid-gut works-grid-3 works-hover-w" id="works-grid">
             <li class="work-item rd"><a href="https://www.wyzetests.com">
-                <div class="work-image"><img src="assets/images/wyzetests.png" alt="Portfolio Item"/></div>
+                <div class="work-image"><img loading="lazy" decoding="async" src="assets/images/wyzetests.jpg" alt="Portfolio Item"/></div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title">R&D</h3>
                   <div class="work-descr">Successfully designed and deployed a comprehensive test management application that streamlines test case creation, execution tracking, and results analysis while enhancing QA team productivity.</div>
                 </div></a></li>
             <li class="work-item erp"><a href="portfolio-single-1.html">
-                <div class="work-image"><img src="assets/images/erp.png" alt="Portfolio Item"/></div>
+                <div class="work-image"><img loading="lazy" decoding="async" src="assets/images/erp.jpg" alt="Portfolio Item"/></div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title">ERP Implementation</h3>
                   <div class="work-descr">Led the successful implementation of SAP S/4HANA for a major utility company, driving digital transformation through optimized business processes, enhanced operational efficiency, and improved data analytics capabilities.</div>
                 </div></a></li>
             <li class="work-item AI"><a href="portfolio-single-1.html">
-                <div class="work-image"><img src="assets/images/ai.png" alt="Portfolio Item"/></div>
+                <div class="work-image"><img loading="lazy" decoding="async" src="assets/images/ai.jpg" alt="Portfolio Item"/></div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title">AI Integration</h3>
                   <div class="work-descr">Successfully transformed accounts payable operations by implementing intelligent automation solutions, reducing processing time by 70% and achieving significant cost savings while improving accuracy and vendor relationships.</div>
                 </div></a></li>
             <li class="work-item transformation"><a href="portfolio-single-1.html">
-                <div class="work-image"><img src="assets/images/transformation.png" alt="Portfolio Item"/></div>
+                <div class="work-image"><img loading="lazy" decoding="async" src="assets/images/transformation.jpg" alt="Portfolio Item"/></div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title">Transformation</h3>
                   <div class="work-descr">Led a comprehensive finance transformation initiative for a manufacturing company, modernizing financial processes, implementing advanced analytics, and establishing a shared services model to drive operational excellence and strategic decision-making.</div>
                 </div></a></li>
             <li class="work-item pm"><a href="portfolio-single-1.html">
-                <div class="work-image"><img src="assets/images/pm.png" alt="Portfolio Item"/></div>
+                <div class="work-image"><img loading="lazy" decoding="async" src="assets/images/pm.jpg" alt="Portfolio Item"/></div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title">Project Management</h3>
                   <div class="work-descr">Successfully rescued and realigned a derailed enterprise-wide IT implementation project, restoring stakeholder confidence and delivering key objectives through strategic intervention and enhanced governance frameworks.</div>
                 </div></a></li>
             <li class="work-item process"><a href="portfolio-single-1.html">
-                <div class="work-image"><img src="assets/images/process.png" alt="Portfolio Item"/></div>
+                <div class="work-image"><img loading="lazy" decoding="async" src="assets/images/process.jpg" alt="Portfolio Item"/></div>
                 <div class="work-caption font-alt">
                   <h3 class="work-title">Process Mining</h3>
                   <div class="work-descr">Streamlined Financial Planning & Analysis and accounting workflows through process reengineering and system optimization, resulting in faster month-end closes and more accurate financial forecasting capabilities.</div>
@@ -280,7 +284,7 @@
             <div class="row">
               <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="fadeInUp">
                 <div class="team-item">
-                  <div class="team-image"><img src="assets/images/team-1.jpg" alt="Member Photo"/>
+                  <div class="team-image"><img loading="lazy" decoding="async" src="assets/images/team-1.jpg" alt="Member Photo"/>
                     <div class="team-detail">
                       <h5 class="font-alt">Hi all</h5>
                       <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
@@ -295,7 +299,7 @@
               </div>
               <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="fadeInUp">
                 <div class="team-item">
-                  <div class="team-image"><img src="assets/images/team-2.jpg" alt="Member Photo"/>
+                  <div class="team-image"><img loading="lazy" decoding="async" src="assets/images/team-2.jpg" alt="Member Photo"/>
                     <div class="team-detail">
                       <h5 class="font-alt">Good day</h5>
                       <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
@@ -310,7 +314,7 @@
               </div>
               <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="fadeInUp">
                 <div class="team-item">
-                  <div class="team-image"><img src="assets/images/team-3.jpg" alt="Member Photo"/>
+                  <div class="team-image"><img loading="lazy" decoding="async" src="assets/images/team-3.jpg" alt="Member Photo"/>
                     <div class="team-detail">
                       <h5 class="font-alt">Hello</h5>
                       <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
@@ -325,7 +329,7 @@
               </div>
               <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-3" onclick="fadeInUp">
                 <div class="team-item">
-                  <div class="team-image"><img src="assets/images/team-4.jpg" alt="Member Photo"/>
+                  <div class="team-image"><img loading="lazy" decoding="async" src="assets/images/team-4.jpg" alt="Member Photo"/>
                     <div class="team-detail">
                       <h5 class="font-alt">Yes, it's me</h5>
                       <p class="font-serif">Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&amp;nbsp;iaculis diam.</p>
@@ -386,7 +390,7 @@
           </div>
         </section>
         -->
-        <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial" data-background="assets/images/office_future.png" style="padding: 100px 0;">
+        <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial" data-background="assets/images/office_future.jpg" style="padding: 100px 0;">
           <div class="container">
             <div class="row">
               <div class="col-sm-12 text-center">
@@ -397,46 +401,46 @@
               <div class="col-sm-12">
                 <div class="owl-carousel" id="clients-carousel">
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/bmw.png" alt="BMW" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/bmw.png" alt="BMW" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/riotinto.svg" alt="Rio Tinto" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/riotinto.svg" alt="Rio Tinto" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/kruger.gif" alt="Kruger" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/kruger.gif" alt="Kruger" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/energir.svg" alt="Énergir" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/energir.svg" alt="Énergir" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/grainger.svg" alt="Grainger" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/grainger.svg" alt="Grainger" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/national-bank.svg" alt="National Bank of Canada" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/national-bank.svg" alt="National Bank of Canada" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/bnp-paribas.svg" alt="BNP Paribas" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/bnp-paribas.svg" alt="BNP Paribas" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/areva.svg" alt="Areva" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/areva.svg" alt="Areva" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/cn.svg" alt="CN" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/cn.svg" alt="CN" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/hydro-quebec.svg" alt="Hydro-Québec" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/hydro-quebec.svg" alt="Hydro-Québec" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/wsp.svg" alt="WSP" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/wsp.svg" alt="WSP" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/holcim.png" alt="Holcim" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/holcim.png" alt="Holcim" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/StellaLogo.svg" alt="Stella Jones" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/StellaLogo.svg" alt="Stella Jones" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                   <div class="carousel-item text-center" style="height: 120px; display: flex; align-items: center; justify-content: center; padding: 20px;">
-                    <img src="assets/images/clients/Ludia-New-Logo.png" alt="Ludia" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
+                    <img loading="lazy" decoding="async" src="assets/images/clients/Ludia-New-Logo.png" alt="Ludia" style="max-width: 100%; max-height: 100px; width: auto; height: auto; object-fit: contain;">
                   </div>
                 </div>
               </div>
@@ -483,7 +487,7 @@
               <li class="card">
                 <a href="blog/sap-joule-top-5-use-cases.html">
                   <div class="card-image">
-                    <img src="blog/sap-joule-use-cases-thumb.jpg" alt="Abstract icon of five interconnected glowing nodes representing SAP Joule AI agent use cases across finance, supply chain, and HR"/>
+                    <img loading="lazy" decoding="async" src="blog/sap-joule-use-cases-thumb.jpg" alt="Abstract icon of five interconnected glowing nodes representing SAP Joule AI agent use cases across finance, supply chain, and HR"/>
                   </div>
                   <div class="card-content">
                     <h2>SAP JOULE IN 2026: THE TOP 5 USE CASES DELIVERING REAL ENTERPRISE RESULTS</h2>
@@ -495,7 +499,7 @@
               <li class="card">
                 <a href="blog/will-ai-kill-erp.html">
                   <div class="card-image">
-                    <img src="blog/will-ai-kill-erp-thumb.jpg" alt="Abstract hourglass split between legacy ERP circuit boards and glowing AI neural network nodes, representing the transformation of enterprise software"/>
+                    <img loading="lazy" decoding="async" src="blog/will-ai-kill-erp-thumb.jpg" alt="Abstract hourglass split between legacy ERP circuit boards and glowing AI neural network nodes, representing the transformation of enterprise software"/>
                   </div>
                   <div class="card-content">
                     <h2>WILL AI KILL ERP? THE ANSWER IS MORE NUANCED THAN THE HEADLINES SUGGEST</h2>
@@ -507,7 +511,7 @@
               <li class="card">
                 <a href="blog/sap-ecc-end-of-support-2027.html">
                   <div class="card-image">
-                    <img src="blog/sap-ecc-2027-thumb.jpg" alt="Hourglass with legacy ERP servers draining into a glowing cloud, representing the SAP ECC 2027 deadline urgency"/>
+                    <img loading="lazy" decoding="async" src="blog/sap-ecc-2027-thumb.jpg" alt="Hourglass with legacy ERP servers draining into a glowing cloud, representing the SAP ECC 2027 deadline urgency"/>
                   </div>
                   <div class="card-content">
                     <h2>SAP ECC SUPPORT ENDS DECEMBER 2027: WHAT LEADERS MUST DO BEFORE IT'S TOO LATE</h2>
@@ -519,7 +523,7 @@
               <li class="card">
                 <a href="blog/sap-n8n-investment.html">
                   <div class="card-image">
-                    <img src="blog/sap-n8n-thumb.jpg" alt="SAP and n8n logos connected by glowing workflow automation nodes, representing the $5.2B strategic investment partnership"/>
+                    <img loading="lazy" decoding="async" src="blog/sap-n8n-thumb.jpg" alt="SAP and n8n logos connected by glowing workflow automation nodes, representing the $5.2B strategic investment partnership"/>
                   </div>
                   <div class="card-content">
                     <h2>SAP INVESTS IN N8N AT $5.2B VALUATION: INSIDE THE PARTNERSHIP RESHAPING ENTERPRISE AI</h2>
@@ -531,7 +535,7 @@
               <li class="card">
                 <a href="blog/tesla-terafab-ai-chip-factory.html">
                   <div class="card-image">
-                    <img src="assets/images/terafab-header.jpg" alt="Tesla Terafab AI Chip Factory"/>
+                    <img loading="lazy" decoding="async" src="assets/images/terafab-header.jpg" alt="Tesla Terafab AI Chip Factory"/>
                   </div>
                   <div class="card-content">
                     <h2>TESLA TERAFAB: INSIDE THE $25B PLAN TO BUILD AI CHIPS AT SCALE</h2>
@@ -543,7 +547,7 @@
               <li class="card">
                 <a href="blog/sap-rise-enterprise-cloud-transformation.html">
                   <div class="card-image">
-                    <img src="assets/images/blog-sap-rise-featured.png" alt="SAP RISE Enterprise Cloud Transformation"/>
+                    <img loading="lazy" decoding="async" src="assets/images/blog-sap-rise-featured.jpg" alt="SAP RISE Enterprise Cloud Transformation"/>
                   </div>
                   <div class="card-content">
                     <h2>SAP RISE: The Complete Guide to Enterprise Cloud Transformation</h2>
@@ -555,7 +559,7 @@
               <li class="card">
                 <a href="blog/autonomous-ai-agents-enterprise-2026.html">
                   <div class="card-image">
-                    <img src="blog/ai-agents-header.jpg" alt="Autonomous AI Agents in Enterprise"/>
+                    <img loading="lazy" decoding="async" src="blog/ai-agents-header.jpg" alt="Autonomous AI Agents in Enterprise"/>
                   </div>
                   <div class="card-content">
                     <h2>AUTONOMOUS AI AGENTS IN ENTERPRISE: THE 2026 REVOLUTION</h2>
@@ -567,7 +571,7 @@
               <li class="card">
                 <a href="blog/agentic-ai-loop.html">
                   <div class="card-image">
-                    <img src="blog/agentic-loop-header.png" alt="The Agentic Loop"/>
+                    <img loading="lazy" decoding="async" src="blog/agentic-loop-header.png" alt="The Agentic Loop"/>
                   </div>
                   <div class="card-content">
                     <h2>The Agentic Loop: How AI Decides and Acts</h2>
@@ -579,7 +583,7 @@
               <li class="card">
                 <a href="blog/sap-joule-enterprise-ai-copilot.html">
                   <div class="card-image">
-                    <img src="assets/images/linkedin-infographic-2026-02-23-v3.png" alt="SAP Joule AI Copilot"/>
+                    <img loading="lazy" decoding="async" src="assets/images/linkedin-infographic-2026-02-23-v3.jpg" alt="SAP Joule AI Copilot"/>
                   </div>
                   <div class="card-content">
                     <h2>SAP Joule: The Enterprise AI Copilot Reshaping How We Work</h2>
@@ -591,7 +595,7 @@
               <li class="card">
                 <a href="blog/ai-in-finance.html">
                   <div class="card-image">
-                    <img src="assets/images/thumb-ai-finance.jpg" alt="AI in Finance"/>
+                    <img loading="lazy" decoding="async" src="assets/images/thumb-ai-finance.jpg" alt="AI in Finance"/>
                   </div>
                   <div class="card-content">
                     <h2>AI in Finance: Beyond the Hype</h2>
@@ -603,7 +607,7 @@
               <li class="card">
                 <a href="blog/sap-s4hana-future.html">
                   <div class="card-image">
-                    <img src="assets/images/thumb-sap.jpg" alt="SAP S/4HANA"/>
+                    <img loading="lazy" decoding="async" src="assets/images/thumb-sap.jpg" alt="SAP S/4HANA"/>
                   </div>
                   <div class="card-content">
                     <h2>The Future of SAP S/4HANA</h2>
@@ -615,7 +619,7 @@
               <li class="card">
                 <a href="blog/autonomous-ai-agents-enterprise-2026.html">
                   <div class="card-image">
-                    <img src="blog/ai-agents-thumb.jpg" alt="Autonomous AI Agents Enterprise"/>
+                    <img loading="lazy" decoding="async" src="blog/ai-agents-thumb.jpg" alt="Autonomous AI Agents Enterprise"/>
                   </div>
                   <div class="card-content">
                     <h2>Autonomous AI Agents in Enterprise: The 2026 Revolution</h2>
@@ -628,7 +632,7 @@
               <li class="card">
                 <a href="blog/best-competitive-intelligence-tools-2026.html">
                   <div class="card-image">
-                    <img src="blog/ci-tools-thumb.jpg" alt="Best CI Tools 2026"/>
+                    <img loading="lazy" decoding="async" src="blog/ci-tools-thumb.jpg" alt="Best CI Tools 2026"/>
                   </div>
                   <div class="card-content">
                     <h2>Best Competitive Intelligence Tools 2026</h2>
@@ -640,7 +644,7 @@
               <li class="card">
                 <a href="blog/crayon-klue-wyzelens-comparison.html">
                   <div class="card-image">
-                    <img src="blog/comparison-thumb.jpg" alt="Crayon vs Klue vs WyzeLens"/>
+                    <img loading="lazy" decoding="async" src="blog/comparison-thumb.jpg" alt="Crayon vs Klue vs WyzeLens"/>
                   </div>
                   <div class="card-content">
                     <h2>Crayon vs Klue vs WyzeLens</h2>
@@ -652,7 +656,7 @@
               <li class="card">
                 <a href="blog/ai-competitor-tracking-guide.html">
                   <div class="card-image">
-                    <img src="blog/ai-tracking-thumb.jpg" alt="AI Competitor Tracking"/>
+                    <img loading="lazy" decoding="async" src="blog/ai-tracking-thumb.jpg" alt="AI Competitor Tracking"/>
                   </div>
                   <div class="card-content">
                     <h2>Track Competitors with AI</h2>
@@ -706,7 +710,7 @@
             <div class="row">
               <div class="col-sm-4">
                 <div class="widget">
-                  <a href="index.html"><img src="assets/images/favicons/BarLogo.png" alt="Labwyze" style="max-width: 160px; margin-bottom: 15px;"></a>
+                  <a href="index.html"><img loading="lazy" decoding="async" src="assets/images/favicons/BarLogo.png" alt="Labwyze" style="max-width: 160px; margin-bottom: 15px;"></a>
                   <p style="color: #999; font-size: 13px;">Pioneering Progress, Engineering Success.<br>Strategic technology consulting for the modern enterprise.</p>
                 </div>
               </div>
@@ -746,7 +750,6 @@
         </footer>
       </div>
       <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-      <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
     </main>
     <!--  
     JavaScripts
@@ -763,7 +766,6 @@
     <script src="assets/lib/smoothscroll.js"></script>
     <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
-    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     

@@ -66,3 +66,9 @@ h3.font-alt.pillars-section-heading::before {
 .pillars-section-heading {
   position: relative;
 }
+
+/* Performance: paint the hero (LCP) background from CSS immediately,
+   instead of waiting for jQuery/main.js to apply data-background. */
+#home {
+  background-image: url("../images/toronto.jpg");
+}
