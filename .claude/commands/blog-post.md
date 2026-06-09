@@ -53,17 +53,78 @@ asyncio.run(main())
 - Format: `kebab-case-topic-keywords.html`
 - Must accurately reflect the actual content (not a clickbait or wrong framing)
 
-### 5. Create the blog post HTML
+### 5. Generate the JSON-LD schema block
+
+Before writing the HTML, generate the BlogPosting schema. Fill in all values from the research and decisions above:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "EXACT TITLE (matches <title> tag, max 110 chars)",
+  "description": "EXACT META DESCRIPTION (matches <meta name=description>, 150–160 chars)",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://labwyze.com/blog/SLUG-header.jpg",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "PERSON_OR_ORGANIZATION",
+    "name": "David Laborieux OR Labwyze Team",
+    "url": "https://www.linkedin.com/in/david-laborieux-a1864214/ OR https://labwyze.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Labwyze",
+    "url": "https://labwyze.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "datePublished": "YYYY-MM-DD",
+  "dateModified": "YYYY-MM-DD",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://labwyze.com/blog/SLUG.html"
+  },
+  "inLanguage": "en",
+  "keywords": "COMMA, SEPARATED, FROM, META KEYWORDS TAG",
+  "about": {
+    "@type": "Thing",
+    "name": "PRIMARY TOPIC (e.g. SAP Joule, AI agents, digital transformation)"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Labwyze Blog",
+    "url": "https://labwyze.com/blog"
+  }
+}
+```
+
+**Schema rules:**
+- `author @type`: use `"Person"` when David Laborieux is the byline, `"Organization"` for Labwyze Team
+- `author url`: use David's LinkedIn URL for Person, `https://labwyze.com` for Organization
+- `headline` must exactly match the `<title>` content (minus ` | Labwyze Blog`)
+- `description` must exactly match `<meta name="description">`
+- `datePublished` and `dateModified` = today's date in YYYY-MM-DD format
+- Never leave placeholder values — every field must be filled before inserting
+
+### 6. Create the blog post HTML
 Follow **exactly** the structure of `/Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog/tesla-terafab-ai-chip-factory.html`:
-- Same `<head>` with meta description, keywords, canonical, OG tags, Twitter card, Schema.org Article JSON-LD
+- Same `<head>` with meta description, keywords, canonical, OG tags, Twitter card
+- **Insert the JSON-LD schema block from Step 5** as the last item before `</head>`, wrapped in `<script type="application/ld+json">...</script>`
 - Same navbar, `.blog-post-header` with background image from the generated header
 - Same `.blog-post-content` > `.col-md-8.col-md-offset-2` layout
 - Opening blockquote (real, sourced quote)
 - `<p class="lead">` intro paragraph
 - 6–8 `<h3 class="font-alt">` sections with substantive content
 - At least 2 `.blog-key-takeaway` blocks
-- One `<div class="blog-image">` with the inline header image and a **descriptive alt text** (describe what the image depicts, not just the topic)
-- Internal links: naturally embed 2–4 links to other labwyze.com blog posts using `<a href="OTHER-POST.html">anchor text</a>` within body paragraphs. Links are automatically underlined via blog.css — no inline style needed.
+- One `<div class="blog-image">` with the inline header image and a **descriptive alt text**
+- Internal links: naturally embed 2–4 links to other labwyze.com blog posts using `<a href="OTHER-POST.html">anchor text</a>` within body paragraphs
 - Social share block at the bottom
 - Same footer and scripts
 
@@ -74,8 +135,9 @@ Follow **exactly** the structure of `/Users/davidlaborieux/Documents/Development
 - [ ] `datePublished` set to today's date
 - [ ] Descriptive alt text on all images
 - [ ] Internal links to 2–4 related posts
+- [ ] JSON-LD schema block present and complete (no placeholder values)
 
-### 6. Update index.html — Latest Blog Posts section
+### 7. Update index.html — Latest Blog Posts section
 Add a new `<li class="card">` as the **first card** in the `<ul class="cards">` list:
 ```html
 <li class="card">
@@ -92,7 +154,7 @@ Add a new `<li class="card">` as the **first card** in the `<ul class="cards">` 
 </li>
 ```
 
-### 7. Update sitemap.xml
+### 8. Update sitemap.xml
 Add a new `<url>` block as the first entry under `<!-- Blog Posts -->`:
 ```xml
 <url>
@@ -103,7 +165,7 @@ Add a new `<url>` block as the first entry under `<!-- Blog Posts -->`:
 </url>
 ```
 
-### 8. Commit and push
+### 9. Commit and push
 ```bash
 git add blog/SLUG.html blog/SLUG-header.jpg blog/SLUG-thumb.jpg index.html sitemap.xml
 git commit -m "feat(blog): Add post — TITLE
@@ -112,7 +174,7 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
 git push
 ```
 
-### 9. Generate LinkedIn post (copy-paste ready)
+### 10. Generate LinkedIn post (copy-paste ready)
 
 Write a LinkedIn post for David to share this article. Rules — apply all of them without exception:
 
@@ -124,7 +186,7 @@ Write a LinkedIn post for David to share this article. Rules — apply all of th
 **Format**
 - 3 to 5 paragraphs separated by a blank line
 - Use bullet points (without dashes — use a plain line break and indent) only when listing 3+ items; otherwise integrate into prose
-- End with 1 short, direct call to action (e.g., "Read the full analysis here:" followed by the post URL on its own line)
+- End with 1 short, direct call to action (e.g., "Read the full analysis here:") followed by the post URL on its own line
 - 4 to 6 hashtags on the last line, no line break before them
 
 **Content**
@@ -135,9 +197,10 @@ Write a LinkedIn post for David to share this article. Rules — apply all of th
 
 Output the LinkedIn text in a clearly delimited block so David can copy-paste it directly.
 
-### 10. Report to user
+### 11. Report to user
 - Title and URL of the new post
 - Sources used (with links)
 - Internal links added
 - LinkedIn post (copy-paste ready)
 - Confirmation that everything is pushed
+- Reminder to validate schema at https://search.google.com/test/rich-results
