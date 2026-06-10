@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/foxconn-momclaw-ai-factory-agents.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/four-day-workweek-standard.html</loc>
     <lastmod>2026-06-10</lastmod>
     <changefreq>monthly</changefreq>
