@@ -47,7 +47,8 @@ asyncio.run(main())
 ```
 
 - **Header prompt**: cinematic, wide 16:9, photorealistic, no text overlays, relevant to the topic
-- **Thumb prompt**: square, abstract/iconic composition, bold colors, no text
+- **Thumb prompt**: square, bold and readable at small sizes, no text
+- **Make it click-worthy — bias toward a human subject + concrete symbols of the topic, not abstract shapes.** Abstract glowing-lines/nodes art looks generic and gives no reason to click. Whenever the topic allows, anchor the image on a real person (or a relatable figure) interacting with recognizable objects/symbols that represent the subject. Faces and people out-perform abstract art on click-through. Reserve purely abstract compositions for topics that genuinely have no human angle.
 
 **SECURITY — never commit the API key:**
 - Write this script to `/tmp` (e.g. `/tmp/gen_img.py`), substitute the real key from memory there, run it, then delete it.
