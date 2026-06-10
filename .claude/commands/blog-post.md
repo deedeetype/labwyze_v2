@@ -49,6 +49,19 @@ asyncio.run(main())
 - **Header prompt**: cinematic, wide 16:9, photorealistic, no text overlays, relevant to the topic
 - **Thumb prompt**: square, abstract/iconic composition, bold colors, no text
 
+**SECURITY — never commit the API key:**
+- Write this script to `/tmp` (e.g. `/tmp/gen_img.py`), substitute the real key from memory there, run it, then delete it.
+- NEVER save the script (with the key) inside the repo — Netlify's secret scanner will block the deploy, and the key must stay out of git.
+
+**Optimize the images before using them (mandatory — they come out 1.2–1.5 MB):**
+Raw Poe output is far too heavy and will wreck Core Web Vitals (LCP). Compress in place right after generating:
+```bash
+cd /Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog
+sips -Z 1600 -s format jpeg -s formatOptions 78 SLUG-header.jpg --out SLUG-header.jpg   # ~300 KB
+sips -Z 800  -s format jpeg -s formatOptions 78 SLUG-thumb.jpg  --out SLUG-thumb.jpg    # ~130 KB
+```
+Confirm both are well under 500 KB before committing.
+
 ### 4. Choose a filename slug
 - Format: `kebab-case-topic-keywords.html`
 - Must accurately reflect the actual content (not a clickbait or wrong framing)
@@ -61,13 +74,13 @@ Before writing the HTML, generate the BlogPosting schema. Fill in all values fro
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "EXACT TITLE (matches <title> tag, max 110 chars)",
-  "description": "EXACT META DESCRIPTION (matches <meta name=description>, 150–160 chars)",
+  "headline": "EXACT TITLE (matches <title> tag minus ' | Labwyze Blog')",
+  "description": "EXACT META DESCRIPTION (copy verbatim from <meta name=description>, whatever its length)",
   "image": {
     "@type": "ImageObject",
     "url": "https://labwyze.com/blog/SLUG-header.jpg",
-    "width": 1200,
-    "height": 630
+    "width": 1600,
+    "height": 893
   },
   "author": {
     "@type": "PERSON_OR_ORGANIZATION",
@@ -116,6 +129,12 @@ Before writing the HTML, generate the BlogPosting schema. Fill in all values fro
 ### 6. Create the blog post HTML
 Follow **exactly** the structure of `/Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog/tesla-terafab-ai-chip-factory.html`:
 - Same `<head>` with meta description, keywords, canonical, OG tags, Twitter card
+- **REQUIRED — add a social preview image (the reference template is missing these, do not skip):**
+  ```html
+  <meta property="og:image" content="https://labwyze.com/blog/SLUG-header.jpg" />
+  <meta name="twitter:image" content="https://labwyze.com/blog/SLUG-header.jpg" />
+  ```
+  Without `og:image`, LinkedIn/X/Facebook shares have no reliable preview thumbnail — and this pipeline exists to drive LinkedIn traffic, so this is non-negotiable. Keep `twitter:card` set to `summary_large_image`.
 - **Insert the JSON-LD schema block from Step 5** as the last item before `</head>`, wrapped in `<script type="application/ld+json">...</script>`
 - Same navbar, `.blog-post-header` with background image from the generated header
 - Same `.blog-post-content` > `.col-md-8.col-md-offset-2` layout
@@ -136,6 +155,8 @@ Follow **exactly** the structure of `/Users/davidlaborieux/Documents/Development
 - [ ] Descriptive alt text on all images
 - [ ] Internal links to 2–4 related posts
 - [ ] JSON-LD schema block present and complete (no placeholder values)
+- [ ] `og:image` and `twitter:image` present, pointing to SLUG-header.jpg
+- [ ] Header and thumb images optimized (each well under 500 KB)
 
 ### 7. Update index.html — Latest Blog Posts section
 Add a new `<li class="card">` as the **first card** in the `<ul class="cards">` list:
@@ -143,7 +164,7 @@ Add a new `<li class="card">` as the **first card** in the `<ul class="cards">` 
 <li class="card">
   <a href="blog/SLUG.html">
     <div class="card-image">
-      <img src="blog/SLUG-thumb.jpg" alt="DESCRIPTIVE ALT TEXT"/>
+      <img loading="lazy" decoding="async" src="blog/SLUG-thumb.jpg" alt="DESCRIPTIVE ALT TEXT"/>
     </div>
     <div class="card-content">
       <h2>TITLE IN UPPERCASE</h2>
