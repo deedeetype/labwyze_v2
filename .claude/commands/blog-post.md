@@ -98,8 +98,8 @@ Before writing the HTML, generate the BlogPosting schema. Fill in all values fro
       "height": 512
     }
   },
-  "datePublished": "YYYY-MM-DD",
-  "dateModified": "YYYY-MM-DD",
+  "datePublished": "YYYY-MM-DDT09:00:00-04:00",
+  "dateModified": "YYYY-MM-DDT09:00:00-04:00",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://labwyze.com/blog/SLUG.html"
@@ -123,7 +123,7 @@ Before writing the HTML, generate the BlogPosting schema. Fill in all values fro
 - `author url`: use David's LinkedIn URL for Person, `https://labwyze.com` for Organization
 - `headline` must exactly match the `<title>` content (minus ` | Labwyze Blog`)
 - `description` must exactly match `<meta name="description">`
-- `datePublished` and `dateModified` = today's date in YYYY-MM-DD format
+- `datePublished` and `dateModified` = today's date as a **full ISO 8601 datetime with timezone offset**, e.g. `2026-06-10T09:00:00-04:00`. A date alone (`YYYY-MM-DD`) triggers a "missing timezone / invalid datetime" warning in Google's Rich Results test. Labwyze is in Montreal (Eastern): use `-04:00` during EDT (roughly mid-March to early November) and `-05:00` during EST (the rest of the year). Match `<meta property="article:published_time">` to the same value.
 - Never leave placeholder values — every field must be filled before inserting
 
 ### 6. Create the blog post HTML
