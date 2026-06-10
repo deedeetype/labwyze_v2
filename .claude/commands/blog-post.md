@@ -186,14 +186,22 @@ Write a LinkedIn post for David to share this article. Rules — apply all of th
 **Format**
 - 3 to 5 paragraphs separated by a blank line
 - Use bullet points (without dashes — use a plain line break and indent) only when listing 3+ items; otherwise integrate into prose
-- End with 1 short, direct call to action (e.g., "Read the full analysis here:") followed by the post URL on its own line
+- Immediately BEFORE the call to action, add one short, genuine discussion question on its own line to invite comments (e.g., "Curious how others are seeing this play out. Are you...?"). Keep it specific to the topic, not generic.
+- End with one short, direct call to action (e.g., "Read the full analysis here:") followed by the post URL on its own line
 - 4 to 6 hashtags on the last line, no line break before them
 
 **Content**
-- Hook in the first sentence: something surprising, personal, or counterintuitive about the topic
-- Reference a concrete fact or number from the article (verified, not invented)
+- Hook in the first sentence: lead with a concrete, verified number or fact from the article (e.g., a dollar figure, percentage, date, or benchmark), framed in a surprising or counterintuitive way. The number must come early, not buried in a later paragraph.
+- Reference at least one additional concrete fact or number from the article (verified, not invented)
 - 1 personal reflection or opinion clearly marked as such (e.g., "In my view,", "What struck me most,")
 - Do not repeat the article title verbatim
+
+> EXPERIMENTAL (added 2026-06-09, based on LinkedIn analytics): the "number-first hook"
+> and "discussion question before the CTA" rules are a test. The data showed top-reach
+> posts led with a hard number, and the only high-comment post invited discussion.
+> Evaluate after the next few posts; if engagement does not improve, revert these two
+> rules to the prior version (hook = "surprising/personal/counterintuitive", single CTA
+> with no question). These rules apply to the LinkedIn post ONLY, never the blog article.
 
 Output the LinkedIn text in a clearly delimited block so David can copy-paste it directly.
 
