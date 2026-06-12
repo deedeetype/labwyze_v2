@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/generative-ai-ethics-risks-2026.html</loc>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/future-predictive-analytics-ai-agents.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
