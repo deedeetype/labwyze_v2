@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/what-happened-to-prompt-engineering.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/s4hana-finance-transformation-governance-pitfalls.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
