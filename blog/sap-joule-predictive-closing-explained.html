@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      SAP Joule and Predictive Closing, Explained: How AI Turns Month-End Into a Continuous Process | Labwyze Blog
+    </title>
+    <meta
+      name="description"
+      content="A plain-language guide to SAP Joule and predictive closing: what predictive accounting and the predicted close actually are, how Joule's AI agents orchestrate the financial close, a worked example with the Accounting Accruals Agent, the four close types, and common misconceptions to avoid."
+    />
+    <meta
+      name="keywords"
+      content="SAP Joule, predictive closing, predictive accounting, predicted close, continuous close, financial close, Accounting Accruals Agent, SAP S/4HANA Finance, Universal Journal, extension ledger, agentic AI finance"
+    />
+    <link rel="canonical" href="https://labwyze.com/blog/sap-joule-predictive-closing-explained.html" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="SAP Joule and Predictive Closing, Explained: How AI Turns Month-End Into a Continuous Process" />
+    <meta property="og:description" content="What predictive accounting and the predicted close really are, how SAP Joule's AI agents orchestrate the financial close, and a worked example with the Accounting Accruals Agent. A clear, jargon-aware guide." />
+    <meta property="og:url" content="https://labwyze.com/blog/sap-joule-predictive-closing-explained.html" />
+    <meta property="og:site_name" content="Labwyze" />
+    <meta property="og:image" content="https://labwyze.com/blog/sap-joule-predictive-closing-explained-header.jpg" />
+    <meta property="article:published_time" content="2026-06-15T09:00:00-04:00" />
+    <meta property="article:section" content="Guide" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SAP Joule and Predictive Closing, Explained" />
+    <meta name="twitter:description" content="What predictive accounting and the predicted close really are, and how SAP Joule's AI agents orchestrate a continuous financial close. A clear, jargon-aware guide." />
+    <meta name="twitter:image" content="https://labwyze.com/blog/sap-joule-predictive-closing-explained-header.jpg" />
+
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet" />
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet" />
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet" />
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/blog.css" rel="stylesheet" />
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                    url("sap-joule-predictive-closing-explained-header.jpg") center/cover;
+        color: white;
+      }
+      .blog-post-category { display: inline-block; padding: 5px 15px; border: 1px solid rgba(255,255,255,0.5); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+      .blog-post-title { font-size: 36px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+      .blog-post-meta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
+      .blog-quote { font-family: "Volkhov", serif; font-style: italic; font-size: 24px; text-align: center; padding: 40px 0; color: #333; max-width: 800px; margin: 0 auto 40px; }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway { border-left: 3px solid #333; padding-left: 20px; margin: 40px 0; }
+      .blog-key-takeaway h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px; }
+      .blog-share { border-top: 1px solid #eee; padding-top: 30px; margin-top: 40px; text-align: center; }
+      .blog-share a { display: inline-block; margin: 0 10px; color: #999; font-size: 18px; }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog { background-color: #1a1a1a !important; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SAP Joule and Predictive Closing, Explained: How AI Turns Month-End Into a Continuous Process",
+        "description": "A plain-language guide to SAP Joule and predictive closing: what predictive accounting and the predicted close actually are, how Joule's AI agents orchestrate the financial close, a worked example with the Accounting Accruals Agent, the four close types, and common misconceptions to avoid.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://labwyze.com/blog/sap-joule-predictive-closing-explained-header.jpg",
+          "width": 1600,
+          "height": 893
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Labwyze Team",
+          "url": "https://labwyze.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Labwyze",
+          "url": "https://labwyze.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+            "width": 512,
+            "height": 512
+          }
+        },
+        "datePublished": "2026-06-15T09:00:00-04:00",
+        "dateModified": "2026-06-15T09:00:00-04:00",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://labwyze.com/blog/sap-joule-predictive-closing-explained.html"
+        },
+        "inLanguage": "en",
+        "keywords": "SAP Joule, predictive closing, predictive accounting, predicted close, continuous close, financial close, Accounting Accruals Agent, SAP S/4HANA Finance, Universal Journal, extension ledger, agentic AI finance",
+        "about": {
+          "@type": "Thing",
+          "name": "SAP Joule and Predictive Financial Closing"
+        },
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "Labwyze Blog",
+          "url": "https://labwyze.com/blog"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is predictive accounting in SAP?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Predictive accounting gives a future view of accounting results by automatically posting predictive journal entries and reversals in a dedicated extension ledger. It pulls data from outside Finance, such as sales orders, to estimate what period-end results will look like before the actual postings occur, without affecting the legal books."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a predicted close?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A predicted close means closing and analysis activities are performed on the basis of predicted actuals instead of actual financial postings, so finance teams can see a near-final view of results before the period formally ends and remove month-end surprises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SAP Joule post journal entries on its own?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SAP's Accounting Accruals Agent autonomously proposes, calculates, and explains journal entries, but a human accountant reviews, modifies, or rejects each proposal before it is posted. The agent does the preparation work; the human keeps approval authority."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a hard close, soft close, continuous close, and predicted close?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A hard close is the final, backward-looking close of a period with no further postings allowed. A soft close uses abbreviated procedures to produce faster but less precise statements for management. A continuous close spreads close tasks across the period instead of cramming them at month-end. A predicted close uses predicted actuals to preview results before the period ends."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader"><div class="loader">Loading...</div></div>
+
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="logo" href="../index.html">
+              <img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain" class="logo" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">Explainer</span>
+          <h1 class="blog-post-title font-alt">
+            SAP Joule and Predictive Closing, Explained: How AI Turns Month-End Into a Continuous Process
+          </h1>
+          <div class="blog-post-meta">
+            15 June 2026 &nbsp;|&nbsp; Guide &bull; SAP Finance &bull; Joule &bull; Financial Close
+          </div>
+        </div>
+      </header>
+
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <blockquote class="blog-quote" style="color: #dcd3d3">
+                  "Predicted close means analysis and closing activities are
+                  executed on the basis of predicted actuals instead of actual
+                  financial postings."
+                </blockquote>
+                <p style="text-align: center; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #454444; margin-top: -30px; margin-bottom: 40px;">
+                  — SAP, on the continuous and predicted financial close
+                </p>
+
+                <p class="lead">
+                  If you have ever lived through a month-end close, you know the
+                  pattern: a quiet first three weeks, then a frantic scramble of
+                  accruals, reconciliations, and journal corrections crammed into a
+                  few days. <strong>SAP Joule and predictive closing</strong> are
+                  meant to break that pattern by spreading the work across the whole
+                  period and letting AI agents do much of the preparation. By the end
+                  of this guide you will understand four things clearly: what
+                  predictive accounting actually is, what a "predicted close" means,
+                  how SAP Joule's AI agents orchestrate the close, and where the human
+                  accountant still sits in the loop. No prior SAP expertise required;
+                  every term is defined as we go.
+                </p>
+
+                <div class="blog-image">
+                  <img
+                    src="sap-joule-predictive-closing-explained-header.jpg"
+                    alt="Infographic flowchart titled SAP Joule and the Predictive Close, showing five stages from Transactions to Predictive Accounting, Continuous Close, Joule Agents, and Human Approval then Hard Close, with a Close Types cheatsheet listing Hard, Soft, Continuous and Predicted"
+                  />
+                </div>
+
+                <h3 class="font-alt">First, What Is the "Close" and Why Is It Painful?</h3>
+
+                <p>
+                  The <strong>financial close</strong> is the process of finalizing a
+                  company's books for a period (a month, quarter, or year) so it can
+                  report accurate results. It involves recording all transactions,
+                  posting <strong>accruals</strong> (entries for expenses or revenue
+                  that have been incurred but not yet invoiced), reconciling accounts,
+                  validating journal entries, and eliminating intercompany balances.
+                  Traditionally this work piles up at period-end, which is why
+                  finance teams describe close week as a sprint. To put the burden in
+                  perspective, finance teams report that accruals alone can consume
+                  <strong>30 to 50% of total close effort</strong>. Predictive closing
+                  is, at heart, an attempt to stop saving all that work for the last
+                  minute.
+                </p>
+
+                <h3 class="font-alt">What Is Predictive Accounting?</h3>
+
+                <p>
+                  <strong>Predictive accounting</strong> is an SAP S/4HANA capability
+                  that gives you a future view of your accounting results by
+                  automatically posting <strong>predictive journal entries</strong>
+                  (and their later reversals) into a dedicated
+                  <strong>extension ledger</strong>. An extension ledger is a kind of
+                  overlay ledger: it stores extra, "what-if" postings on top of your
+                  real books without touching the legal financial records underneath.
+                </p>
+
+                <p>
+                  The clever part is where the data comes from. Predictive accounting
+                  pulls information from areas outside Finance, such as Sales, from
+                  integrated products like SAP Concur, or even external systems, and
+                  uses it to estimate future results at any time. A simple example:
+                  the moment a sales order is created, predictive accounting can post
+                  a predictive entry for the revenue and cost that order will
+                  eventually generate, long before the goods ship or the invoice is
+                  raised. Finance then has an early, evolving picture of how the
+                  period is shaping up, and why.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    Predictive accounting does not touch your legal books. Predictive
+                    journal entries live in a separate extension ledger, so you can
+                    preview likely results without distorting the official numbers.
+                    "Predicted" and "actual" coexist side by side.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">The Foundation: The Universal Journal</h3>
+
+                <p>
+                  None of this would work without the data foundation SAP S/4HANA
+                  introduced: the <strong>Universal Journal</strong> (stored in a
+                  single table, ACDOCA). Before it, financial data was scattered
+                  across many separate tables that had to be reconciled against each
+                  other. The Universal Journal merges accounting and controlling data
+                  into one in-memory source of truth, which is what makes real-time,
+                  continuous, and predictive views possible in the first place. If you
+                  want the deeper architectural story, we covered how this same data
+                  model reshapes finance projects in our piece on
+                  <a href="s4hana-finance-transformation-governance-pitfalls.html">governance pitfalls in S/4HANA Finance transformations</a>.
+                </p>
+
+                <h3 class="font-alt">Where SAP Joule Comes In</h3>
+
+                <p>
+                  <strong>SAP Joule</strong> is SAP's AI assistant, or copilot,
+                  embedded across its applications. In finance it works in three
+                  modes: <em>find</em> (surface documents, open items, deviations, and
+                  tasks without endless clicking), <em>understand</em> (explain
+                  drivers, outliers, and root causes, with drilldowns), and
+                  <em>act</em> (jump straight into the relevant app or worklist). For
+                  the close specifically, SAP introduced a
+                  <strong>Financial Closing Assistant</strong> that coordinates
+                  multiple AI agents to orchestrate the full close lifecycle across
+                  posting, accruals, journal validation, error resolution, and
+                  intercompany reconciliation, with general availability planned for
+                  the second quarter of 2026. SAP describes the goal as compressing
+                  the close cycle from weeks to days, and it sits among a family of
+                  seven finance assistants covering closing, planning, billing,
+                  governance, tax and compliance, accounts receivable, and treasury.
+                  If Joule is new to you, start with our
+                  <a href="sap-joule-enterprise-ai-copilot.html">plain-language introduction to SAP Joule as an enterprise AI copilot</a>
+                  and our
+                  <a href="sap-joule-top-5-use-cases.html">rundown of its top use cases</a>.
+                </p>
+
+                <h3 class="font-alt">A Worked Example: The Accounting Accruals Agent</h3>
+
+                <p>
+                  The clearest concrete example of "predictive closing" in action is
+                  SAP's <strong>Accounting Accruals Agent</strong>, released in SAP
+                  S/4HANA Cloud Public Edition (version 2602, generally available in
+                  March 2026). SAP calls it the first embedded agentic AI in its cloud
+                  ERP that autonomously performs substantive accounting work, produces
+                  output that can be booked, and explains its reasoning. Note the
+                  framing: this is not just a chat assistant, it is an
+                  <strong>agent that does the work</strong>. Here is its four-step
+                  loop:
+                </p>
+
+                <ol>
+                  <li><strong>Policy ingestion.</strong> The agent reads your
+                  accounting policy documents to learn your accrual criteria,
+                  calculation methods, materiality thresholds, and period-end rules.</li>
+                  <li><strong>Transaction analysis.</strong> It scans accrual-triggering
+                  transactions in the Universal Journal, such as open purchase orders
+                  and goods received but not yet invoiced, and applies those policy
+                  rules.</li>
+                  <li><strong>Proposal generation.</strong> It produces structured
+                  accrual proposals, each a specific journal entry ready to post,
+                  shown in the "Manage Accrual Proposals" Fiori app.</li>
+                  <li><strong>Explanation and human review.</strong> Every proposal
+                  comes with a plain-language explanation of why it was proposed and
+                  how the amount was calculated. A general-ledger accountant then
+                  accepts, modifies, or rejects it before anything is posted.</li>
+                </ol>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    The agent does not post on its own. It prepares and explains;
+                    the human approves. That human-in-the-loop design is the single
+                    most important thing to understand about how SAP is rolling out
+                    agentic AI in accounting, and it mirrors the broader governance
+                    pattern across enterprise AI.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">The Four Close Types (Cheatsheet)</h3>
+
+                <p>
+                  "Closing" is not one thing. Keeping these four straight will make
+                  every SAP finance conversation clearer:
+                </p>
+                <ol>
+                  <li><strong>Hard close.</strong> The full, final close of a period.
+                  No further postings allowed. Always backward-looking, based on
+                  actual data. This is what gets reported externally.</li>
+                  <li><strong>Soft close.</strong> An abbreviated close run during the
+                  period to issue statements faster. Quicker, but lower accuracy, so
+                  it is suitable for management reporting rather than external filing.</li>
+                  <li><strong>Continuous close.</strong> Running soft-close activities
+                  steadily throughout the period instead of waiting for period-end, so
+                  the workload is spread out and issues are caught early.</li>
+                  <li><strong>Predicted close.</strong> Performing analysis and close
+                  activities on the basis of predicted actuals, giving a near-final
+                  preview before the period even ends.</li>
+                </ol>
+
+                <h3 class="font-alt">Common Misconceptions</h3>
+
+                <p>
+                  A few traps trip people up when they first meet this topic. First,
+                  predictive accounting is <em>not</em> a forecast or a budget; it is
+                  an accounting-grade prediction posted in a separate ledger using real
+                  operational data, not a spreadsheet guess. Second, a predicted or
+                  soft close does <em>not</em> replace the hard close; it previews it.
+                  The legal, audited close still happens. Third, "agent" does not mean
+                  "unattended", at least not yet. As we saw, the accruals agent
+                  proposes and explains but waits for human approval. Confusing these
+                  is the fastest way to misjudge both the value and the risk. The
+                  broader shift toward systems that act on predictions, and how to
+                  govern it, is something we explored in
+                  <a href="future-predictive-analytics-ai-agents.html">our guide to how predictive analytics is moving from forecasts to autonomous decisions</a>.
+                </p>
+
+                <h3 class="font-alt">How to Apply It: A Sensible Starting Point</h3>
+
+                <p>
+                  If you are evaluating predictive closing, the preparation matters as
+                  much as the technology. Practical groundwork includes writing your
+                  accounting policies in a clear, structured (machine-readable) form so
+                  an agent can ingest them, making sure your goods-receipt and
+                  invoice-receipt accounts are configured cleanly, assigning the right
+                  Fiori app roles to your accountants, and setting sensible materiality
+                  thresholds so the agent does not flood you with trivial proposals.
+                  Start with one high-effort, rule-based area such as accruals, prove
+                  the value, and expand. This is the same staged, govern-as-you-go
+                  approach that separates success from failure across enterprise AI,
+                  a theme that also runs through our look at
+                  <a href="will-ai-kill-erp.html">how AI is reshaping the core of ERP</a>.
+                </p>
+
+                <h3 class="font-alt">Where This Fits in the Bigger Picture</h3>
+
+                <p>
+                  Predictive closing is one of the most tangible early examples of
+                  agentic AI doing real, auditable knowledge work inside the
+                  enterprise. The destination SAP is steering toward is a close that is
+                  continuous rather than episodic, where predicted results are visible
+                  all month, AI agents prepare the heavy lifting, and humans spend
+                  their time reviewing and deciding rather than gathering and
+                  calculating. You do not need to adopt all of it at once to benefit.
+                  Understanding the vocabulary, predictive accounting, the extension
+                  ledger, the predicted close, and the human-in-the-loop agent, is the
+                  first step to evaluating it clearly when it lands in your own SAP
+                  landscape.
+                </p>
+
+                <div class="blog-share">
+                  <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 20px;">Share This Article</p>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://labwyze.com/blog/sap-joule-predictive-closing-explained.html" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https://labwyze.com/blog/sap-joule-predictive-closing-explained.html&text=SAP Joule and Predictive Closing, Explained" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://labwyze.com/blog/sap-joule-predictive-closing-explained.html" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="mailto:?subject=SAP Joule and Predictive Closing, Explained&body=https://labwyze.com/blog/sap-joule-predictive-closing-explained.html" title="Share via Email"><i class="fa fa-envelope"></i></a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="copyright font-alt">&copy; 2026&nbsp;<a href="../index.html">Labwyze Inc</a>, All Rights Reserved</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="../assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/wow/dist/wow.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="../assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="../assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
