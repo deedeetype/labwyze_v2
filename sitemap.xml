@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/roadmap-to-autonomous-enterprise.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/ikea-reskilled-8500-workers-ai-billie.html</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
