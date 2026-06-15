@@ -48,9 +48,16 @@ async def main():
 asyncio.run(main())
 ```
 
-- **Header prompt**: cinematic, wide 16:9, photorealistic, no text overlays, relevant to the topic.
-- **Thumb prompt**: square, bold and readable at small sizes, no text.
-- **Make it click-worthy — bias toward a human subject + concrete symbols of the topic, not abstract shapes.** Abstract glowing-lines/nodes art looks generic and gives no reason to click. Whenever the topic allows, anchor the image on a real person (a learner, teacher, practitioner, or relatable figure) interacting with recognizable objects/symbols that represent the subject. For educational pieces, a "learning / explaining / hands-on" framing works well (e.g. someone at a whiteboard, workbench, or screen actually doing the thing). Faces and people out-perform abstract art on click-through. Reserve purely abstract compositions for topics that genuinely have no human angle.
+**Educational images are INFOGRAPHICS, not photos.** Unlike `/blog-post` (which uses photorealistic human-subject images), this pipeline produces visuals that actually *teach* — the image should work like a cheatsheet, flowchart, or summary diagram that condenses the article's core learning into one glanceable graphic. The reader should be able to look at the header image and grasp the structure of the concept before reading a word.
+
+- **Header prompt**: a clean, modern **infographic / cheatsheet / diagram**, wide 16:9, that summarizes or maps the topic. Pick the diagram type that best fits the subject, for example:
+  - a **flowchart** or process diagram (boxes + arrows) for anything sequential or decision-based;
+  - a **labeled cheatsheet / reference card** layout (titled sections, icons, short captions) for concepts, frameworks, or "types of X";
+  - a **layered/architecture diagram**, **comparison table**, **timeline**, or **mind map / concept map** when those fit better.
+  Use a tidy, professional, flat-vector or clean-editorial style with a clear visual hierarchy, generous spacing, a restrained palette (2–3 accent colors), simple icons, and obvious reading order. It must look like a designer-made explainer graphic, not clip art.
+- **Thumb prompt**: a **simplified, bolder** square version of the same idea — a single clean diagram or icon-driven mini-cheatsheet that stays legible at small sizes. Do not cram a dense full cheatsheet into the thumbnail; reduce it to the 3–4 most important boxes/steps/icons.
+- **Text inside the image:** short labels are encouraged (they are what makes it a cheatsheet), but AI image generators still garble long or dense text. So keep wording to **a few short words per element** (single words or 2–3 word labels), avoid paragraphs, and lean on structure + icons to carry meaning. After generating, **read the image and check the labels are legible and correctly spelled**; if the text is garbled or nonsensical, regenerate with shorter/fewer labels (or request the key labels explicitly in the prompt). A clean diagram with minimal correct text beats a busy one with gibberish.
+- Always specify the topic's actual concepts in the prompt so the diagram reflects the real content (e.g. name the real steps/components/categories the article teaches), not a generic placeholder chart.
 
 **SECURITY — never commit the API key:**
 - Write this script to `/tmp` (e.g. `/tmp/gen_img.py`), substitute the real key from memory there, run it, then delete it.
