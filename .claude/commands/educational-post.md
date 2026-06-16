@@ -23,22 +23,29 @@ Identify 2–4 posts that are topically related. You will link to them naturally
 Use this Python script template (fill in prompts):
 
 ```python
-import asyncio, fastapi_poe as fp, httpx
+import asyncio, re, fastapi_poe as fp, httpx
 
 API_KEY = "RETRIEVE_FROM_MEMORY"  # stored in Claude memory: project/poe-api-key.md
 BOT = "gpt-image-2"
 
+# gpt-image-2 streams "Generating..." progress text, then returns the finished
+# image as a markdown link ![alt](url) in the final text event (NOT as an
+# attachment). So accumulate the streamed text and extract the last image URL.
+LINK_RE = re.compile(r"!\[[^\]]*\]\((https?://[^)\s]+)\)")
+
 async def generate_image(prompt, out_path):
     message = fp.ProtocolMessage(role="user", content=prompt)
-    url = None
+    full = ""
     async for partial in fp.get_bot_response(messages=[message], bot_name=BOT, api_key=API_KEY):
-        if hasattr(partial, 'attachment') and partial.attachment:
-            url = partial.attachment.url
-    if url:
-        async with httpx.AsyncClient(timeout=60) as client:
-            r = await client.get(url)
-            open(out_path, 'wb').write(r.content)
-        print(f"Saved: {out_path}")
+        full += getattr(partial, "text", "") or ""
+    matches = LINK_RE.findall(full)
+    if not matches:
+        print(f"NO IMAGE URL found for {out_path}")
+        return
+    async with httpx.AsyncClient(timeout=90) as client:
+        r = await client.get(matches[-1])
+        open(out_path, 'wb').write(r.content)
+    print(f"Saved: {out_path}")
 
 async def main():
     base = "/Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog"
@@ -47,6 +54,7 @@ async def main():
 
 asyncio.run(main())
 ```
+Note: `gpt-image-2` generation can take roughly 60–90 seconds per image, so run the script in the background (or allow a long timeout) and confirm both files saved before proceeding.
 
 **Educational images are INFOGRAPHICS, not photos.** Unlike `/blog-post` (which uses photorealistic human-subject images), this pipeline produces visuals that actually *teach* — the image should work like a cheatsheet, flowchart, or summary diagram that condenses the article's core learning into one glanceable graphic. The reader should be able to look at the header image and grasp the structure of the concept before reading a word.
 
