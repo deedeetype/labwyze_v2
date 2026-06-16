@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/ubtech-walker-s2-humanoid-robot.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/majorana-2-quantum-chip-explained.html</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
