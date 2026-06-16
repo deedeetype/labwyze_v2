@@ -19,14 +19,14 @@ ls /Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog/*.html |
 ```
 Identify 2–4 posts that are topically related. You will link to them naturally in the body as "further reading" / related concepts.
 
-### 3. Generate images via Poe API (nano-banana-pro)
+### 3. Generate images via Poe API (gpt-image-2)
 Use this Python script template (fill in prompts):
 
 ```python
 import asyncio, fastapi_poe as fp, httpx
 
 API_KEY = "RETRIEVE_FROM_MEMORY"  # stored in Claude memory: project/poe-api-key.md
-BOT = "nano-banana-pro"
+BOT = "gpt-image-2"
 
 async def generate_image(prompt, out_path):
     message = fp.ProtocolMessage(role="user", content=prompt)
@@ -56,7 +56,7 @@ asyncio.run(main())
   - a **layered/architecture diagram**, **comparison table**, **timeline**, or **mind map / concept map** when those fit better.
   Use a tidy, professional, flat-vector or clean-editorial style with a clear visual hierarchy, generous spacing, a restrained palette (2–3 accent colors), simple icons, and obvious reading order. It must look like a designer-made explainer graphic, not clip art.
 - **Thumb prompt**: a **simplified, bolder** square version of the same idea — a single clean diagram or icon-driven mini-cheatsheet that stays legible at small sizes. Do not cram a dense full cheatsheet into the thumbnail; reduce it to the 3–4 most important boxes/steps/icons.
-- **Text inside the image:** use it freely — clear text labels are what make a real cheatsheet. nano-banana-pro renders text very well, so spell out the actual section titles, step names, box labels, and short captions the article teaches (write the exact wording you want in the prompt so it appears correctly). You can include proper headings and a few words of explanation per element; just keep it scannable rather than paragraph-dense, so the graphic stays glanceable. After generating, still read the image to confirm the labels came out as intended, and regenerate if anything is off.
+- **Text inside the image:** use it freely — clear text labels are what make a real cheatsheet. gpt-image-2 renders text very well, so spell out the actual section titles, step names, box labels, and short captions the article teaches (write the exact wording you want in the prompt so it appears correctly). You can include proper headings and a few words of explanation per element; just keep it scannable rather than paragraph-dense, so the graphic stays glanceable. After generating, still read the image to confirm the labels came out as intended, and regenerate if anything is off.
 - Always specify the topic's actual concepts in the prompt so the diagram reflects the real content (e.g. name the real steps/components/categories the article teaches), not a generic placeholder chart.
 
 **SECURITY — never commit the API key:**

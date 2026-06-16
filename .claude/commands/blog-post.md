@@ -17,14 +17,14 @@ ls /Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog/*.html |
 ```
 Identify 2–4 posts that are topically related to this new post. You will link to them naturally in the body text.
 
-### 3. Generate images via Poe API (nano-banana-pro)
+### 3. Generate images via Poe API (gpt-image-2)
 Use this Python script template (fill in prompts):
 
 ```python
 import asyncio, fastapi_poe as fp, httpx
 
 API_KEY = "RETRIEVE_FROM_MEMORY"  # stored in Claude memory: project/poe-api-key.md
-BOT = "nano-banana-pro"
+BOT = "gpt-image-2"
 
 async def generate_image(prompt, out_path):
     message = fp.ProtocolMessage(role="user", content=prompt)
