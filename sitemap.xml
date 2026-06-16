@@ -25,6 +25,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/gpt-dreaming-explained.html</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/sap-joule-predictive-closing-explained.html</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
