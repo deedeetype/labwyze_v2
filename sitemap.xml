@@ -23,6 +23,20 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Resources -->
+  <url>
+    <loc>https://labwyze.com/resources.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://labwyze.com/playbook-s4hana-migration.html</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog Posts -->
   <url>
     <loc>https://labwyze.com/blog/sap-stock-decline-what-it-tells-us.html</loc>
