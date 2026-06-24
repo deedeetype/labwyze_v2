@@ -39,6 +39,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/headless-erp-architecture-explained.html</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/sap-stock-decline-what-it-tells-us.html</loc>
     <lastmod>2026-06-19</lastmod>
     <changefreq>monthly</changefreq>
