@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      SAP Joule for Consultants and Custom Knowledge Grounding, Explained: How to Ground SAP's AI Copilot in Your Own Firm's Knowledge | Labwyze Blog
+    </title>
+    <meta
+      name="description"
+      content="A plain-language guide to Custom Knowledge Grounding in SAP Joule for Consultants: what it is, how the SAP AI Core retrieval-augmented generation pipeline works, how it compares to Expert Workspace and ad-hoc uploads, and how to set it up."
+    />
+    <meta
+      name="keywords"
+      content="SAP Joule for Consultants, Custom Knowledge Grounding, SAP AI Core, Document Grounding, retrieval-augmented generation, RAG, Expert Workspace, SAP Joule, AI copilot for consultants, SAP BTP, vector embeddings"
+    />
+    <link rel="canonical" href="https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="SAP Joule for Consultants and Custom Knowledge Grounding, Explained" />
+    <meta property="og:description" content="What Custom Knowledge Grounding actually is, how the SAP AI Core RAG pipeline works under the hood, how it differs from Expert Workspace, and how to set it up. A clear, jargon-aware guide." />
+    <meta property="og:url" content="https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html" />
+    <meta property="og:site_name" content="Labwyze" />
+    <meta property="og:image" content="https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained-header.jpg" />
+    <meta property="article:published_time" content="2026-06-29T09:00:00-04:00" />
+    <meta property="article:section" content="Guide" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SAP Joule for Consultants and Custom Knowledge Grounding, Explained" />
+    <meta name="twitter:description" content="What Custom Knowledge Grounding actually is, how the SAP AI Core RAG pipeline works, and how it differs from Expert Workspace. A clear, jargon-aware guide." />
+    <meta name="twitter:image" content="https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained-header.jpg" />
+
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet" />
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet" />
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet" />
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/blog.css" rel="stylesheet" />
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                    url("sap-joule-custom-knowledge-grounding-explained-header.jpg") center/cover;
+        color: white;
+      }
+      .blog-post-category { display: inline-block; padding: 5px 15px; border: 1px solid rgba(255,255,255,0.5); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+      .blog-post-title { font-size: 36px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px; }
+      .blog-post-meta { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; }
+      .blog-quote { font-family: "Volkhov", serif; font-style: italic; font-size: 24px; text-align: center; padding: 40px 0; color: #333; max-width: 800px; margin: 0 auto 40px; }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway { border-left: 3px solid #333; padding-left: 20px; margin: 40px 0; }
+      .blog-key-takeaway h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 14px; margin-bottom: 10px; }
+      .blog-share { border-top: 1px solid #eee; padding-top: 30px; margin-top: 40px; text-align: center; }
+      .blog-share a { display: inline-block; margin: 0 10px; color: #999; font-size: 18px; }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog { background-color: #1a1a1a !important; position: fixed; top: 0; width: 100%; z-index: 1000; }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SAP Joule for Consultants and Custom Knowledge Grounding, Explained: How to Ground SAP's AI Copilot in Your Own Firm's Knowledge",
+        "description": "A plain-language guide to Custom Knowledge Grounding in SAP Joule for Consultants: what it is, how the SAP AI Core retrieval-augmented generation pipeline works, how it compares to Expert Workspace and ad-hoc uploads, and how to set it up.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained-header.jpg",
+          "width": 1600,
+          "height": 893
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Labwyze Team",
+          "url": "https://labwyze.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Labwyze",
+          "url": "https://labwyze.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+            "width": 512,
+            "height": 512
+          }
+        },
+        "datePublished": "2026-06-29T09:00:00-04:00",
+        "dateModified": "2026-06-29T09:00:00-04:00",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html"
+        },
+        "inLanguage": "en",
+        "keywords": "SAP Joule for Consultants, Custom Knowledge Grounding, SAP AI Core, Document Grounding, retrieval-augmented generation, RAG, Expert Workspace, SAP Joule, AI copilot for consultants, SAP BTP, vector embeddings",
+        "about": {
+          "@type": "Thing",
+          "name": "SAP Joule for Consultants Custom Knowledge Grounding"
+        },
+        "isPartOf": {
+          "@type": "Blog",
+          "name": "Labwyze Blog",
+          "url": "https://labwyze.com/blog"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Custom Knowledge Grounding in SAP Joule for Consultants?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Custom Knowledge Grounding connects SAP Joule for Consultants to a separate grounding service, where your organization's own content (methodologies, policies, templates, delivery standards) is indexed via SAP AI Core Document Grounding, so Joule's answers combine SAP's curated content with your firm's institutional knowledge."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Custom Knowledge Grounding different from Expert Workspace?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Expert Workspace is user-level: an individual consultant creates a reusable Expert (up to 25 per user) and attaches files that ground that Expert's knowledge across their own conversations. Custom Knowledge Grounding is enterprise-level: an admin connects centralized repositories like SharePoint, Amazon S3, or SAP Build Work Zone via SAP AI Core, and the indexed content is available to every consultant in the tenant, with no automatic deletion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Custom Knowledge Grounding use my documents to train SAP's AI model?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SAP has stated that none of the files used for grounding, whether in Expert Workspace or Custom Knowledge Grounding, are used to train the underlying large language model. The content is retrieved at query time to ground answers, not absorbed into the model's weights."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does Custom Knowledge Grounding cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Custom Knowledge Grounding relies on SAP AI Core's extended plan, which is a separately billed, general-availability product outside SAP Joule for Consultants' own scope. Charges accrue per document indexed and per token retrieved, plus optional costs for a data repository like Object Store and, if used, SAP AI Launchpad."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader"><div class="loader">Loading...</div></div>
+
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="logo" href="../index.html">
+              <img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain" class="logo" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#media">Media</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../resources.html">Resources</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">Explainer</span>
+          <h1 class="blog-post-title font-alt">
+            SAP Joule for Consultants and Custom Knowledge Grounding, Explained
+          </h1>
+          <div class="blog-post-meta">
+            29 June 2026 &nbsp;|&nbsp; Guide &bull; SAP Joule &bull; AI Copilots &bull; SAP BTP
+          </div>
+        </div>
+      </header>
+
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <blockquote class="blog-quote" style="color: #dcd3d3">
+                  "With Custom Knowledge Grounding, SAP Joule for Consultants generates responses
+                  specific to your organization by drawing on your project information and best
+                  practices."
+                </blockquote>
+                <p style="text-align: center; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #454444; margin-top: -30px; margin-bottom: 40px;">
+                  — SAP, "What is Joule" documentation
+                </p>
+
+                <p class="lead">
+                  SAP Joule for Consultants already ships with an enormous amount of SAP
+                  knowledge built in. But it has never seen your firm's methodology document,
+                  your client's specific configuration decisions, or the delivery standard your
+                  practice lead wrote three projects ago. <strong>Custom Knowledge Grounding</strong>
+                  is the feature that closes that gap. By the end of this guide you will understand
+                  what it actually is, how the retrieval pipeline works under the hood, how it
+                  differs from the similarly-named but very different <strong>Expert Workspace</strong>,
+                  and how to set it up without getting lost in SAP's service-naming maze. No prior
+                  SAP AI experience required; every term is defined as we go.
+                </p>
+
+                <div class="blog-image">
+                  <img
+                    src="sap-joule-custom-knowledge-grounding-explained-header.jpg"
+                    alt="Infographic titled Three Ways to Ground SAP Joule for Consultants in Your Own Knowledge, comparing Ad-Hoc Prompt Uploads, Expert Workspace, and Custom Knowledge Grounding by scope and persistence"
+                  />
+                </div>
+
+                <h3 class="font-alt">First, What Does SAP Joule for Consultants Already Know?</h3>
+
+                <p>
+                  <strong>SAP Joule for Consultants</strong> is a generative-AI copilot built to
+                  boost consultant productivity with fast, reliable answers grounded in exclusive
+                  SAP content. Out of the box, it already draws on a knowledge base of more than
+                  <strong>18 million pages</strong> of SAP documentation and training material,
+                  over <strong>9 terabytes</strong> of curated content, 100+ SAP certifications,
+                  implementation guidance, and a specialized fine-tuned ABAP model trained on
+                  300 million lines of ABAP code and 30 million lines of CDS code, which lets it
+                  explain and even generate basic code. Its four core capabilities are
+                  <strong>Enablement &amp; Discovery</strong> (explaining SAP concepts and the
+                  product portfolio), <strong>Guidance &amp; Instructions</strong> (step-by-step
+                  setup and configuration help), <strong>Support &amp; Troubleshooting</strong>,
+                  and <strong>ABAP Code Interpretation</strong>. That is a lot of general SAP
+                  expertise. What it does not contain, by default, is anything specific to how
+                  <em>your</em> firm or your client actually works. If SAP Joule is new to you more
+                  broadly, our
+                  <a href="sap-joule-enterprise-ai-copilot.html">plain-language introduction to SAP Joule as an enterprise AI copilot</a>
+                  is a good place to start.
+                </p>
+
+                <h3 class="font-alt">Why It Matters: The Problem Custom Knowledge Grounding Solves</h3>
+
+                <p>
+                  SAP frames the problem plainly: organizations spend significant time searching
+                  scattered documents, internal knowledge repositories, and project files to find
+                  the right information when making decisions or delivering SAP implementations.
+                  A generic AI copilot, however well-trained on SAP's own material, cannot answer
+                  "what does our firm's methodology say about this fit-gap decision" or "how did we
+                  configure this for this client last time." Custom Knowledge Grounding targets
+                  three concrete situations: a direct customer optimizing its own SAP processes, an
+                  internal consultant navigating complex project frameworks, and a business process
+                  consultant advising clients on SAP transformations. In each case, the value is the
+                  same: accelerated research, reduced context-switching between tools, and answers
+                  that reflect a firm's specific methodologies, policies, and delivery standards
+                  rather than generic best practice.
+                </p>
+
+                <h3 class="font-alt">How It Works: A Grounding Pipeline, Not a Bigger Brain</h3>
+
+                <p>
+                  It helps to understand the general mechanism first. <strong>Grounding</strong>
+                  (also called <strong>retrieval-augmented generation</strong>, or RAG) means an
+                  AI system answers by retrieving relevant text from an external source at the
+                  moment of the question, rather than relying only on what it learned during
+                  training. The flow has five steps: a document is broken into chunks and converted
+                  into a <strong>vector embedding</strong> (a list of numbers that captures its
+                  meaning); that embedding is stored in a <strong>vector index</strong>; when a user
+                  asks a question, the question is embedded the same way; the system runs a
+                  similarity search to find the document chunks whose meaning is closest to the
+                  question; and those chunks are inserted alongside the original question before the
+                  whole thing is sent to the language model. The model's answer is "grounded" in
+                  real text it can point back to, which is why grounded answers can cite a source
+                  and ungrounded ones cannot.
+                </p>
+
+                <p>
+                  Custom Knowledge Grounding wires this mechanism into SAP Joule for Consultants
+                  using four components. A <strong>data repository</strong> stores your source
+                  documents; supported options include Microsoft SharePoint, Amazon S3, SFTP, SAP
+                  Build Work Zone, SAP Document Management service, ServiceNow, and Google Drive.
+                  <strong>SAP AI Core Document Grounding</strong>, a separate, generally-available
+                  SAP service billed on its own, ingests those documents, chunks and embeds them,
+                  and indexes the result in SAP HANA Cloud's vector engine. A <strong>Destination
+                  Service</strong> instance on SAP Business Technology Platform (BTP) then connects
+                  that grounding pipeline to SAP Joule, authenticated with OAuth2 client credentials.
+                  Finally, an admin enables and connects everything from the <strong>SAP Joule for
+                  Consultants Console</strong>. None of this touches the underlying language model's
+                  training: SAP has been explicit that "none of these files are ever used to train
+                  the underlying LLM. Your content stays yours."
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    Grounding does not make SAP Joule "smarter" in a general sense. It gives the
+                    same model a curated stack of your own documents to search through at answer
+                    time. The model is not retrained; your content is retrieved, not absorbed.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">A Concrete Walkthrough: Connecting a Document Repository</h3>
+
+                <p>
+                  Setting this up is an admin task, not a consultant-facing one, but seeing the
+                  real steps makes the architecture click. SAP's documentation lays out five
+                  phases. First, upload your documents to a chosen repository, with Object Store
+                  recommended for a fast first setup. Second, provision SAP AI Core with the
+                  <strong>extended</strong> plan, create a resource group tagged for document
+                  grounding, and run a pipeline that ingests, chunks, embeds, and indexes the
+                  documents until it reaches a <strong>FINISHED</strong> status. Third, create a
+                  Destination Service instance in BTP, then configure a destination (commonly
+                  named <code>AICORE_DEST</code>) pointing at SAP AI Core's document-grounding
+                  endpoint, with three required additional properties:
+                  <code>HTML5.DynamicDestination</code> and <code>HTML5.ForwardAuthToken</code> set
+                  to <code>True</code>, and <code>AI-Resource-Group</code> set to match your AI Core
+                  resource group exactly. Fourth, an admin opens the Custom Knowledge Grounding tab
+                  in the SAP Joule for Consultants Console and explicitly toggles the feature on,
+                  then connects the destination using either credentials or a JSON service key.
+                  Fifth, the admin monitors the <strong>Sources &amp; Pipelines</strong> page, which
+                  reports the number of processed documents, the number of connected data sources,
+                  the last sync timestamp, and a status of <em>Completed</em>, <em>Completed With
+                  Errors</em>, or <em>Processing</em>. Once that status reads complete, SAP Joule for
+                  Consultants starts referencing the custom knowledge in the very next new
+                  conversation.
+                </p>
+
+                <h3 class="font-alt">Common Mistakes and Misconceptions</h3>
+
+                <p>
+                  The most common confusion is mixing up Custom Knowledge Grounding with
+                  <strong>Expert Workspace</strong>, a different feature that looks similar on the
+                  surface. Expert Workspace lets an individual consultant create a reusable
+                  <strong>Expert</strong>, a named persona with up to 10,000 characters of custom
+                  instructions and attached reference files (PDF, Word, text, or images, each up to
+                  10MB, capped at 1GB of total storage per user across up to 25 experts), that
+                  persists across that consultant's own conversations. It is self-service, requires
+                  no admin setup, and is scoped to one person. Custom Knowledge Grounding, by
+                  contrast, is tenant-wide, admin-controlled, billed separately through SAP AI Core,
+                  and visible to every consultant once connected, with no automatic deletion of
+                  indexed content. A second mistake is assuming new documents appear automatically:
+                  the indexing pipeline does not refresh on its own, so adding files to your
+                  repository requires re-running the pipeline. A third is forgetting that a
+                  <em>Completed With Errors</em> status usually means specific files failed due to
+                  unsupported formats, size limits, or content policy issues, not that the whole
+                  setup is broken; only the successfully processed documents feed Joule's answers.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    Expert Workspace is one consultant's personal toolkit. Custom Knowledge
+                    Grounding is the firm's shared knowledge base. They solve different problems
+                    and can both be active at once, but conflating them is the fastest way to
+                    misconfigure either one.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">How to Apply It: Choosing the Right Tier</h3>
+
+                <p>
+                  In practice there are three tiers of knowledge enrichment available across SAP
+                  Joule, and the right choice depends on how often the knowledge will be reused.
+                  For a single one-off question, an ad-hoc file upload directly in the conversation
+                  is enough, and it disappears with the chat. For a consultant who repeatedly works
+                  in one domain, such as SAP SuccessFactors or a specific client engagement, an
+                  Expert Workspace built once and reused across many conversations is the better
+                  fit. For knowledge that should be standardized and shared across an entire
+                  practice, such as a firm's house methodology or a client's signed-off design
+                  documents, Custom Knowledge Grounding is the right layer, even though it carries
+                  real setup effort and ongoing SAP AI Core costs per document indexed and token
+                  retrieved. Start by piloting with a small, well-defined document set in Object
+                  Store, confirm the pipeline reaches a clean <em>Completed</em> status, and only
+                  then expand to your full repository. The same staged, prove-it-then-scale
+                  discipline applies broadly to AI inside SAP delivery work, a pattern we also cover
+                  in
+                  <a href="ai-speed-up-s4hana-migration.html">how AI is cutting SAP S/4HANA migration timelines</a>.
+                </p>
+
+                <h3 class="font-alt">Where This Fits in the Bigger Picture</h3>
+
+                <p>
+                  Custom Knowledge Grounding is part of a broader shift in enterprise AI copilots:
+                  general-purpose knowledge is the starting point, not the destination. The
+                  competitive edge increasingly comes from how well a copilot reflects an
+                  organization's own accumulated judgment, not just the vendor's documentation. For
+                  SAP consultants specifically, that means the difference between a tool that can
+                  explain what S/4HANA does in general and one that can explain what your firm
+                  decided to do, and why, on the project two clients ago. Understanding the
+                  vocabulary here, grounding, vector embeddings, Expert Workspace, and Custom
+                  Knowledge Grounding, is the first step to deploying it deliberately rather than
+                  bolting on every SAP AI feature at once. For a wider look at where Joule is
+                  already delivering measurable results across the enterprise, see our
+                  <a href="sap-joule-top-5-use-cases.html">rundown of SAP Joule's top use cases in 2026</a>.
+                </p>
+
+                <div class="blog-share">
+                  <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 20px;">Share This Article</p>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html&text=SAP Joule for Consultants and Custom Knowledge Grounding, Explained" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="mailto:?subject=SAP Joule for Consultants and Custom Knowledge Grounding, Explained&body=https://labwyze.com/blog/sap-joule-custom-knowledge-grounding-explained.html" title="Share via Email"><i class="fa fa-envelope"></i></a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="copyright font-alt">&copy; 2026&nbsp;<a href="../index.html">Labwyze Inc</a>, All Rights Reserved</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script src="../assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/wow/dist/wow.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="../assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="../assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
