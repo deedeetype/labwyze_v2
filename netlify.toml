@@ -1,3 +1,13 @@
 [build]
   publish = "."
   command = "echo 'Static HTML site - no build needed'"
+
+[[redirects]]
+  from = "/blog/index.html"
+  to = "/#news"
+  status = 301
+
+[[redirects]]
+  from = "/blog/"
+  to = "/#news"
+  status = 301
