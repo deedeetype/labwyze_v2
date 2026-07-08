@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      RISE with SAP Methodology, Explained: The 6 Phases of SAP's New Delivery Approach | Labwyze Blog
+    </title>
+    <meta
+      name="description"
+      content="A plain-language guide to the RISE with SAP Methodology: the six delivery phases from Discover to Run, the quality gates between them, the seven AI assistants that accelerate migration, and the mistakes that derail transformations."
+    />
+    <meta
+      name="keywords"
+      content="RISE with SAP Methodology, SAP delivery approach, SAP Activate phases, SAP quality gates, SAP AI assistants migration, clean core, SAP Cloud ALM, S4HANA transformation methodology"
+    />
+    <link rel="canonical" href="https://labwyze.com/blog/rise-with-sap-methodology-explained.html" />
+
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="RISE with SAP Methodology, Explained: The 6 Phases of SAP's New Delivery Approach" />
+    <meta property="og:description" content="A plain-language guide to the RISE with SAP Methodology: the six delivery phases, the quality gates between them, the seven AI assistants that accelerate migration, and the mistakes that derail transformations." />
+    <meta property="og:url" content="https://labwyze.com/blog/rise-with-sap-methodology-explained.html" />
+    <meta property="og:site_name" content="Labwyze" />
+    <meta property="article:published_time" content="2026-07-08T09:00:00-04:00" />
+    <meta property="article:section" content="SAP &amp; ERP" />
+    <meta property="og:image" content="https://labwyze.com/blog/rise-with-sap-methodology-explained-header.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RISE with SAP Methodology, Explained: The 6 Phases of SAP's New Delivery Approach" />
+    <meta name="twitter:description" content="The six delivery phases, the quality gates between them, and the seven AI assistants that accelerate SAP cloud migration, explained simply." />
+    <meta name="twitter:image" content="https://labwyze.com/blog/rise-with-sap-methodology-explained-header.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RISE with SAP Methodology, Explained: The 6 Phases of SAP's New Delivery Approach",
+  "description": "A plain-language guide to the RISE with SAP Methodology: the six delivery phases from Discover to Run, the quality gates between them, the seven AI assistants that accelerate migration, and the mistakes that derail transformations.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://labwyze.com/blog/rise-with-sap-methodology-explained-header.jpg",
+    "width": 1600,
+    "height": 893
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Labwyze Team",
+    "url": "https://labwyze.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Labwyze",
+    "url": "https://labwyze.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "datePublished": "2026-07-08T09:00:00-04:00",
+  "dateModified": "2026-07-08T09:00:00-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://labwyze.com/blog/rise-with-sap-methodology-explained.html"
+  },
+  "inLanguage": "en",
+  "keywords": "RISE with SAP Methodology, SAP delivery approach, SAP Activate phases, SAP quality gates, SAP AI assistants migration, clean core, SAP Cloud ALM, S4HANA transformation methodology",
+  "about": {
+    "@type": "Thing",
+    "name": "RISE with SAP Methodology"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Labwyze Blog",
+    "url": "https://labwyze.com/blog"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the RISE with SAP Methodology?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The RISE with SAP Methodology is SAP's AI-enabled delivery approach for moving from on-premises SAP ECC or S/4HANA to SAP Cloud ERP. Launched April 1, 2024 as part of the RISE with SAP Migration and Modernization program, it provides a consistent path from planning to go-live to ongoing operations, built on best practices from thousands of RISE customers. It is included at no additional cost for RISE subscribers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the six phases of the RISE with SAP Methodology?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Discover (analyze current state, define scope, plan the project), Prepare (onboarding, customized roadmap, success planning), Explore (fit-to-standard analysis, define extensions), Realize (build, manage change and user adoption), Deploy (configure the productive system, final testing), and Run (operate with excellence and identify continuous innovation opportunities)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are quality gates in the RISE with SAP Methodology?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quality gates are checkpoints at the end of each phase. The customer team completes a structured questionnaire, and SAP experts review it and return feedback and recommendations before the project moves to the next phase, catching misalignment early instead of at go-live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI assistants are included in the RISE with SAP Methodology?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seven AI-assisted accelerators: System Analysis (builds a customer-specific baseline), Custom Code (modernizes code to reduce technical debt), Data Management (prepares and migrates data), Configuration (optimizes settings against best practices), Test Management (automates test scoping), Rollout (manages global deployments), and Project Management (guidance and support)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the RISE with SAP Methodology cost extra?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. SAP includes the methodology, its quality gates, onboarding advisors, and enablement sessions at no additional cost for RISE with SAP subscribers, and it applies to both SAP-led and partner-led implementations."
+      }
+    }
+  ]
+}
+    </script>
+
+    <!-- Default stylesheets -->
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" />
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet" />
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet" />
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/blog.css" rel="stylesheet" />
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("rise-with-sap-methodology-explained-header.jpg") center/cover;
+        color: white;
+      }
+      .blog-post-category {
+        display: inline-block;
+        padding: 5px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .blog-post-title {
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      .blog-post-meta {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .blog-quote {
+        font-family: "Volkhov", serif;
+        font-style: italic;
+        font-size: 24px;
+        text-align: center;
+        padding: 40px 0;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto 40px;
+      }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway {
+        border-left: 3px solid #333;
+        padding-left: 20px;
+        margin: 40px 0;
+      }
+      .blog-key-takeaway h4 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .blog-share {
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .blog-share a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #999;
+        font-size: 18px;
+      }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog {
+        background-color: #1a1a1a !important;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      .phase-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 14px;
+      }
+      .phase-table th {
+        background: #1a1a1a;
+        color: white;
+        padding: 12px 16px;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+      .phase-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      .phase-table tr:nth-child(even) td { background: #f9f9f9; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader"><div class="loader">Loading...</div></div>
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="logo" href="../index.html">
+              <img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain" class="logo" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Blog Post Header -->
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">Explainer</span>
+          <h1 class="blog-post-title font-alt">
+            RISE with SAP Methodology, Explained: The 6 Phases of SAP's New Delivery Approach
+          </h1>
+          <div class="blog-post-meta">
+            8 July 2026 &bull; RISE with SAP &bull; Delivery Methodology &bull; Quality Gates &bull; AI Assistants
+          </div>
+        </div>
+      </header>
+
+      <!-- Blog Post Content -->
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <!-- Quote -->
+                <blockquote class="blog-quote" style="color: #dcd3d3">
+                  "The RISE with SAP Methodology orchestrates end-to-end business transformation and accelerates migration and modernization with AI assistants — driving continuous innovation and delivering measurable value while reducing costs and complexity."
+                </blockquote>
+                <p style="text-align: center; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #454444; margin-top: -30px; margin-bottom: 40px;">
+                  — SAP, official RISE with SAP Methodology documentation
+                </p>
+
+                <!-- Intro -->
+                <p class="lead">
+                  If your organization is planning a move to SAP's cloud ERP, the RISE with SAP Methodology is the delivery approach that will structure the entire journey, and understanding it before the project starts is one of the highest-leverage things a business or IT leader can do. By the end of this guide, you will understand what the methodology actually is, what happens in each of its six phases, how the quality gates between phases work, what the seven AI assistants do, and the misconceptions that most often trip up transformation teams. No prior SAP delivery experience assumed: every term is defined as we go.
+                </p>
+
+                <h3 class="font-alt">What the RISE with SAP Methodology Is</h3>
+
+                <p>
+                  The RISE with SAP Methodology is SAP's standardized, AI-enabled delivery approach for moving an organization from on-premises SAP systems, typically SAP ECC or an on-premises S/4HANA installation, to SAP Cloud ERP under a RISE with SAP subscription. In plain terms: RISE with SAP is the commercial offering (the subscription that bundles the cloud ERP software, infrastructure, and services), and the Methodology is the playbook for how the transformation actually gets delivered, from the first scoping workshop to ongoing operations after go-live.
+                </p>
+
+                <p>
+                  SAP launched the methodology effective April 1, 2024, as one of three pillars of its RISE with SAP Migration and Modernization program, alongside transformation incentives and an innovation roadmap. It distills delivery practices learned from thousands of RISE with SAP customers over the program's first three years, and, importantly for budgeting, it is included at no additional cost for RISE subscribers. It applies whether the implementation is led by SAP itself or by a partner: SAP introduced a RISE with SAP Validated Partner recognition program to certify partners that deliver large cloud ERP projects to the methodology's standards, and has since added role-based certification for senior delivery roles.
+                </p>
+
+                <p>
+                  At SAPPHIRE 2026, SAP reframed the methodology within its "Autonomous Enterprise" vision: AI assistants and agents are no longer positioned only as features of the finished system, but as active participants in the transformation itself, used to accelerate and derisk the migration. That shift, using AI to deliver the project rather than merely being the outcome of it, is what makes the current version of the methodology genuinely new.
+                </p>
+
+                <!-- Image -->
+                <div class="blog-image">
+                  <img
+                    src="rise-with-sap-methodology-explained-header.jpg"
+                    alt="Infographic of the RISE with SAP Methodology showing six phases Discover, Prepare, Explore, Realize, Deploy, Run connected by quality gates, with a band of seven AI assistants below"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <h3 class="font-alt">Why It Matters: The Problem It Exists to Solve</h3>
+
+                <p>
+                  SAP transformations are among the largest projects an enterprise ever undertakes. Industry analysis puts typical RISE migrations at costs running into the tens or even hundreds of millions of dollars, with timelines from six months to several years. And the market data shows how much hesitation that creates: as of Q4 2024, only 39% of SAP's ECC customers had purchased or subscribed to S/4HANA, meaning more than half of the installed base had not yet committed to the move, even with ECC mainstream support ending in 2027, a deadline we covered in detail in <a href="sap-ecc-end-of-support-2027.html">our guide to the ECC end-of-support timeline</a>.
+                </p>
+
+                <p>
+                  The methodology is SAP's structural answer to that hesitation. Projects of this size historically failed not because the software could not do the job, but because of delivery problems: scope defined poorly at the start, custom code carried over without scrutiny, testing compressed at the end, and misalignment discovered only at go-live. A standardized methodology with enforced checkpoints attacks each of those failure modes directly. For the strategic context of what RISE itself is and why SAP pushes it so hard, see our companion piece on <a href="sap-rise-enterprise-cloud-transformation.html">RISE with SAP and enterprise cloud transformation</a>.
+                </p>
+
+                <h3 class="font-alt">The Six Phases, One by One</h3>
+
+                <p>
+                  The methodology structures every project into six sequential phases. If you have encountered SAP Activate, SAP's long-standing implementation framework, the phase names will look familiar: the methodology uses this proven phased backbone and layers RISE-specific services, checkpoints, and AI accelerators on top.
+                </p>
+
+                <table class="phase-table">
+                  <thead>
+                    <tr>
+                      <th>Phase</th>
+                      <th>What Happens</th>
+                      <th>Key Question It Answers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>1. Discover</strong></td>
+                      <td>Analyze the current system landscape, define scope, build the project plan and business case, request approval.</td>
+                      <td>What are we transforming, and why?</td>
+                    </tr>
+                    <tr>
+                      <td><strong>2. Prepare</strong></td>
+                      <td>Formal onboarding with SAP advisors, customized roadmap, success planning with milestones and KPIs.</td>
+                      <td>Who does what, by when?</td>
+                    </tr>
+                    <tr>
+                      <td><strong>3. Explore</strong></td>
+                      <td>Fit-to-standard analysis: compare your processes against SAP's standard processes, decide what to adopt as-is and what genuinely needs an extension.</td>
+                      <td>Where do we follow the standard, and where do we extend?</td>
+                    </tr>
+                    <tr>
+                      <td><strong>4. Realize</strong></td>
+                      <td>Build and configure the solution, migrate and validate data iteratively, manage organizational change and user adoption.</td>
+                      <td>Does the new system actually work for our business?</td>
+                    </tr>
+                    <tr>
+                      <td><strong>5. Deploy</strong></td>
+                      <td>Configure the productive system, final testing, cutover planning and go-live.</td>
+                      <td>Are we ready to switch?</td>
+                    </tr>
+                    <tr>
+                      <td><strong>6. Run</strong></td>
+                      <td>Operate with excellence, monitor value realization, identify continuous innovation opportunities.</td>
+                      <td>How do we keep improving after go-live?</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>
+                  The single most consequential phase for long-term cost is Explore. The fit-to-standard analysis is where an organization decides how much custom code survives the move. Every customization kept must be rebuilt as a clean core extension, meaning custom logic lives in side-by-side extensions on SAP Business Technology Platform (BTP) rather than as modifications inside the ERP core, so the core stays upgradable and AI-ready. We explained why clean core is the gate to SAP's AI features in <a href="sap-ecc-to-s4hana-migration-ai-readiness.html">our guide to planning an ECC-to-S/4HANA migration with AI readiness in mind</a>.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    The six phases are not SAP bureaucracy; they are a forcing function for the three decisions that determine project cost: how much scope you take on (Discover), how much custom code you keep (Explore), and how much testing you refuse to compress (Realize and Deploy). Teams that treat those decisions casually in the early phases pay for them at multiples later.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">Quality Gates: The Checkpoints Between Phases</h3>
+
+                <p>
+                  A quality gate is a formal checkpoint at the end of each phase. The project team completes a structured questionnaire about what was done and how; SAP experts review the answers and return feedback and recommendations before the project proceeds. Gates also validate that the implementation stays aligned with clean core principles, backed by a clean core success plan with defined milestones and KPIs that SAP tracks through SAP Cloud ALM, the application lifecycle management tool that orchestrates the whole transformation.
+                  </p>
+
+                <p>
+                  The value of a gate is asymmetry: answering a questionnaire and sitting through an expert review costs days; discovering in Deploy that your data migration strategy was flawed in Realize costs months. Quality gates convert late, expensive surprises into early, cheap corrections. RISE subscribers also get dedicated onboarding advisors who run one-to-one enablement sessions, plus role-based recorded training, so the customer team is not learning the methodology from a PDF.
+                </p>
+
+                <h3 class="font-alt">The AI Assistant Layer: Seven Accelerators</h3>
+
+                <p>
+                  The 2026 evolution of the methodology embeds AI assistance across the delivery workstreams. Seven accelerators cover the most labor-intensive parts of a migration: <strong>System Analysis</strong> builds a customer-specific baseline of your current landscape; <strong>Custom Code</strong> analyzes and modernizes custom developments to reduce technical debt before the move; <strong>Data Management</strong> prepares and migrates data; <strong>Configuration</strong> optimizes settings against best practices; <strong>Test Management</strong> automates the scoping of what needs testing; <strong>Rollout</strong> manages multi-country deployments; and <strong>Project Management</strong> provides guidance and support across the plan itself.
+                </p>
+
+                <p>
+                  These assistants matter because the tasks they target, code remediation, data cleansing, test scoping, are precisely the ones that historically consumed 12 to 24 months of scarce consultant time. The efficiency gains are real and measurable across the industry: we documented the tool-by-tool evidence in <a href="ai-speed-up-s4hana-migration.html">how AI is cutting S/4HANA migration timelines from years to months</a>. Around the assistants sits an integrated toolchain: SAP Cloud ALM for orchestration, SAP Signavio for process analysis, WalkMe for in-application change management and training, SAP Business Transformation Center for data migration, Joule Studio for building clean core extensions, SAP Integration Suite for connectivity, and Tricentis for automated testing.
+                </p>
+
+                <h3 class="font-alt">A Worked Example: A Manufacturer Moves Off ECC</h3>
+
+                <p>
+                  To make the flow concrete, picture a mid-size manufacturer on ECC with roughly 2,000 custom objects. In <strong>Discover</strong>, the System Analysis assistant baselines the landscape and reveals that a third of those custom objects have not been executed in a year, immediate candidates for retirement rather than migration. In <strong>Prepare</strong>, the onboarding advisor helps define a success plan: go-live in 14 months, clean core KPIs agreed up front. In <strong>Explore</strong>, fit-to-standard workshops walk each business process against the cloud ERP standard; the team keeps 200 genuinely differentiating customizations for rebuild as BTP extensions and adopts the standard everywhere else. The quality gate review flags that two planned extensions duplicate standard functionality the team had missed, and they are cut.
+                </p>
+
+                <p>
+                  In <strong>Realize</strong>, the Custom Code assistant remediates the surviving code while Data Management runs iterative migration cycles, each one cleaner than the last; WalkMe flows are built so end users learn the new screens inside the application itself. In <strong>Deploy</strong>, Test Management scopes the regression suite, Tricentis executes it, and the cutover happens over a planned weekend. In <strong>Run</strong>, Cloud ALM monitors operations and the team starts activating the AI features that a clean core now makes available. None of this removes the hard work, but at every step where projects classically go wrong, there was either an AI accelerator shrinking the effort or a quality gate catching the drift.
+                </p>
+
+                <h3 class="font-alt">Common Misconceptions</h3>
+
+                <p>
+                  <strong>"RISE is just hosting, so the methodology is just onboarding."</strong> No. RISE bundles software, infrastructure, and services, and the methodology governs a full business transformation, including process redesign and change management. Treating it as an infrastructure lift-and-shift is the fastest way to arrive in the cloud with all your old problems intact.
+                </p>
+
+                <p>
+                  <strong>"The methodology is SAP's job, not ours."</strong> The questionnaires, fit-to-standard decisions, data ownership, and user adoption work all sit with the customer, whether the implementation is SAP-led or partner-led. The methodology structures your work as much as the vendor's.
+                </p>
+
+                <p>
+                  <strong>"Quality gates are bureaucracy that slows us down."</strong> They add days per phase and are designed to prevent the months-long failure modes documented across two decades of ERP projects. Skipping the discipline does not make the risk disappear; it defers it to go-live.
+                </p>
+
+                <p>
+                  <strong>"Following the methodology removes all the risk."</strong> Also no, and the honest caveats deserve airtime. Independent analysts note that RISE means trading perpetual licenses for a subscription, that bundled contracts are harder to exit or modify piecemeal, that BTP's consumption-based pricing needs active cost governance, and that clean core mandates can mean rewriting custom code that encodes years of process optimization. The methodology reduces delivery risk; the commercial and architectural trade-offs of RISE itself still require clear-eyed negotiation.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    The methodology is free, but it is not passive. Its value is only realized by teams that actually do the fit-to-standard work honestly, answer the quality gate questionnaires truthfully, and hold the clean core line when a department lobbies to keep a customization it cannot justify. A playbook only helps the team that runs the plays.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">Best Practices and Where This Fits</h3>
+
+                <p>
+                  Four practices separate smooth RISE deliveries from painful ones. First, retire before you migrate: use the System Analysis baseline to kill unused custom code in Discover, not Realize. Second, staff the fit-to-standard workshops with business decision-makers, not only IT, because "adopt the standard or extend" is a business call. Third, treat the clean core KPIs from your success plan as binding, since they determine whether SAP's embedded AI, including Joule, will actually be available to you at go-live. Fourth, use each quality gate as an internal honesty checkpoint, not a compliance formality.
+                </p>
+
+                <p>
+                  In the bigger picture, the methodology is one piece of SAP's larger bet: that the path to the <a href="roadmap-to-autonomous-enterprise.html">autonomous enterprise</a> runs through a standardized, clean-core cloud ERP, delivered by an increasingly AI-assisted process. Whether you find that vision compelling or simply pragmatic, the delivery framework is now mature, certified across the partner ecosystem, and included in the subscription you are already paying for. Learn it before your project starts; it is the cheapest risk reduction available in the entire program.
+                </p>
+
+                <!-- Share -->
+                <div class="blog-share">
+                  <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 20px;">Share This Article</p>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://labwyze.com/blog/rise-with-sap-methodology-explained.html" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https://labwyze.com/blog/rise-with-sap-methodology-explained.html&text=RISE with SAP Methodology, Explained: The 6 Phases of SAP's New Delivery Approach" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://labwyze.com/blog/rise-with-sap-methodology-explained.html" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="mailto:?subject=RISE with SAP Methodology, Explained&body=https://labwyze.com/blog/rise-with-sap-methodology-explained.html" title="Share via Email"><i class="fa fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="copyright font-alt">
+                  &copy; 2026&nbsp;<a href="../index.html">Labwyze Inc</a>, All Rights Reserved
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/wow/dist/wow.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="../assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="../assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
