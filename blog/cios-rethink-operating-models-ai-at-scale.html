@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore | Labwyze Blog
+    </title>
+    <meta
+      name="description"
+      content="Only 21% of organizations have mature AI agent governance, and 74% struggle to prove ROI. The blocker to AI at scale is not the technology, it is the operating model. Here is what CIOs are changing, with real examples from Levi Strauss and Jabil."
+    />
+    <meta
+      name="keywords"
+      content="AI operating model, AI at scale, CIO AI strategy, AI governance, AI readiness, enterprise AI ROI, agent registry, AI data foundation, Levi Strauss AI, Jabil AI"
+    />
+    <link rel="canonical" href="https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html" />
+
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore" />
+    <meta property="og:description" content="Only 21% of organizations have mature AI agent governance, and 74% struggle to prove ROI. The blocker to AI at scale is not the technology, it is the operating model. Real examples from Levi Strauss and Jabil." />
+    <meta property="og:url" content="https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html" />
+    <meta property="og:site_name" content="Labwyze" />
+    <meta property="article:published_time" content="2026-07-13T09:00:00-04:00" />
+    <meta property="article:section" content="AI &amp; Technology" />
+    <meta property="og:image" content="https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale-header.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore" />
+    <meta name="twitter:description" content="Only 21% of organizations have mature AI agent governance. The blocker to AI at scale is the operating model, not the technology. Real examples inside." />
+    <meta name="twitter:image" content="https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale-header.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore",
+  "description": "Only 21% of organizations have mature AI agent governance, and 74% struggle to prove ROI. The blocker to AI at scale is not the technology, it is the operating model. Here is what CIOs are changing, with real examples from Levi Strauss and Jabil.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale-header.jpg",
+    "width": 1600,
+    "height": 893
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Labwyze Team",
+    "url": "https://labwyze.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Labwyze",
+    "url": "https://labwyze.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "datePublished": "2026-07-13T09:00:00-04:00",
+  "dateModified": "2026-07-13T09:00:00-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html"
+  },
+  "inLanguage": "en",
+  "keywords": "AI operating model, AI at scale, CIO AI strategy, AI governance, AI readiness, enterprise AI ROI, agent registry, AI data foundation, Levi Strauss AI, Jabil AI",
+  "about": {
+    "@type": "Thing",
+    "name": "AI Operating Model Transformation"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Labwyze Blog",
+    "url": "https://labwyze.com/blog"
+  }
+}
+    </script>
+
+    <!-- Default stylesheets -->
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" />
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet" />
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet" />
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/blog.css" rel="stylesheet" />
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("cios-rethink-operating-models-ai-at-scale-header.jpg") center/cover;
+        color: white;
+      }
+      .blog-post-category {
+        display: inline-block;
+        padding: 5px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .blog-post-title {
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      .blog-post-meta {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .blog-quote {
+        font-family: "Volkhov", serif;
+        font-style: italic;
+        font-size: 24px;
+        text-align: center;
+        padding: 40px 0;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto 40px;
+      }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway {
+        border-left: 3px solid #333;
+        padding-left: 20px;
+        margin: 40px 0;
+      }
+      .blog-key-takeaway h4 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .blog-share {
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .blog-share a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #999;
+        font-size: 18px;
+      }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog {
+        background-color: #1a1a1a !important;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      .op-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 14px;
+      }
+      .op-table th {
+        background: #1a1a1a;
+        color: white;
+        padding: 12px 16px;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+      .op-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      .op-table tr:nth-child(even) td { background: #f9f9f9; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader"><div class="loader">Loading...</div></div>
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="logo" href="../index.html">
+              <img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain" class="logo" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Blog Post Header -->
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">AI &amp; Technology</span>
+          <h1 class="blog-post-title font-alt">
+            Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore
+          </h1>
+          <div class="blog-post-meta">
+            13 July 2026 &bull; AI at Scale &bull; Operating Models &bull; Governance &bull; CIO Strategy
+          </div>
+        </div>
+      </header>
+
+      <!-- Blog Post Content -->
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <!-- Quote -->
+                <blockquote class="blog-quote" style="color: #dcd3d3">
+                  "The technology playbooks of the past don't work in the AI world. Those areas could tolerate more ambiguity between business and tech teams. AI doesn't tolerate the same level of ambiguity. It needs clarity."
+                </blockquote>
+                <p style="text-align: center; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #454444; margin-top: -30px; margin-bottom: 40px;">
+                  — Afshean Talasaz, former CIO of Colonial Pipeline, now executive advisor
+                </p>
+
+                <!-- Intro -->
+                <p class="lead">
+                  Here is the uncomfortable finding that should reframe every enterprise AI budget conversation in 2026: the technology is ready, and the organization is not. According to a Deloitte survey of 3,235 business and IT leaders across 24 countries, only 21% of organizations report having a mature governance model for AI agents. Meanwhile 74% of enterprises struggle to demonstrate return on their AI investments, and 83% cite data quality as their single biggest AI blocker. A recent CIO.com analysis draws the conclusion these numbers point to: the thing standing between a promising pilot and AI at scale is almost never the model. It is the operating model. This piece summarizes that argument and what leading CIOs are actually doing about it.
+                </p>
+
+                <h3 class="font-alt">The Real Bottleneck Is Organizational, Not Technical</h3>
+
+                <p>
+                  West Monroe's Dave Hilborn, who leads the firm's Organization, People and Change practice, frames the problem as a "three-arrow" model: AI capability, organizational and people readiness, and data readiness all have to advance together, but in most enterprises the technology arrow has raced far ahead of the other two. The distance between them is the readiness gap, and it is where AI initiatives quietly stall.
+                </p>
+
+                <p>
+                  This reframing matters because it changes what you fund. If you believe the blocker is technical, you buy more tools, more model access, more compute. If you accept that the blocker is organizational, you invest in data foundations, governance, skills, and, above all, the way business and IT actually work together. The CIO.com analysis is blunt that most enterprises are still spending as if the first belief were true, which is precisely why so many are in the 74% that cannot show ROI. This is the same gap we explored from the technology side in our look at <a href="autonomous-ai-agents-enterprise-2026.html">what it really takes to deploy autonomous AI agents in the enterprise</a>: the agents work; the surrounding organization is what is unfinished.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">The Number to Sit With</h4>
+                  <p>
+                    Only 21% of organizations have a mature governance model for AI agents, yet Deloitte found 74% expect to be using agents at least moderately by 2027. That gap, roughly four out of five companies scaling agents faster than they can govern them, is the single clearest signal that operating models, not algorithms, are the constraint on enterprise AI in 2026.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">Why the Old IT-Business Split Breaks Under AI</h3>
+
+                <p>
+                  For decades, enterprise technology tolerated a certain ambiguity between business and IT: the business asked for capabilities, IT delivered systems, and a fuzzy boundary in the middle was survivable. Afshean Talasaz, former CIO of Colonial Pipeline, argues that AI is different in kind because it operates precisely at the intersection where data is produced and business processes consume it. When a model makes decisions inside a live process, an unclear handoff between the team that owns the data and the team that owns the outcome is no longer a nuisance; it is a source of real business risk.
+                </p>
+
+                <p>
+                  Forrester VP and principal analyst Boris Evelson adds the sponsorship dimension: "Enterprise data, analytics, and AI programs succeed when business CxOs sponsor them because they are accountable for business outcomes, not just technology delivery." The anti-pattern is the IT-led AI initiative that becomes siloed and tool-focused, chasing a portfolio of disconnected use cases rather than a business capability. Escaping what the analysis calls the "use case trap" requires treating AI as a sustained, business-sponsored program, not a series of IT experiments.
+                </p>
+
+                <h3 class="font-alt">Redesign the Process, Don't Bolt AI Onto It</h3>
+
+                <p>
+                  Evelson draws the sharpest practical distinction in the piece: organizations can either incrementally enhance existing workflows by augmenting them with AI, or they can redesign the process end-to-end. The companies actually capturing value are doing the latter. Bolting a copilot onto a broken process gives you a faster broken process; the returns come from rewiring the work itself with AI at the core.
+                </p>
+
+                <p>
+                  Levi Strauss is the standout example. Operating across 100 countries and more than 3,000 stores, the company built a single source of truth underpinned by more than 1,100 standard operating procedures governing how work happens on SAP. Those documented procedures became, in the company's words, "fertile material to feed to LLMs on how work gets done." The concrete result: partner EDI onboarding that used to take three to six months now takes days. That outcome did not come from a better model; it came from having the process documented and the data foundation clean enough for AI to act on. It is the same principle behind why <a href="can-you-vibe-code-an-erp.html">you cannot simply vibe-code an ERP</a>: structured, governed process data is what makes AI useful on serious enterprise work.
+                </p>
+
+                <h3 class="font-alt">Build the Data Foundation, and Split the Budget Accordingly</h3>
+
+                <p>
+                  If 83% of organizations name data quality as their top blocker, the data foundation is not a prerequisite to get past quickly; it is a large share of the actual work. Forrester's guidance, cited in the analysis, is to allocate roughly 48% of AI spending to foundational elements, data management and engineering, and about 52% to consumption, meaning analytics, governance, and applications. In other words, nearly half the budget should go to plumbing that never appears in a demo.
+                </p>
+
+                <p>
+                  Chase Christensen, segment CIO at contract manufacturer Jabil, describes the governance challenge at scale vividly: the company had to "put tech in place so consumption is easier, and drive ownership around data and decision rights, so 140,000 employees don't feel empowered to create their own data sources that fall out of line." Jabil built five-plus years of predictive analytics before layering generative AI on top, starting narrow with computer vision for product quality and expanding into more complex scenarios, and has been able to scale revenue while holding SG&A flat through AI-enhanced processes. The data discipline that makes this possible is the same foundation that <a href="sap-ecc-to-s4hana-migration-ai-readiness.html">clean core and S/4HANA AI readiness</a> demand: AI only compounds on top of governed, trustworthy data.
+                </p>
+
+                <h3 class="font-alt">Embed Governance in Workflows, Not in Committees</h3>
+
+                <p>
+                  The most actionable shift in the analysis is about how governance is implemented. Governance as a separate committee that reviews requests slows innovation to the point of irrelevance. Governance embedded into the workflow, by contrast, makes compliance close to automatic. In practice that means peer review built into the development process, bias checks that run before deployment, and clear escalation paths for high-risk use cases, rather than a policy document nobody reads.
+                </p>
+
+                <p>
+                  Levi Strauss operationalized this with an agent registry: a living record that tracks every deployed agent, who authored it, and who is accountable for it. As agentic AI proliferates, this kind of registry becomes essential infrastructure, because, as Lopez Research founder Maribel Lopez notes, "non-human identity and access control is totally different and, frankly, evolving so quickly that no one knows what to do." Evelson captures the tightrope precisely: push agentic capabilities too far and you create a compliance nightmare; tighten controls too aggressively and you strangle innovation. The balance is still being discovered, which is exactly why it belongs in the operating model rather than in a static policy. We covered the underlying risk categories in our guide to <a href="generative-ai-ethics-risks-2026.html">the generative AI risks enterprises actually need to manage</a>.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Two Kinds of AI, Two Kinds of Governance</h4>
+                  <p>
+                    Talasaz separates AI into two governance categories. Desktop or general AI, the productivity tools employees use day to day, needs literacy programs and guardrails, what he calls "bumpers." Integrated or industrial AI, embedded in core business processes, needs business leaders who deeply understand both the benefits and the risks, because they own the outcomes those processes produce. Applying one governance model to both is a common and expensive mistake.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">Design Different Operating Models for Different Speeds</h3>
+
+                <p>
+                  There is no single correct operating model, and treating one as universal is itself a failure mode. Talasaz puts it directly: "A business that needs to build capabilities in a marketplace moving very fast requires one kind of operating model. A business that can take longer to develop business capabilities and adapt to market changes can choose a different operating model." The operating model should be tailored to the speed and stakes of the business it serves.
+                </p>
+
+                <p>
+                  This applies with particular force to the gap between proof-of-concept and production. The lightweight, exploratory operating model that lets a team prototype quickly is the wrong model for running AI reliably at scale, which needs clear standards, defined roles, explicit skills requirements, and repeatable processes that get cheaper as the organization learns. Using the POC operating model in production is one of the most common reasons promising pilots never scale. The broader arc, from scattered experiments toward a coherent, AI-native way of operating, is the subject of our <a href="roadmap-to-autonomous-enterprise.html">roadmap to the autonomous enterprise</a>.
+                </p>
+
+                <h3 class="font-alt">It Has to Start at the Top</h3>
+
+                <p>
+                  Every thread in the analysis converges on leadership. The skills and culture work, AI literacy programs that demystify the technology and reduce the fear that Jabil's Christensen saw firsthand ("fear about jobs, not knowing what AI did"), cannot be delegated to a training vendor. Nor can the harder task of articulating what a reinvented business actually looks like so that teams have the direction to build toward it.
+                </p>
+
+                <p>
+                  Jason Gowans, chief digital and technology officer at Levi Strauss, states the requirement plainly: "When you're committed to upskilling the workforce, you're better served to answer how to rewire processes with AI at the core. It starts at the top. It has to be an exec priority." Deloitte's data backs him up: enterprises where senior leadership actively shapes AI governance capture significantly more business value than those that hand the work to technical teams alone. The operating model is, in the end, a leadership artifact.
+                </p>
+
+                <h3 class="font-alt">The Practical Takeaway for Leaders</h3>
+
+                <p>
+                  If you strip the analysis down to a checklist, five moves distinguish the organizations pulling ahead. Make the IT-business partnership explicit and jointly accountable for outcomes, not just delivery. Redesign the highest-value processes end-to-end rather than bolting AI onto them. Fund the data foundation like it is half the work, because it is. Embed governance into workflows, with an agent registry as living infrastructure, instead of routing everything through a committee. And design the operating model deliberately for the speed your business actually needs, with different models for exploration and for scale.
+                </p>
+
+                <p>
+                  None of this is a technology purchase, which is exactly why it is hard and why it is where the advantage now lives. The models are largely commoditized and, as we noted in our analysis of <a href="businesses-switching-cheaper-ai-models.html">businesses switching to cheaper AI models</a>, getting cheaper every quarter. The durable differentiator in 2026 is not which model you run. It is whether your operating model can actually put it to work.
+                </p>
+
+                <!-- Share -->
+                <div class="blog-share">
+                  <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 20px;">Share This Article</p>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html&text=Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="mailto:?subject=Why AI Stalls at Scale: The Operating Model Problem CIOs Can't Ignore&body=https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html" title="Share via Email"><i class="fa fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="copyright font-alt">
+                  &copy; 2026&nbsp;<a href="../index.html">Labwyze Inc</a>, All Rights Reserved
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/wow/dist/wow.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="../assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="../assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
