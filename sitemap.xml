@@ -57,6 +57,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/corporate-world-agi-autonomous-enterprise.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/cios-rethink-operating-models-ai-at-scale.html</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
