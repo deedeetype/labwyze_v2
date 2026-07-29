@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs | Labwyze Blog
+    </title>
+    <meta
+      name="description"
+      content="Tabular foundation models like TabPFN make accurate predictions on a spreadsheet in a single forward pass, with no training, and can be over 5,000x faster than traditional methods. Here is a plain-language guide to what TFMs are, how they work, and when to use them."
+    />
+    <meta
+      name="keywords"
+      content="tabular foundation models, TabPFN, TFM explained, in-context learning tabular data, prior-data fitted network, TabPFN vs XGBoost, TabICL, Google TabFM, machine learning spreadsheets"
+    />
+    <link rel="canonical" href="https://labwyze.com/blog/what-are-tabular-foundation-models.html" />
+
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/images/favicons/final_logo.png" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs" />
+    <meta property="og:description" content="Tabular foundation models like TabPFN predict on a spreadsheet in a single forward pass, with no training, up to 5,000x faster than traditional methods. A plain-language guide to what TFMs are, how they work, and when to use them." />
+    <meta property="og:url" content="https://labwyze.com/blog/what-are-tabular-foundation-models.html" />
+    <meta property="og:site_name" content="Labwyze" />
+    <meta property="article:published_time" content="2026-07-27T09:00:00-04:00" />
+    <meta property="article:section" content="AI &amp; Technology" />
+    <meta property="og:image" content="https://labwyze.com/blog/what-are-tabular-foundation-models-header.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs" />
+    <meta name="twitter:description" content="Tabular foundation models predict on a spreadsheet in one forward pass, no training, up to 5,000x faster. A plain-language guide to what TFMs are and when to use them." />
+    <meta name="twitter:image" content="https://labwyze.com/blog/what-are-tabular-foundation-models-header.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs",
+  "description": "Tabular foundation models like TabPFN make accurate predictions on a spreadsheet in a single forward pass, with no training, and can be over 5,000x faster than traditional methods. Here is a plain-language guide to what TFMs are, how they work, and when to use them.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://labwyze.com/blog/what-are-tabular-foundation-models-header.jpg",
+    "width": 1600,
+    "height": 893
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Labwyze Team",
+    "url": "https://labwyze.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Labwyze",
+    "url": "https://labwyze.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://labwyze.com/assets/images/favicons/final_logo.png",
+      "width": 512,
+      "height": 512
+    }
+  },
+  "datePublished": "2026-07-27T09:00:00-04:00",
+  "dateModified": "2026-07-27T09:00:00-04:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://labwyze.com/blog/what-are-tabular-foundation-models.html"
+  },
+  "inLanguage": "en",
+  "keywords": "tabular foundation models, TabPFN, TFM explained, in-context learning tabular data, prior-data fitted network, TabPFN vs XGBoost, TabICL, Google TabFM, machine learning spreadsheets",
+  "about": {
+    "@type": "Thing",
+    "name": "Tabular Foundation Models"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Labwyze Blog",
+    "url": "https://labwyze.com/blog"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a tabular foundation model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A tabular foundation model (TFM) is a large neural network, usually a transformer, pre-trained on huge collections of tabular data so it can make predictions on a new spreadsheet-style dataset without being trained on it. Instead of learning from your data by updating its parameters, it reads your table as context at prediction time and returns answers in a single forward pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is TabPFN different from XGBoost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XGBoost is trained from scratch on each new dataset, tuning its parameters to that specific data. TabPFN is pre-trained once on millions of synthetic datasets and does not train on your data at all; it treats your training rows as a prompt and predicts in one forward pass. On small datasets this makes TabPFN dramatically faster and often more accurate out of the box."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What size of data can tabular foundation models handle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the model. The original TabPFN v2 handles roughly 10,000 samples and 500 features. TabPFN-2.5 extends this to around 50,000 samples and 2,000 features, and newer models like TabICL v2 scale to roughly 500,000 samples. They are strongest on small-to-medium tabular datasets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I use a tabular foundation model instead of gradient-boosted trees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tabular foundation models shine on small-to-medium datasets where you want strong accuracy quickly with no tuning or feature engineering. For very large datasets, or where you need full commercial licensing and mature tooling, gradient-boosted trees like XGBoost or LightGBM may still be the better choice. Many teams try both and compare."
+      }
+    }
+  ]
+}
+    </script>
+
+    <!-- Default stylesheets -->
+    <link href="../assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" />
+    <link href="../assets/lib/animate.css/animate.css" rel="stylesheet" />
+    <link href="../assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/lib/et-line-font/et-line-font.css" rel="stylesheet" />
+    <link href="../assets/lib/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../assets/lib/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" />
+    <link href="../assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet" />
+    <link href="../assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link id="color-scheme" href="../assets/css/colors/default.css" rel="stylesheet" />
+    <link href="../assets/css/custom.css" rel="stylesheet" />
+    <link href="../assets/css/blog.css" rel="stylesheet" />
+
+    <style>
+      .blog-post-content { padding: 60px 0; }
+      .blog-post-header {
+        text-align: center;
+        padding: 170px 0 60px;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("what-are-tabular-foundation-models-header.jpg") center/cover;
+        color: white;
+      }
+      .blog-post-category {
+        display: inline-block;
+        padding: 5px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .blog-post-title {
+        font-size: 36px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      .blog-post-meta {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .blog-quote {
+        font-family: "Volkhov", serif;
+        font-style: italic;
+        font-size: 24px;
+        text-align: center;
+        padding: 40px 0;
+        color: #333;
+        max-width: 800px;
+        margin: 0 auto 40px;
+      }
+      .blog-image { margin: 40px 0; }
+      .blog-image img { width: 100%; height: auto; border-radius: 4px; }
+      .blog-key-takeaway {
+        border-left: 3px solid #333;
+        padding-left: 20px;
+        margin: 40px 0;
+      }
+      .blog-key-takeaway h4 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .blog-share {
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .blog-share a {
+        display: inline-block;
+        margin: 0 10px;
+        color: #999;
+        font-size: 18px;
+      }
+      .blog-share a:hover { color: #333; }
+      .navbar-blog {
+        background-color: #1a1a1a !important;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+      .tfm-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 14px;
+      }
+      .tfm-table th {
+        background: #1a1a1a;
+        color: white;
+        padding: 12px 16px;
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+      .tfm-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+      }
+      .tfm-table tr:nth-child(even) td { background: #f9f9f9; }
+      .glossary { background: #f7f7f7; border-radius: 6px; padding: 20px 26px; margin: 30px 0; }
+      .glossary h4 { text-transform: uppercase; letter-spacing: 2px; font-size: 13px; margin-bottom: 14px; }
+      .glossary dt { font-weight: 700; margin-top: 12px; }
+      .glossary dd { margin: 4px 0 0; color: #444; }
+    </style>
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader"><div class="loader">Loading...</div></div>
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-custom navbar-blog" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+            <a class="logo" href="../index.html">
+              <img src="../assets/images/favicons/BarLogo.png" alt="Labwyze" style="object-fit: contain" class="logo" />
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../portfolio.html">Portfolio</a></li>
+              <li><a href="../index.html#news">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Blog Post Header -->
+      <header class="blog-post-header">
+        <div class="container">
+          <span class="blog-post-category">Explainer</span>
+          <h1 class="blog-post-title font-alt">
+            Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs
+          </h1>
+          <div class="blog-post-meta">
+            27 July 2026 &bull; Fundamentals &bull; Machine Learning &bull; TabPFN &bull; Tabular Data
+          </div>
+        </div>
+      </header>
+
+      <!-- Blog Post Content -->
+      <div class="main">
+        <section class="blog-post-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+
+                <!-- Quote -->
+                <blockquote class="blog-quote" style="color: #333">
+                  "Tabular foundation models reframe supervised learning as an in-context learning task, where the model infers the task structure directly from the dataset at inference, instead of updating parameters during training."
+                </blockquote>
+                <p style="text-align: center; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #454444; margin-top: -30px; margin-bottom: 40px;">
+                  — A working definition of tabular foundation models
+                </p>
+
+                <!-- Intro -->
+                <p class="lead">
+                  You have probably heard of foundation models for text (like the model behind ChatGPT) and for images. But most of the world's business data does not live in prose or pictures. It lives in tables: spreadsheets of customers, transactions, sensor readings, and lab results. Tabular foundation models are the new class of AI built specifically for that kind of data, and they do something genuinely surprising: they make accurate predictions on a fresh spreadsheet in a single pass, without ever being trained on it, sometimes thousands of times faster than the methods data scientists have relied on for a decade. By the end of this guide you will understand what a tabular foundation model is, how it pulls off that trick, when to use one, and the mistakes to avoid.
+                </p>
+
+                <h3 class="font-alt">What Is a Tabular Foundation Model?</h3>
+
+                <p>
+                  Let us define the terms carefully, because the whole idea hinges on them. <strong>Tabular data</strong> is simply data arranged in a table: rows are examples (say, individual customers) and columns are features (age, region, purchase history). <strong>A foundation model</strong> is a large neural network pre-trained once on an enormous amount of data, so that it can then be applied to many different downstream tasks without starting from scratch each time.
+                </p>
+
+                <p>
+                  A <strong>tabular foundation model</strong> (TFM) combines the two: it is a large neural network, almost always a <strong>transformer</strong> (the same architecture family that powers large language models), pre-trained to capture the patterns in tabular data so it can make predictions on tables it has never seen. The pioneer of this field is a model called <strong>TabPFN</strong>, short for Tabular Prior-data Fitted Network, and it remains the reference point everything else is measured against. Its second version, published in the journal Nature in early 2025, is what moved tabular foundation models from a research curiosity to a serious contender in everyday machine learning.
+                </p>
+
+                <h3 class="font-alt">Why This Is a Big Deal: The Problem TFMs Solve</h3>
+
+                <p>
+                  For roughly a decade, the undisputed champion for tabular prediction has been the <strong>gradient-boosted decision tree</strong>, a method embodied in popular libraries like XGBoost, LightGBM, and CatBoost. A gradient-boosted tree works by building many small decision trees in sequence, each correcting the errors of the last. It is powerful, but it has a cost: for every new dataset, you train a new model from scratch, and getting the best results usually requires careful tuning of settings (called hyperparameters) and hand-crafting of features.
+                </p>
+
+                <p>
+                  Tabular foundation models flip this on its head. Because the model is pre-trained, you do not train anything on your data at all. You hand it your table, and it predicts. This matters most in the very common situation where you have a small dataset, a few hundred or a few thousand rows, which is exactly where training a fresh model well is hardest and where careful tuning matters most. A TFM gives you strong, well-calibrated predictions immediately, with no tuning and no feature engineering. That is a meaningful shift for anyone who works with real business tables, which are usually far smaller than the massive datasets that make headlines.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    The core promise of a tabular foundation model is "no training on your data." Traditional methods learn from your dataset by adjusting their internal parameters. A TFM has already done its learning, once, on synthetic data, and simply reads your table as context to make its predictions. That single difference is where all the speed and convenience come from.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">How It Works: In-Context Learning and the "Prompt" That Is Your Table</h3>
+
+                <p>
+                  The mechanism behind this is called <strong>in-context learning</strong>, and if you have used a chatbot you already have an intuition for it. When you give a language model a few examples in your message and it picks up the pattern to answer a new question, that is in-context learning: the model learns the task from what is in front of it, without changing its own weights. TabPFN does exactly this, but for tables. Your entire training set, all the rows where you already know the answer, becomes the <strong>prompt</strong>. The rows you want predictions for are the question. The model reads both together and produces answers in one <strong>forward pass</strong> (a single sweep of computation through the network), with no training loop.
+                </p>
+
+                <p>
+                  Two design choices make this work for tables specifically. The first is how the model was pre-trained: not on real datasets, but on a vast number of <strong>synthetic datasets</strong> generated from a broad range of possible cause-and-effect structures. By seeing millions of artificial "worlds," the model learns to approximate the statistically ideal prediction (technically, Bayesian posterior-predictive inference, which just means "the best-justified guess given the evidence") for whatever new table it is shown.
+                </p>
+
+                <p>
+                  The second is an elegant attention mechanism that respects the shape of a table. TabPFN uses <strong>two-way attention</strong>: each cell looks at the other features within its own row (row-wise attention) and at the same feature across other rows (column-wise attention). A practical benefit falls out of this design: the model is <strong>permutation invariant</strong>, meaning it does not care what order your rows or columns are in. Shuffle the columns of your spreadsheet and the prediction is unchanged, which is exactly how a sensible model of a table should behave, and something traditional neural networks struggle with.
+                </p>
+
+                <h3 class="font-alt">A Concrete Example</h3>
+
+                <p>
+                  Imagine you run a small clinic and you have 800 past patients in a spreadsheet: age, blood pressure, a handful of lab values, and whether each developed a certain condition. You want to predict risk for new patients. The traditional route is to pick a model, engineer features, split the data, train, tune hyperparameters, check for overfitting, and iterate, often a day or more of a data scientist's time for a dataset this size.
+                </p>
+
+                <p>
+                  With a tabular foundation model, you load the 800 labeled rows as the context and pass in your new patients. The model returns calibrated risk predictions in a single forward pass, in seconds, with no tuning. On datasets of this scale, this is not just faster: the original TabPFN reported outperforming previous methods on datasets with up to 10,000 samples by a wide margin, and in one benchmark achieved a speedup of over 5,140 times for classification and 3,000 times for regression compared to strong baselines. Seconds instead of hours, with accuracy that is competitive or better, is the headline result that put TFMs on the map.
+                </p>
+
+                <div class="blog-key-takeaway">
+                  <h4 class="font-alt">Remember This</h4>
+                  <p>
+                    The astonishing speed numbers (thousands of times faster) come from the fact that there is no training step to run. You are paying for one forward pass instead of an entire train-tune-validate cycle. The trade is that the pre-training work was done once, in advance, by the model's creators, and baked into the frozen weights you download.
+                  </p>
+                </div>
+
+                <h3 class="font-alt">The Fast-Moving Landscape: TabPFN, TabICL, and Google's TabFM</h3>
+
+                <p>
+                  This field is young and moving quickly, so it helps to know the main players and their limits. The most important practical constraint is size: early TFMs were built for small tables, and each new model pushes the ceiling higher.
+                </p>
+
+                <table class="tfm-table">
+                  <thead>
+                    <tr>
+                      <th>Model</th>
+                      <th>Roughly When</th>
+                      <th>Approximate Capacity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>TabPFN v1</strong></td>
+                      <td>2022</td>
+                      <td>First transformer for small tabular classification; proof of concept</td>
+                    </tr>
+                    <tr>
+                      <td><strong>TabPFN v2</strong></td>
+                      <td>Early 2025 (Nature)</td>
+                      <td>~10,000 samples, 500 features, up to 10 classes</td>
+                    </tr>
+                    <tr>
+                      <td><strong>TabPFN-2.5</strong></td>
+                      <td>Late 2025</td>
+                      <td>~50,000 samples and 2,000 features</td>
+                    </tr>
+                    <tr>
+                      <td><strong>TabICL v2</strong></td>
+                      <td>2026</td>
+                      <td>~500,000 samples; about 10x faster than TabPFN v2 on wide data</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Google TabFM</strong></td>
+                      <td>June 30, 2026</td>
+                      <td>Zero-shot; reads an entire table and returns predictions in one forward pass through frozen weights</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p>
+                  The involvement of major players signals that this is more than an academic trend: dedicated startups such as Prior Labs, Neuralk-AI, and others have formed around tabular foundation models, and big technology companies including Microsoft, Amazon AWS, and SAP have shown investment interest. For enterprises whose most valuable data sits in ERP tables and data warehouses rather than in text, that attention is unsurprising, and it connects directly to the broader move toward <a href="future-predictive-analytics-ai-agents.html">AI-driven predictive analytics</a> across the business.
+                </p>
+
+                <h3 class="font-alt">Common Mistakes and Misconceptions</h3>
+
+                <p>
+                  Because TFMs are new and a little magical-seeming, a few misunderstandings trip people up. Being clear on these will save you real frustration.
+                </p>
+
+                <ol>
+                  <li><strong>"It works on any size of data."</strong> No. TFMs are strongest on small-to-medium tables. Pushing far past a model's stated sample and feature limits is where results degrade or the model simply will not run. Match the model to your data size using the table above.</li>
+                  <li><strong>"It is trained on my data."</strong> It is not. This is the most common conceptual error. The model is pre-trained on synthetic data and only reads your data as context. Nothing about your dataset is learned into the weights, which is also good news for privacy in many setups.</li>
+                  <li><strong>"It always beats XGBoost."</strong> Often it does on small data, but not always, and independent benchmarking is still maturing. Some published comparisons are run by the models' own authors, so healthy skepticism is warranted. The honest best practice is to try both on your actual data.</li>
+                  <li><strong>"I can use any of them commercially for free."</strong> Watch the license. Some strong models, such as certain RealTabPFN releases from Prior Labs, carry a non-commercial license: free to try or use in research, but paid for commercial use. Always check before you build a product on one.</li>
+                </ol>
+
+                <h3 class="font-alt">Best Practices: How to Actually Use One</h3>
+
+                <p>
+                  If you want to put a tabular foundation model to work, a sensible starting approach looks like this. First, check your data size against the model's limits and pick an appropriate model; for small datasets almost any TFM will do, while for larger ones you will want something like TabICL v2. Second, do not throw away your baseline: run a gradient-boosted tree such as XGBoost alongside the TFM and compare honestly on a held-out portion of your data. Third, lean into the TFM's strength by skipping heavy feature engineering at first, since a large part of its value is giving good results without it. Fourth, confirm the license fits your use, especially if the work is commercial. And fifth, because the state of the art here genuinely changes every few weeks, do not over-invest in a single model; keep your evaluation harness reusable so swapping in a newer TFM is cheap.
+                </p>
+
+                <div class="glossary">
+                  <h4 class="font-alt">Quick Glossary</h4>
+                  <dl>
+                    <dt>Tabular data</dt>
+                    <dd>Data in rows and columns, like a spreadsheet: rows are examples, columns are features.</dd>
+                    <dt>Foundation model</dt>
+                    <dd>A large model pre-trained once on massive data, then reused for many tasks without retraining from scratch.</dd>
+                    <dt>In-context learning</dt>
+                    <dd>Learning a task from examples provided at prediction time, without changing the model's weights.</dd>
+                    <dt>Forward pass</dt>
+                    <dd>A single sweep of computation through the network to produce an output; no training loop involved.</dd>
+                    <dt>Prior-data Fitted Network (PFN)</dt>
+                    <dd>A network pre-trained on synthetic datasets to approximate the ideal statistical prediction; the "PFN" in TabPFN.</dd>
+                    <dt>Gradient-boosted trees</dt>
+                    <dd>The long-standing champion for tabular prediction (XGBoost, LightGBM, CatBoost), trained fresh on each dataset.</dd>
+                  </dl>
+                </div>
+
+                <h3 class="font-alt">Where This Fits in the Bigger Picture, and What to Learn Next</h3>
+
+                <p>
+                  Tabular foundation models matter because they bring the "pre-train once, apply everywhere" paradigm that transformed text and images to the kind of data that actually runs businesses. For most companies, the crown jewels are not in documents but in structured tables of finance, supply chain, and customer data, and a technology that predicts well on those tables with no training and no tuning lowers the barrier to useful machine learning enormously. It is a natural companion to the shift toward AI embedded directly in core systems, a theme we explored in <a href="will-ai-kill-erp.html">whether AI will reshape ERP</a> and in the reality that, as one enterprise CFO recently put it, <a href="sap-cfo-ai-token-spending-through-the-roof.html">the value of AI depends entirely on governed, usable data</a>.
+                </p>
+
+                <p>
+                  If you want to go further, three next steps make sense. Read the original TabPFN work to see the mechanism in the authors' own words. Experiment hands-on with an open-source model such as TabICL on a small dataset of your own; nothing builds intuition faster. And keep an eye on the licensing and benchmarking conversation, because as independent evaluation matures, the picture of when TFMs truly beat gradient-boosted trees will get clearer. What is already certain is that predicting on a spreadsheet, once a day's work, is becoming a single forward pass, and that is a quietly profound change for the most common kind of data in the world.
+                </p>
+
+                <!-- Share -->
+                <div class="blog-share">
+                  <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-bottom: 20px;">Share This Article</p>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://labwyze.com/blog/what-are-tabular-foundation-models.html" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="https://twitter.com/intent/tweet?url=https://labwyze.com/blog/what-are-tabular-foundation-models.html&text=Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://labwyze.com/blog/what-are-tabular-foundation-models.html" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="mailto:?subject=Tabular Foundation Models Explained: A Beginner's Guide to TabPFN and TFMs&body=https://labwyze.com/blog/what-are-tabular-foundation-models.html" title="Share via Email"><i class="fa fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <p class="copyright font-alt">
+                  &copy; 2026&nbsp;<a href="../index.html">Labwyze Inc</a>, All Rights Reserved
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/lib/wow/dist/wow.js"></script>
+    <script src="../assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js"></script>
+    <script src="../assets/lib/isotope/dist/isotope.pkgd.js"></script>
+    <script src="../assets/lib/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="../assets/lib/flexslider/jquery.flexslider.js"></script>
+    <script src="../assets/lib/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="../assets/lib/smoothscroll.js"></script>
+    <script src="../assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="../assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
