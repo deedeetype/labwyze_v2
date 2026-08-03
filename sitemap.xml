@@ -57,6 +57,12 @@
 
   <!-- Blog Posts -->
   <url>
+    <loc>https://labwyze.com/blog/tesla-optimus-ai-brain-explained.html</loc>
+    <lastmod>2026-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://labwyze.com/blog/what-are-tabular-foundation-models.html</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
