@@ -21,49 +21,45 @@ Identify 2–4 posts that are topically related to this new post. You will link 
 Use this Python script template (fill in prompts):
 
 ```python
-import asyncio, re, fastapi_poe as fp, httpx
+import base64, httpx
 
-API_KEY = "RETRIEVE_FROM_MEMORY"  # stored in Claude memory: project/poe-api-key.md
-BOT = "gpt-image-2"
+API_KEY = "RETRIEVE_FROM_MEMORY"  # stored in Claude memory: image-generation-api.md (Google Gemini key)
+MODEL = "gemini-3-pro-image-preview"  # Nano Banana Pro
 
-# gpt-image-2 streams "Generating..." progress text, then returns the finished
-# image as a markdown link ![alt](url) in the final text event (NOT as an
-# attachment). So accumulate the streamed text and extract the last image URL.
-LINK_RE = re.compile(r"!\[[^\]]*\]\((https?://[^)\s]+)\)")
+# Nano Banana Pro returns the image as base64 inline data in the JSON response,
+# and supports native aspect-ratio control, so generate the thumb directly at 1:1
+# (no more cropping/composing the header).
+def generate_image(prompt, out_path, aspect):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+    body = {"contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"responseModalities": ["IMAGE"],
+                                 "imageConfig": {"aspectRatio": aspect}}}
+    r = httpx.post(url, headers={"x-goog-api-key": API_KEY, "Content-Type": "application/json"},
+                   json=body, timeout=180)
+    r.raise_for_status()
+    for p in r.json()["candidates"][0]["content"]["parts"]:
+        if "inlineData" in p:
+            open(out_path, "wb").write(base64.b64decode(p["inlineData"]["data"]))
+            print(f"Saved: {out_path}")
+            return
+    print(f"NO IMAGE returned for {out_path}: {r.text[:500]}")
 
-async def generate_image(prompt, out_path):
-    message = fp.ProtocolMessage(role="user", content=prompt)
-    full = ""
-    async for partial in fp.get_bot_response(messages=[message], bot_name=BOT, api_key=API_KEY):
-        full += getattr(partial, "text", "") or ""
-    matches = LINK_RE.findall(full)
-    if not matches:
-        print(f"NO IMAGE URL found for {out_path}")
-        return
-    async with httpx.AsyncClient(timeout=90) as client:
-        r = await client.get(matches[-1])
-        open(out_path, 'wb').write(r.content)
-    print(f"Saved: {out_path}")
-
-async def main():
-    base = "/Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog"
-    await generate_image(HEADER_PROMPT, f"{base}/SLUG-header.jpg")
-    await generate_image(THUMB_PROMPT, f"{base}/SLUG-thumb.jpg")
-
-asyncio.run(main())
+base = "/Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog"
+generate_image(HEADER_PROMPT, f"{base}/SLUG-header.jpg", "16:9")
+generate_image(THUMB_PROMPT,  f"{base}/SLUG-thumb.jpg",  "1:1")
 ```
-Note: `gpt-image-2` generation can take roughly 60–90 seconds per image, so run the script in the background (or allow a long timeout) and confirm both files saved before proceeding.
+Note: Nano Banana Pro generation takes roughly 15–40 seconds per image; run in the background or allow a long timeout, and confirm both files saved before proceeding. Generate the header at aspect `16:9` and the thumb at `1:1` (native aspect ratio — do not crop the header for the thumb).
 
 - **Header prompt**: cinematic, wide 16:9, photorealistic, no text overlays, relevant to the topic
 - **Thumb prompt**: square, bold and readable at small sizes, no text
 - **Make it click-worthy — bias toward a human subject + concrete symbols of the topic, not abstract shapes.** Abstract glowing-lines/nodes art looks generic and gives no reason to click. Whenever the topic allows, anchor the image on a real person (or a relatable figure) interacting with recognizable objects/symbols that represent the subject. Faces and people out-perform abstract art on click-through. Reserve purely abstract compositions for topics that genuinely have no human angle.
 
 **SECURITY — never commit the API key:**
-- Write this script to `/tmp` (e.g. `/tmp/gen_img.py`), substitute the real key from memory there, run it, then delete it.
-- NEVER save the script (with the key) inside the repo — Netlify's secret scanner will block the deploy, and the key must stay out of git.
+- Write this script to `/tmp` (e.g. `/tmp/gen_img.py`), substitute the real Google Gemini key from memory (`image-generation-api.md`) there, run it, then delete it.
+- NEVER save the script (with the key) inside the repo, and note `.claude/` IS tracked by git in this repo — so this skill file must keep the `RETRIEVE_FROM_MEMORY` placeholder and the real key stays out of git.
 
-**Optimize the images before using them (mandatory — they come out 1.2–1.5 MB):**
-Raw Poe output is far too heavy and will wreck Core Web Vitals (LCP). Compress in place right after generating:
+**Optimize the images before using them (mandatory — they come out large):**
+Raw output is too heavy and will wreck Core Web Vitals (LCP). Compress in place right after generating:
 ```bash
 cd /Users/davidlaborieux/Documents/Development/Labwyze/labwyze.com/blog
 sips -Z 1600 -s format jpeg -s formatOptions 78 SLUG-header.jpg --out SLUG-header.jpg   # ~300 KB
