@@ -1,47 +1,55 @@
-/* Language Switcher Styles - positioned in navbar right */
-.language-switcher {
-  display: inline-flex;
+/* Language Switcher - integrated in navbar */
+.navbar-custom .navbar-nav > li.language-switcher {
+  display: flex;
   align-items: center;
-  margin-left: 15px;
+  padding-left: 15px;
+  margin-left: 5px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.language-switcher a {
-  color: rgba(255,255,255,0.7);
+.navbar-custom .navbar-nav > li.language-switcher > a {
+  display: inline-block;
+  padding: 10px 5px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 5px 8px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
+  background: none !important;
+  border: none !important;
 }
 
-.language-switcher a:hover {
+.navbar-custom .navbar-nav > li.language-switcher > a:hover {
   color: #fff;
-  background: rgba(255,255,255,0.1);
+  background: none !important;
 }
 
-.language-switcher a.active {
+.navbar-custom .navbar-nav > li.language-switcher > a.active {
   color: #fff;
-  background: rgba(255,255,255,0.2);
 }
 
-/* Separator between EN and FR */
-.language-switcher .lang-separator {
-  color: rgba(255,255,255,0.3);
-  font-size: 13px;
-  margin: 0 2px;
+.navbar-custom .navbar-nav > li.language-switcher .lang-separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+  margin: 0 3px;
+  font-weight: 400;
 }
 
 /* Mobile navigation */
-@media (max-width: 768px) {
-  .language-switcher {
-    margin-left: 0;
-    margin-top: 10px;
+@media (max-width: 767px) {
+  .navbar-custom .navbar-nav > li.language-switcher {
+    display: flex;
     justify-content: center;
+    border-left: none;
+    border-bottom: 1px solid rgba(73, 71, 71, 0.15);
+    padding: 10px 15px;
+    margin-left: 0;
   }
   
-  .language-switcher a {
-    display: inline-block;
-    margin: 0 5px;
+  .navbar-custom .navbar-nav > li.language-switcher > a {
+    padding: 5px 8px;
   }
 }
