@@ -1,9 +1,8 @@
-/* Language Switcher Styles */
+/* Language Switcher Styles - positioned in navbar right */
 .language-switcher {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-left: 15px;
-  padding: 0 10px;
-  border-left: 1px solid rgba(255,255,255,0.3);
 }
 
 .language-switcher a {
@@ -26,13 +25,19 @@
   background: rgba(255,255,255,0.2);
 }
 
+/* Separator between EN and FR */
+.language-switcher .lang-separator {
+  color: rgba(255,255,255,0.3);
+  font-size: 13px;
+  margin: 0 2px;
+}
+
 /* Mobile navigation */
 @media (max-width: 768px) {
   .language-switcher {
-    border-left: none;
     margin-left: 0;
     margin-top: 10px;
-    text-align: center;
+    justify-content: center;
   }
   
   .language-switcher a {
