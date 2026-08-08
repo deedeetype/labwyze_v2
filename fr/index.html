@@ -210,26 +210,25 @@
           </div>
         </div>
       </nav>
-      <section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="../assets/images/toronto.jpg">
+      <section class="home-section home-full-height bg-dark bg-gradient" id="home">
         <!-- Video Background - City Skyline Timelapse -->
         <video autoplay muted loop playsinline class="video-background" poster="../assets/images/toronto.jpg" preload="auto">
           <source src="../assets/images/city-skyline.mp4" type="video/mp4">
-          <!-- Fallback: toronto.jpg displays if video fails to load -->
         </video>
         <style>
           .video-background {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
             object-fit: cover;
-            opacity: 0.3;
+            opacity: 0.4;
           }
           #home {
             position: relative;
-            z-index: 1;
+            overflow: hidden;
           }
           #home::before {
             content: '';
@@ -238,8 +237,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(20,20,40,0.5) 100%);
-            z-index: -1;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(20,20,40,0.4) 100%);
+            z-index: 1;
+          }
+          #home .titan-caption {
+            position: relative;
+            z-index: 2;
           }
         </style>
         <div class="titan-caption">
