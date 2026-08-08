@@ -211,28 +211,35 @@
         </div>
       </nav>
       <section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="../assets/images/toronto.jpg">
-        <!-- Video Background -->
-        <video autoplay muted loop playsinline class="video-background" poster="../assets/images/toronto.jpg">
-          <source src="https://cdn.pixabay.com/vimeo/329747896/city-24502_1920x1080_25fps.mp4" type="video/mp4">
-          <!-- Fallback: Image background will show via data-background attribute -->
+        <!-- Video Background - City Skyline Timelapse -->
+        <video autoplay muted loop playsinline class="video-background" poster="../assets/images/toronto.jpg" preload="auto">
+          <source src="https://videos.pexels.com/video-files/854912/854912-hd_1920_1080_25fps.mp4" type="video/mp4">
+          <!-- Fallback: toronto.jpg displays if video fails to load -->
         </video>
         <style>
           .video-background {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translateX(-50%) translateY(-50%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
             object-fit: cover;
-            opacity: 0.4;
+            opacity: 0.3;
           }
           #home {
             position: relative;
-            overflow: hidden;
+            z-index: 1;
+          }
+          #home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(20,20,40,0.5) 100%);
+            z-index: -1;
           }
         </style>
         <div class="titan-caption">
