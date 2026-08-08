@@ -211,6 +211,30 @@
         </div>
       </nav>
       <section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="../assets/images/toronto.jpg">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="video-background">
+          <source src="../assets/images/city-skyline.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <style>
+          .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+            object-fit: cover;
+            opacity: 0.4;
+          }
+          #home {
+            position: relative;
+            overflow: hidden;
+          }
+        </style>
         <div class="titan-caption">
           <div class="caption-content" style="display: flex; align-items:stretch; justify-content:stretch; flex-direction:column; height:100%">
             <div style="flex:1; margin-bottom:auto; display:flex;  flex-direction:column; align-items:center; justify-content:center;">
