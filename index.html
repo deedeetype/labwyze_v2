@@ -210,12 +210,17 @@
           </div>
         </div>
       </nav>
-      <section class="home-section home-full-height bg-dark" id="home">
-        <!-- Video Background - City Skyline Timelapse -->
+      <section class="home-section home-full-height" id="home">
+        <!-- Video Background - City Skyline -->
         <video autoplay muted loop playsinline class="video-background" poster="assets/images/toronto.jpg" preload="auto">
           <source src="assets/images/city-skyline.mp4" type="video/mp4">
         </video>
         <style>
+          #home {
+            position: relative;
+            overflow: hidden;
+            background: #111;
+          }
           .video-background {
             position: absolute;
             top: 0;
@@ -224,11 +229,7 @@
             height: 100%;
             z-index: 0;
             object-fit: cover;
-            opacity: 0.5;
-          }
-          #home {
-            position: relative;
-            overflow: hidden;
+            opacity: 0.6;
           }
           #home .titan-caption {
             position: relative;
